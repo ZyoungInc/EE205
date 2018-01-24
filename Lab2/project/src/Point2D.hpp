@@ -32,11 +32,18 @@ class Point2D {
 		void set_y(float f);
 
 		//Operator overloading
-		Point2D operator+(const Point2D &hs);
-		Point2D operator-(const Point2D &hs);
-		Point2D operator*(const Point2D &hs);
-		Point2D operator/(const Point2D &hs);
-
+		
+		Point2D operator+(const Point2D &lhs);
+		Point2D operator-(const Point2D &lhs);
+		Point2D operator*(const Point2D &lhs);
+		Point2D operator/(const Point2D &lhs);
+		
+		/*
+		Point2D operator+(Point2D lhs, Point2D rhs);
+		Point2D operator-(Point2D lhs, Point2D rhs);
+		Point2D operator*(Point2D lhs, Point2D rhs);
+		Point2D operator/(Point2D lhs, Point2D rhs);
+		*/
 	private:
 		float x_point;
 		float y_point;
