@@ -13,9 +13,26 @@
 // as member variables in the class below.
 class Person { 
 private:
-
+	std::string name;
+	Point2D location;
 public:
+	//Default Constuctor
+	Person();
+	Point2D();
 
+	//Overloaded Constructor
+	Person(std::string s, float x, float y);
+
+	//Getters
+	std::string get_name();
+	float get_location();
+
+	//Setters
+	void set_string(std::string s);
+	void set_location(float x, float y);
+	
+
+	
 };
 
 #endif // PERSON_HPP
