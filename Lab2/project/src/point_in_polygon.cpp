@@ -14,14 +14,9 @@
 // You just need to have it use our C++ object type now!
 //
 bool pnpoly(
-       /* int nvert, = num_points
-        float *vertx, = points[i].get_location().get_x()
-        float *verty, 
-        float testx, = test.get_location().get_x
-        float testy) */
-		std::size_t num_points,
-		Person* points,
-		Person test)
+	std::size_t num_points,
+	Person* points,
+	Person test)
 
 		{
     int i, j;//c = 0;
@@ -34,8 +29,7 @@ bool pnpoly(
 						(points[j].get_location().get_y()-points[i].get_location().get_y()) + 
 							points[i].get_location().get_x())) {
             c = !c;
-        }
-	//	std::cout << num_points << std::endl;
+        }	
     }
     return c;
 }
