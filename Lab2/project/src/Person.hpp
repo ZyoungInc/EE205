@@ -29,10 +29,10 @@ public:
 
 	//Setters
 	void set_name(std::string s);
-	void set_location(const Point2D &temp_l);
+	void set_location(Point2D coords);
 	
 
-	
+
 };
 
 #endif // PERSON_HPP

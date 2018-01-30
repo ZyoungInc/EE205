@@ -4,6 +4,7 @@
 //
 // In other words, it won't try to redefine things twice because it
 // was included twice.
+
 #ifndef POINT2D_HPP
 #define POINT2D_HPP
 

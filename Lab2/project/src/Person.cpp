@@ -1,4 +1,5 @@
 #include "Person.hpp"
+#include "Point2D.hpp"
 
 // Default Constuctor
 Person::Person() {
@@ -25,12 +26,9 @@ Point2D Person::get_location() {
 void Person::set_name(std::string s) {
 	name = s;
 }
-/*
-void Person::set_location(float x, float y) {
-	Point2D location(x,y);
-}
-*/
 
-void Person::set_location(const Point2D &temp_l) {
-	Point2D location(x,y);
+void Person::set_location(Point2D coords) {
+	location = coords;
 }
+
+
