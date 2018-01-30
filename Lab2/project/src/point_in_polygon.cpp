@@ -1,6 +1,6 @@
 // Always include the original .hpp that corresponds to the .cpp
 #include "point_in_polygon.hpp"
-
+#include <iostream>
 // Here is the original C version from Stack Overflow.
 // 
 // Adapt it to use Person objects and a Person array
@@ -15,18 +15,19 @@
 //
 bool pnpoly(
        /* int nvert, = num_points
-        float *vertx, = points[i]get_location().get_x()
+        float *vertx, = points[i].get_location().get_x()
         float *verty, 
-        float testx, = testget_location().get_x
+        float testx, = test.get_location().get_x
         float testy) */
 		std::size_t num_points,
 		Person* points,
 		Person test)
 
 		{
-    int i, j, c = 0;
+    int i, j;//c = 0;
+	bool c = false;
     for (i = 0, j = num_points-1; i < num_points; j = i++) {
-        if (((points[i].get_location().get_y()>test.get_location().get_y()) != 
+        if ( ((points[i].get_location().get_y() > test.get_location().get_y()) != 
 			(points[j].get_location().get_y()>test.get_location().get_y())) && 
 				(test.get_location().get_x() < (points[j].get_location().get_x()-points[i].get_location().get_x()) * 
 					(test.get_location().get_y()-points[i].get_location().get_y()) / 
@@ -34,6 +35,7 @@ bool pnpoly(
 							points[i].get_location().get_x())) {
             c = !c;
         }
+	//	std::cout << num_points << std::endl;
     }
     return c;
 }
