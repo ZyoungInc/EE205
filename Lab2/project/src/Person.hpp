@@ -18,18 +18,18 @@ private:
 public:
 	//Default Constuctor
 	Person();
-	Point2D();
+	
 
 	//Overloaded Constructor
 	Person(std::string s, float x, float y);
 
 	//Getters
 	std::string get_name();
-	float get_location();
+	Point2D get_location();
 
 	//Setters
-	void set_string(std::string s);
-	void set_location(float x, float y);
+	void set_name(std::string s);
+	void set_location(const Point2D &temp_l);
 	
 
 	
