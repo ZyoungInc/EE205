@@ -4,13 +4,18 @@
 // Default Constuctor
 Person::Person() {
 	name = "";
-	Point2D location(0,0);
+	//Point2D location(0,0);
+	location.set_x(0.0);
+	location.set_y(0.0);
 }
 
 //Overloaded Constructor
 Person::Person(std::string s, float x, float y) {
 	name = s;
-	Point2D location(x,y);
+	//Point2D location(x,y);
+	
+	location.set_x(x);
+	location.set_y(y);
 }
 
 //Getters

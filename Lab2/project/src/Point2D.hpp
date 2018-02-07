@@ -33,24 +33,15 @@ class Point2D {
 		void set_y(float f);
 
 		//Operator overloading
-		
+		// lhs = "left hand side"
 		Point2D operator+(const Point2D &lhs);
 		Point2D operator-(const Point2D &lhs);
 		Point2D operator*(const Point2D &lhs);
 		Point2D operator/(const Point2D &lhs);
-		
-		/*
-		Point2D operator+(Point2D lhs, Point2D rhs);
-		Point2D operator-(Point2D lhs, Point2D rhs);
-		Point2D operator*(Point2D lhs, Point2D rhs);
-		Point2D operator/(Point2D lhs, Point2D rhs);
-		*/
+
 	private:
 		float x_point;
 		float y_point;
 };
-
-// lhs = "left hand side"
-// rhs = "right hand side"
 
 #endif // POINT2D_HPP
