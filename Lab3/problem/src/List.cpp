@@ -1,5 +1,5 @@
 #include "List.hpp"
-
+#include <iostream>
 #include <utility>
 
 //Default constructor
@@ -37,46 +37,44 @@ void List::append(int num) {
 		ListNode *temp_list = this->head;
 		while(temp_list->get_next() != nullptr) {
 			//if the temp_head isn't the end, move onto next until you find the end
-			temp_list->set_next(temp_list->get_next());
+			temp_list = temp_list->get_next();
 		}
 		temp_list->set_next(new_node);
 	}
+	this->length++;
 }
 
 void List::insert(int index, int num) {
-	if(index < 0) {
+	if(index < 0 || index > this->length) {
 		throw "Error: Index cannot be less than 0";
 	} 
-	ListNode *new_node = new ListNode(num);
+	
 	//Traverse through the list X amount of time to see if its a nullpointer(end)
 	//if so, throw an exception
 	ListNode *temp_list = this->head;
-	/*for(int i = 0; i < index; i++) {
-		if(temp_list == nullptr) { 
-			throw "Out of bound";
-		}
-		//move through the list by 1
-		temp_list->set_next(temp_list->get_next());
-	}*/
+	ListNode *new_node = new ListNode(num);
 	if(index == 0) {
-		ListNode *old_nodes = this->head;
+		//ListNode *old_nodes = this->head;
 		this->head = new_node;
-		this->head->set_next(old_nodes);
+		this->head->set_next(temp_list);
 	}
 	else {
 		for(int i = 1; i < index; i++) {
 			if(temp_list == nullptr) { 
 				throw "Out of bound";
 			}
+			std::cout << "stuck" << std::endl; //test
 			//move through the list by 1
-			temp_list->set_next(temp_list->get_next());
+			temp_list = temp_list->get_next();
 		}
-		ListNode *old_nodes = temp_list->get_next();
-		temp_list->set_next(new_node);
-		temp_list->set_next(old_nodes);
 		
-	}
 
+		new_node->set_next(temp_list->get_next());
+		temp_list->set_next(new_node);
+	
+		std::cout << "insert finshed" << std::endl; //test
+	}
+	this->length++;
 	
 }
 
@@ -84,12 +82,12 @@ void List::remove(int index) {
 	//Traverse through the list X amount of time to see if its a nullpointer(end)
 	//if so, throw an exception
 	ListNode *temp_list = this->head;
-	if(index < 0) {
+	if(index < 0 || temp_list == nullptr) {
 		throw "Error: Index cannot be less than 0";
 	} 
 	
 	if(index == 0) {
-		this->head = nullptr;
+		this->head = temp_list->get_next();
 	}
 	else {
 		for(int i = 1; i < index; i++) {
@@ -97,10 +95,11 @@ void List::remove(int index) {
 				throw "Out of bound";
 			}
 			//move through the list by 1
-			temp_list->set_next(temp_list->get_next());
+			temp_list = temp_list->get_next();
 		}
 		temp_list->set_next(nullptr);
 	}
+	this->length--;
 	
 }
 
@@ -108,7 +107,7 @@ int List::get(int index) const {
 	//Traverse through the list X amount of time to see if its a nullpointer(end)
 	//if so, throw an exception
 	ListNode *temp_list = this->head;
-	if(index < 0) {
+	if(index < 0 || index > this->length) {
 		throw "Error: Index cannot be less than 0";
 	} 
 	
@@ -121,7 +120,7 @@ int List::get(int index) const {
 				throw "Out of bound";
 			}
 			//move through the list by 1
-			temp_list->set_next(temp_list->get_next());
+			temp_list = temp_list->get_next();
 		}
 		return temp_list->get_data();
 	}
@@ -129,29 +128,15 @@ int List::get(int index) const {
 }
 
 std::size_t List::size() const {
-	ListNode *temp_list = this->head;
-
-	if(head == nullptr) { //if the list is empty
-		return 0;
-	}
-	else { //if not empty, traverse to end of list marked as null
-		//Create a temporary pointer to the head
-		ListNode *temp_list = this->head;
-		std::size_t cnt = 1;
-		while(temp_list->get_next() != nullptr) {
-			//if the temp_head isn't the end, move onto next until you find the end
-			temp_list->set_next(temp_list->get_next());
-			cnt ++;
-		}
-		return cnt;
-	}
+	return this->length;
 }
 
 int& List::operator[](int index) {
 	//Traverse through the list X amount of time to see if its a nullpointer(end)
 	//if so, throw an exception
+	
 	ListNode *temp_list = this->head;
-	if(index < 0) {
+	if(index < 0 || index > this->length) {
 		throw "Error: Index cannot be less than 0";
 	} 
 	
@@ -159,12 +144,12 @@ int& List::operator[](int index) {
 		return temp_list->data;
 	}
 	else {
-		for(int i = 1; i < index; i++) {
+		for(int i = 0; i < index; i++) {
 			if(temp_list == nullptr) { 
 				throw "Out of bound";
 			}
 			//move through the list by 1
-			temp_list->set_next(temp_list->get_next());
+			temp_list = temp_list->get_next();
 		}
 		return temp_list->data;
 	}
