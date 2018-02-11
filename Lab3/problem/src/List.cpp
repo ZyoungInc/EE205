@@ -46,17 +46,32 @@ void List::append(int num) {
 void List::insert(int index, int num) {
 	if(index < 0) {
 		throw "Error: Index cannot be less than 0";
-	}
+	} 
 	ListNode *new_node = new ListNode(num);
 	//Traverse through the list X amount of time to see if its a nullpointer(end)
 	//if so, throw an exception
 	ListNode *temp_list = this->head;
-	for(int i = 0; i < index; i++) {
+	/*for(int i = 0; i < index; i++) {
 		if(temp_list == nullptr) { 
 			throw "Out of bound";
 		}
 		//move through the list by 1
 		temp_list->set_next(temp_list->get_next());
+	}*/
+	if(index == 0) {
+		ListNode *old_nodes = this->head;
+		this->head = new_node;
+		this->head->set_next(old_nodes);
+	}
+	else {
+		for(int i = 1; i < index; i++) {
+			if(temp_list == nullptr) { 
+				throw "Out of bound";
+			}
+			//move through the list by 1
+			temp_list->set_next(temp_list->get_next());
+		}
+		
 	}
 	ListNode *old_nodes = temp_list->get_next();
 	temp_list->set_next(new_node);
@@ -65,13 +80,26 @@ void List::insert(int index, int num) {
 }
 
 void List::remove(int index) {
+	//Traverse through the list X amount of time to see if its a nullpointer(end)
+	//if so, throw an exception
 	ListNode *temp_list = this->head;
-	for(int i = 0; i < index; i++) {
-		if(temp_list == nullptr) { 
-			throw "Out of bound";
-		}
-		//move through the list by 1
-		temp_list->set_next(temp_list->get_next());
+	if(index < 0) {
+		throw "Error: Index cannot be less than 0";
+	} 
+	
+	if(index == 0) {
+		this->head = nullptr;
 	}
-	temp_list->set_next(nullptr);
+	else {
+		for(int i = 1; i < index; i++) {
+			if(temp_list == nullptr) { 
+				throw "Out of bound";
+			}
+			//move through the list by 1
+			temp_list->set_next(temp_list->get_next());
+		}
+		temp_list->set_next(nullptr);
+	}
+	
 }
+
