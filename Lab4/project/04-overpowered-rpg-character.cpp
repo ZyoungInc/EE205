@@ -74,17 +74,17 @@ public:
 };
 class Goblin : public Unit {
 	public:
-		Goblin(std::string name){
-			Unit(name, 100, 10, 10, 10);
-		}		
+		Goblin(std::string gname):
+			Unit(gname, 100, 10, 10, 10)
+			{}		
 };
 
 
 class Wizard : public Unit {
 	public:
-		Wizard(std::string name){
-			Unit(name, 1000, 100, 10, 0);
-		}
+		Wizard(std::string name):
+			Unit(name, 1000, 100, 10, 0)
+			{}
 		void blizzard(Goblin& other){
 			other.set_defense(0);
 		}
