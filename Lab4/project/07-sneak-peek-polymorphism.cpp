@@ -35,7 +35,12 @@ public:
 // that inherits from IMagicSpell, and overrides cast_spell()
 // similarly to the other classes to print "Zap!" on its own line when
 // that function is called.
-//
+class Zap : public IMagicSpell {
+public:
+    virtual void cast_spell(std::ostream& out) override {
+        out << "Zap!" << std::endl;
+    }
+};
 // You don't need to know polymorphism -- you just need to magically
 // copy the code above and slightly modify it.
 //
@@ -50,7 +55,7 @@ int main() {
     ////////////////////////////////////////////////////////////////////// 
     ////                UNCOMMENT THIS LINE OF CODE BELOW             ////
     //////////////////////////////////////////////////////////////////////
-    // spells.push_back(new Zap());
+    spells.push_back(new Zap());
     
     std::stringstream ss;
     
