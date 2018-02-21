@@ -6,7 +6,7 @@ class InnerCityRing {
     // can be accessed by the child/derived class of OuterCityRing?
     //
     // You should change the access specifier below to NOT public or private.
-    private:
+    protected:
         unsigned inner_city_population; 
 
     public:
