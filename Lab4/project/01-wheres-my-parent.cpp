@@ -21,7 +21,7 @@ public:
     }
 };
 
-class Human {
+class Human : public Mammal { //Made Human inhert Mammal
     public:
         Human() :
             // This is how you call the base class constructor
