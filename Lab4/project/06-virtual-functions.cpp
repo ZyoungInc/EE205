@@ -12,12 +12,12 @@
 
 class A {
 public:
-    void print(std::ostream& out) { out << "A.print()" << std::endl; }
+    virtual void print(std::ostream& out) { out << "A.print()" << std::endl; }
 };
 
 class ChildA : public A {
 public:
-    void print(std::ostream& out) { out << "ChildA.print()" << std::endl; }
+    virtual void print(std::ostream& out) override { out << "ChildA.print()" << std::endl; }
 };
 
 
