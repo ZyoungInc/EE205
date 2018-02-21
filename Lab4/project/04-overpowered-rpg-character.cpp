@@ -71,8 +71,26 @@ public:
     void set_mana(int i) { mana = i; }
     void set_attack(int i) { attack = i; }
     void set_defense(int i) { defense = i; }
-};
+}
+class Goblin : public Unit {
+	public:
+		Goblin(std::string name){
+		Unit(name, 100, 10, 10, 10);
+		}		
+}
 
+
+class Wizard : public Unit {
+	public:
+		Wizard(std::string name){
+		Unit(name, 1000, 100, 10, 0);
+		}
+		void blizzard(Goblin& other){
+		other.set_defense(0);
+		}
+				
+}`
+}
 // Create two classes that inherit from Unit: Goblin and Wizard
 // such that Goblin gets initialized with:
 //
