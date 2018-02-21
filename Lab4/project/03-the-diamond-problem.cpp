@@ -37,7 +37,8 @@ public:
     // A "default default constructor!"
     //
     void do_the_thing(std::ostream& out) {
-        this->print(out);
+		//Previouls : this->print(out);
+        C::print(out);
     }
 };
 
