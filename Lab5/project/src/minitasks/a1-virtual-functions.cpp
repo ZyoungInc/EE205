@@ -24,7 +24,7 @@ public:
 
     std::string get_name() const { return this->name; }
 
-    EmployeeType get_type() const {
+    virtual EmployeeType get_type() const {
         return EmployeeType::EMPLOYEE;
     };
 };
@@ -36,7 +36,7 @@ public:
 
     virtual ~TempEmployee() {}
 
-    EmployeeType get_type() const {
+    virtual EmployeeType get_type() const override {
         return EmployeeType::TEMP_EMPLOYEE;
     }
 };
@@ -48,7 +48,7 @@ public:
 
     virtual ~Contractor() {}
 
-    EmployeeType get_type() const {
+    virtual EmployeeType get_type() const override{
         return EmployeeType::CONTRACTOR;
     }
 };
