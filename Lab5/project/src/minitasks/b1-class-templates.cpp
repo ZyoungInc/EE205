@@ -19,7 +19,8 @@ public:
 };
 
 Point2D<int> float_to_int(Point2D<float> p) {
-    return Point2D<int>(0x123123, 0x456456);
+    //return Point2D<int>(0x123123, 0x456456);
+	return Point2D<int>((int)p.get_x(), (int)p.get_y());
 }
 
 int main() {
@@ -32,6 +33,7 @@ int main() {
     // to an int-based Point2D?
     Point2D<int>    converted_p2 = float_to_int(p2);
 
+	
     // The function should truncate or always round down.
     assert(p1.get_x() == converted_p2.get_x() &&
            p1.get_y() == converted_p2.get_y() && 
