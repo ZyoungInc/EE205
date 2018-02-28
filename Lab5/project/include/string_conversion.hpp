@@ -10,7 +10,9 @@ std::string lexical_cast(T obj) {
     // Create a std::stringstream
     // Using operator<<, output the object to it
     // Take the std::string from the stringstream
-    return "";
+	std::stringstream ss;
+	ss << obj;
+    return ss.str();
 }
 
 template <typename T>
@@ -19,7 +21,14 @@ std::string vector_to_string(std::vector<T>& items) {
     // Get the string representation of it
     // Put a comma after it if it's not the last element
     // Accumuate that string into a final result
-    return "";
+	std::string s;
+	for(unsigned int i = 0; i < items.size(); i++) {
+		s.append(lexical_cast(items[i]));
+		if(i != items.size() - 1) {
+			s.append(",");
+		}
+	}
+    return s;
 }
 
 #endif // EE205_STRING_CONVERSION_HPP 
