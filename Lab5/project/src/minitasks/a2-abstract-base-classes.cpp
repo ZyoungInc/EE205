@@ -35,6 +35,9 @@ public:
         Employee(name_),
         job_title(job_title_) {}
 
+	virtual void print (std::ostream& out) const override {
+	out << job_title << ": " << this->name << std::endl;
+	}
     // Since Executive inherits from Employee,
     // it will call Employee.print().
     //
