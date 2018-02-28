@@ -36,6 +36,8 @@ int main() {
     nested_pair.right.left = 1.23;
     nested_pair.right.right = 4.56;
 
+	
+	std::cout << lexical_cast(i) << std::endl;
     // Let's test a bunch of cases for lexical cast.
     assert(lexical_cast(i) == "123");
     assert(lexical_cast(f) == "456");
