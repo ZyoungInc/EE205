@@ -6,7 +6,7 @@
 
 template <typename Container>
 void print(std::ostream& out, const Container& cont) {
-    for (int i = 0; i < cont.size(); ++i) {
+    for (unsigned int i = 0; i < cont.size(); ++i) {
         out << cont[i] << std::endl;
     }
 }
@@ -18,7 +18,17 @@ bool is_equal (FirstContainer lhs, SecondContainer rhs) {
     // whether they have the same exact elements in the same exact order?
     //
     // It is recommneded to use operator== or operator!= for this.
-    return false;
+	if(lhs.size() == rhs.size()) {
+		for (unsigned int i = 0; i < lhs.size(); ++i) {
+			if (lhs[i] != rhs[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 int main() {
