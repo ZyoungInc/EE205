@@ -11,9 +11,12 @@ void BubbleSortVector<T>::sort() {
 // You are free to write your own swap helper function
 // if you so desire.
 bool swapp = true;
+//check if swaps was performed
 	while(swapp){
 		swapp = false;
+		// reset condition
 		for (size_t i = 0; i < this->size()-1; i++) {
+			//ilerate through vector and swap if [i] > [i+]
 			if ((*this)[i]>(*this)[i+1] ){
 				(*this)[i] += (*this)[i+1];
 				(*this)[i+1] = (*this)[i] - (*this)[i+1];

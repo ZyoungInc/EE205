@@ -22,9 +22,12 @@ std::string vector_to_string(std::vector<T>& items) {
     // Put a comma after it if it's not the last element
     // Accumuate that string into a final result
 	std::string s;
+	//Iterate through the vector 
 	for(unsigned int i = 0; i < items.size(); i++) {
 		s.append(lexical_cast(items[i]));
+		//append each vector to string
 		if(i != items.size() - 1) {
+			//if its not the last item of vector, then add a ","
 			s.append(",");
 		}
 	}

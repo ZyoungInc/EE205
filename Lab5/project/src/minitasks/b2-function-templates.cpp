@@ -19,6 +19,7 @@ bool is_equal (FirstContainer lhs, SecondContainer rhs) {
     //
     // It is recommneded to use operator== or operator!= for this.
 	if(lhs.size() == rhs.size()) {
+		//check to see if size match, then check each vector
 		for (unsigned int i = 0; i < lhs.size(); ++i) {
 			if (lhs[i] != rhs[i]) {
 				return false;
