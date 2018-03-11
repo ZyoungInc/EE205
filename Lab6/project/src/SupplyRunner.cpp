@@ -48,22 +48,26 @@ std::vector<Ingredient> SupplyRunner::get_ingredients(IngredientMap ingredients)
 	it1 = storeroom.begin();
 	it = ingredients.begin();
 	
-	//Go through again and remove ingredients
+	//Go through again and remove ingredients, we don't have to check
+	//if there not enough ingredients because we check it previously
 	while(it != ingredients.end()){
 		while(it1 != storeroom.end()) {
 			if(it1->first == it->first) {
-				if(it->second <= it1->second) {
-					it1->second -= it->second;
-				}
+				it1->second -=  it->second;
 			}
 			it1++;
 		}
 		it++;
+		it1 = storeroom.begin();
 	}
 	
+	it = ingredients.begin();
 	std::vector<Ingredient> returnIngredient;
+	
 	while(it != ingredients.end()) {
-		returnIngredient.push_back(it->first);
+		for(unsigned  cnt = 0; cnt < it->second; cnt ++){	
+			returnIngredient.push_back(it->first);
+		}
 		it++;
 	}
 	
