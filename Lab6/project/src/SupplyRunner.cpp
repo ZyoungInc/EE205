@@ -1,5 +1,4 @@
 #include "SupplyRunner.hpp"
-
 #include "Storeroom.hpp"
 #include "Ingredient.hpp"
 
@@ -39,6 +38,7 @@ std::vector<Ingredient> SupplyRunner::get_ingredients(IngredientMap ingredients)
 			it1 = storeroom.begin();
 		}
 		else {
+			//if not, throw an error.
 			throw "Not enough ingredent or ingredent not found";
 		}
 		it++;
@@ -61,6 +61,7 @@ std::vector<Ingredient> SupplyRunner::get_ingredients(IngredientMap ingredients)
 		it1 = storeroom.begin();
 	}
 	
+	//reset iterator
 	it = ingredients.begin();
 	std::vector<Ingredient> returnIngredient;
 	
