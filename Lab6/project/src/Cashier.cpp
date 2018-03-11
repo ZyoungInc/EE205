@@ -60,7 +60,7 @@ void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orde
 		}
 	}
 	
-
+	//Calculate total cost and validates customer's order
 	try {
 		total_cost = calculate_order_cost(name_of_items);
 	}
@@ -68,15 +68,15 @@ void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orde
 		current_customer.expel();
 	}
 
+	//if customer doesn't have enough money, then expel him
 	if(current_customer.get_money() < total_cost) {
 		current_customer.expel();
 	}
+	//if customer isn't expelled then take his order
 	else if (false == current_customer.is_expelled()) {
 		current_customer.charge_money(total_cost);
 		this->money += total_cost;
 		Order current_customer_order(orders.size(), name_of_items);
 		orders.push(current_customer_order);
 	}
-	
-
 }
