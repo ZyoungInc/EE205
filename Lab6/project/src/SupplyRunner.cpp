@@ -74,4 +74,6 @@ std::vector<Ingredient> SupplyRunner::get_ingredients(IngredientMap ingredients)
 	
 	return returnIngredient;
 }
+
+std::map<std::string, std::map<Ingredient, unsigned>> recipes;
 	
