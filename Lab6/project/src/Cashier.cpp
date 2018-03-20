@@ -17,7 +17,8 @@ double Cashier::get_money() const {
 	return this->money;
 }
 
-void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orders) {
+void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orders) 
+{
 	//Creates variables we will use;
 	std::vector<std::string>  name_of_items;
 	std::string name_of_item;
@@ -31,7 +32,7 @@ void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orde
 	std::string customer_order = current_customer.get_order();
 	
 	//Convert customer's order into a vector of  name_of_items
-	for(unsigned int cnt = 0; cnt < customer_order.size(); cnt++) {
+/*	for(unsigned int cnt = 0; cnt < customer_order.size(); cnt++) {
 		number_of_items = 0;
 		name_of_item.clear();
 		
@@ -47,7 +48,7 @@ void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orde
 			cnt++;
 		}
 		cnt++;
-		
+	
 		//Grab customer's order
 		while(customer_order[cnt] != ' ' && customer_order[cnt] != '\0' ) {
 			name_of_item += customer_order[cnt];
@@ -58,8 +59,9 @@ void Cashier::serve_customer(std::queue<Customer>& line, std::stack<Order>& orde
 		for(unsigned int cnt1 = 0; cnt1 < number_of_items ; cnt1++) {
 			name_of_items.push_back(lexical_cast(name_of_item));
 		}
-	}
-	
+	}*/
+        name_of_items = split(customer_order, ' ');
+
 	//Calculate total cost and validates customer's order
 	try {
 		total_cost = calculate_order_cost(name_of_items);

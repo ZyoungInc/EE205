@@ -6,11 +6,14 @@
 
 #include <queue>
 #include <stack>
+//using RecipeBook = std::map<std::string, std::map<Ingredient, unsigned>>; 
+
+RecipeBook recipes;
 
 Cook::Cook(SupplyRunner& runner_, Kitchen& kitchen_) :
 	runner(runner_),
 	kitchen(kitchen_) {}
-	
+	/*
 void Cook::prepare_dish(
 	std::stack<Order>& orders, 
 	std::queue<std::pair<std::size_t, Dish>>& finished_dishes) {
@@ -44,3 +47,4 @@ void Cook::prepare_dish(
 	}
 }
 
+*/
