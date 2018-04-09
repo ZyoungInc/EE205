@@ -5,7 +5,7 @@ Working title...
 -> Weapon types
   -[Description]
 -> Weapon rarity
-  -[Description]
+  Bronze Silver Gold Plat Diamond Lengendary
 -> Spells
   -[Description]
 -> Enemy types
