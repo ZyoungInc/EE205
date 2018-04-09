@@ -42,9 +42,24 @@ Working title...
 	-Other worldly horrors
 
 -> Branching paths
-  -[Description]
+  2 random event
+	--regular mobs
+	--Boss
+	--hidden event
+		--High chance of event but boss and regular is possible
+		--Trader
+		--shrine(give up gold for item?)
+		--lost(lose 3 progress)
+		--begger 
+		--Nothing
+	--Chest (mimic chance)
+		-- might be guarded (choice to fight or flee)
+	
+	
+	5 choice before a rest/save point
+  
 -> Stat leveling
-  -[Description]
+  +1 for each tier of weapon
 -> Random encounters
   -[Description]
 
