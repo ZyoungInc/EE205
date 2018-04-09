@@ -3,13 +3,27 @@ Working title...
 
 # Game features
 -> Weapon types
-  -[Description]
+  -Lance
+    Strong against Sword but weak against Axe.
+  -Sword
+    Strong against Axe but weak against Lance.
+  -Axe
+    Strong against Lance but weak against Sword.
 -> Weapon rarity
-  Bronze Silver Gold Plat Diamond Lengendary
+  -Bronze
+    Lowest possible rating.
+  -Silver
+    Stronger than Bronze but weaker than Gold.
+  -Gold
+    Stronger than Silver but weaker than Platinum.
+  -Platinum
+    Stronger than Platinum but weaker than Legendary.
+  -Legendary
+    Highest possible rating.
 -> Spells
   -[Description]
 -> Enemy types
- Beast 
+ Beast
 	-Wolves
 	-Cougar
 	-Bears
@@ -17,7 +31,7 @@ Working title...
 	-Highwaymen
 	-Rouge Knights
 	-Rogue Mage
- Skeleton 
+ Skeleton
 	- regular
 	- mage
 	-archer
@@ -26,7 +40,7 @@ Working title...
 	-Deformed beast
 	-Deformed Humans
 	-Other worldly horrors
- 
+
 -> Branching paths
   -[Description]
 -> Stat leveling
