@@ -23,20 +23,26 @@ Working title...
 -> Spells
   -[Description]
 -> Enemy types
- Beast
+ Beast (lowest tier)
 	-Wolves
+		--Avg stats
 	-Cougar
+		--High atk/ low hp/def
 	-Bears
- Bandits
+		--High Def / HP
+ Bandits (tier 1)
 	-Highwaymen
+		--Avg stats
 	-Rouge Knights
+		--High Def / HP
 	-Rogue Mage
- Skeleton
+		--High atk/ low hp/def
+ Skeleton (Tier 2)
 	- regular
-	- mage
-	-archer
+	- mage // mage
+		--High atk/ low hp/def
 	-lich (controller)
- Horrors
+ Horrors (tier 3)
 	-Deformed beast
 	-Deformed Humans
 	-Other worldly horrors
