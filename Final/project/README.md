@@ -9,7 +9,24 @@ Working title...
 -> Spells
   -[Description]
 -> Enemy types
-  -[Description]
+ Beast 
+	-Wolves
+	-Cougar
+	-Bears
+ Bandits
+	-Highwaymen
+	-Rouge Knights
+	-Rogue Mage
+ Skeleton 
+	- regular
+	- mage
+	-archer
+	-lich (controller)
+ Horrors
+	-Deformed beast
+	-Deformed Humans
+	-Other worldly horrors
+ 
 -> Branching paths
   -[Description]
 -> Stat leveling
