@@ -23,29 +23,37 @@ Working title...
 -> Spells
   -[Description]
 -> Enemy types
- Beast (lowest tier)
+stats HP/ATK/DEF /
+ Beast (lowest tier) // Takes full (normal dmg)
 	-Wolves
-		--Avg stats
+		5 / 2 / 0
 	-Cougar
-		--High atk/ low hp/def
-	-Bears
-		--High Def / HP
+ 		3 / 4
+ 	-Bears
+		5 / 2 / 2
  Bandits (tier 1)
-	-Highwaymen
-		--Avg stats
-	-Rouge Knights
-		--High Def / HP
-	-Rogue Mage
-		--High atk/ low hp/def
+	-Highwaymen // full dmg
+		 8 / 4 / 2
+	-Rouge Knights // random triangle weapon
+		10 / 4 / 4
+	-Rogue Mage // Random element
+		8 / 6 / 0
  Skeleton (Tier 2)
 	- regular
-	- mage // mage
-		--High atk/ low hp/def
+		 14 / 6 / 2
+	- mage // arhcer --High atk/ low hp/def
+		12 / 8 // 0
 	-lich (controller)
+		18 / 8 / 8
  Horrors (tier 3)
 	-Deformed beast
+		 16 / 6 / 0
 	-Deformed Humans
+		18 / 6 / 6
 	-Other worldly horrors
+		20 / 10 / 10
+	-Horror gate guarded // Random weapon and element 
+		40 / 10 / 15
 
 -> Branching paths
   2 random event
