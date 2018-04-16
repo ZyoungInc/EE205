@@ -1,42 +1,50 @@
-# Demon's Dungeon
-Working title...
+# Soul Runner
+**Working title...**
 
 # Game features
--> Weapon types
-  -Lance
-    Strong against Sword but weak against Axe.
-  -Sword
-    Strong against Axe but weak against Lance.
-  -Axe
-    Strong against Lance but weak against Sword.
--> Weapon rarity
-  -Bronze
-    Lowest possible rating.
-  -Silver
-    Stronger than Bronze but weaker than Gold.
-  -Gold
-    Stronger than Silver but weaker than Platinum.
-  -Platinum
-    Stronger than Platinum but weaker than Legendary.
-  -Legendary
-    Highest possible rating.
--> Spells
-  -[Description]
--> Enemy types
-stats HP/ATK/DEF /
- Beast (lowest tier) // Takes full (normal dmg)
-	-Wolves
-		5 / 2 / 0
-	-Cougars
- 		3 / 4 / 0
- 	-Bears
-		5 / 2 / 2
- Bandits (tier 1)
-	-Highwaymen // full dmg
-		 8 / 4 / 2
-	-Rouge Knights // random triangle weapon
-		10 / 4 / 4
-	-Rogue Mage // Random element
+
+## Weapon types
+  1. __Lance__
+    *Strong against Sword but weak against Axe.*
+  2. __Sword__
+    *Strong against Axe but weak against Lance.*
+  3. __Axe__
+    *Strong against Lance but weak against Sword.*
+
+## Weapon rarity
+  1. __Bronze__
+    *Lowest possible rating.*
+  2. __Silver__
+    *Stronger than Bronze but weaker than Gold.*
+  3. __Gold__
+    *Stronger than Silver but weaker than Platinum.*
+  4. __Platinum__
+    *Stronger than Platinum but weaker than Legendary.*
+  5. __Legendary__
+    *Highest possible rating.*
+  6. __Cursed__
+    *Extra rarity. Deals extra damage at the expense of some of the player's health*
+
+## Spells
+  __[Description]__
+
+## Enemy types
+  *Stats {HP/ATK/DEF}*
+
+### Beast (lowest tier) // Takes full (normal dmg)
+  1. __Wolves__
+		*5 / 2 / 0*
+  2. __Cougars__
+    *3 / 4 / 0*
+ 	3. __Bears__
+		*5 / 2 / 2*
+
+### Bandits (tier 1)
+	1. __Highwaymen // full dmg__
+		*8 / 4 / 2*
+	2. __Rouge Knights // random triangle weapon__
+		*10 / 4 / 4*
+	3. __Rogue Mage // Random element__
 		8 / 6 / 0
  Skeleton (Tier 2)
 	- regular
@@ -52,7 +60,7 @@ stats HP/ATK/DEF /
 		18 / 6 / 6
 	-Other worldly horrors
 		20 / 10 / 10
-	-Horror gate guarded // Random weapon and element 
+	-Horror gate guarded // Random weapon and element
 		40 / 10 / 15
  Demon (boss)
         -Fire Demon
@@ -73,22 +81,22 @@ stats HP/ATK/DEF /
 		--Trader
 		--shrine(give up gold for item?)
 		--lost(lose 3 progress)
-		--begger 
+		--begger
 		--Nothing
 	--Chest (mimic chance)
 		-- might be guarded (choice to fight or flee)
-	
-	
+
+
 	5 choice before a rest/save point
-  
+
 -> Stat leveling
   +1 for each tier of weapon
 -> Random encounters
   -[Description]
 
 # Story
-Having lost your beloved wife in a tragic fire, you sell your soul to a demon
-for a chance to bring your wife back from the underworld.  Only to realize it
-was a trap and the demon has locked you in his dungeon.  Now you must find your
-way out of this dungeon and kill the demon that stole your soul and has your
-wife captive.
+> Having lost your beloved wife in a tragic fire, you sell your soul to a demon
+> for a chance to bring your wife back from the underworld. Only to realize it
+> was a trap and the demon has locked you in his dungeon. Now you must find your
+> way out of this dungeon and kill the demon that stole your soul and has your
+> wife captive.
