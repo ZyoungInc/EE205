@@ -4,7 +4,7 @@
 # Game features
 
 ## Weapon types
-  1. __Lance__
+  1. __Lance__  
     *Strong against Sword but weak against Axe.*
   2. __Sword__
     *Strong against Axe but weak against Lance.*
