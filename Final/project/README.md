@@ -7,7 +7,7 @@
 > chance of bringing your wife back from the underworld. Halfway through the
 > ritual, you blackout and awake in the underworld. It was a trick! Now you must
 > make your way through the underworld to confront the demon and reclaim your soul
-> and maybe your wife. 
+> and maybe your wife.
 
 # Game features
 
@@ -39,30 +39,27 @@
 ## Enemy types
   *Stats {HP/ATK/DEF}*
 
-### Beast (lowest tier) // Takes full (normal dmg)
+### Beast (lowest tier) Takes full (normal dmg)
   1. __Wolves__  
 		*5 / 2 / 0*
   2. __Cougars__  
     *3 / 4 / 0*
  	3. __Bears__  
 		*5 / 2 / 2*
-
 ### Bandits (Tier 1)
-	1. __Highwaymen // full dmg__  
+	1. __Highwaymen - full dmg__  
 		*8 / 4 / 2*
-	2. __Rouge Knights // random triangle weapon__  
+	2. __Rouge Knights - random triangle weapon__  
 		*10 / 4 / 4*
-	3. __Rogue Mage // Random element__  
+	3. __Rogue Mage - Random element__  
 		*8 / 6 / 0*
-
 ### Skeleton (Tier 2)
 	1. __Regular__  
 		*14 / 6 / 2*
-	2. __Mage // arhcer --High atk/ low hp/def__  
+	2. __Mage // arhcer - High atk/ low hp/def__  
 		*12 / 8 / 0*
 	3. __Lich (controller)__  
 		*18 / 8 / 8*
-
 ### Horrors (Tier 3)
 	1. __Deformed beast__  
 		*16 / 6 / 0*
@@ -72,7 +69,6 @@
 		*20 / 10 / 10*
 	4. __Horror gate guarded // Random weapon and element__
 		*40 / 10 / 15*
-
 ### Demon (Boss)
   1. __Fire Demon__  
     *40 / 20 / 10*  
