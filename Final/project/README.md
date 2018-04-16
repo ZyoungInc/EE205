@@ -83,7 +83,7 @@
   3. __Water Demon__   
     *60 / 10 / 20*  
     Water element
-  4. __Eo Tem (final boss)__
+  4. __Eo Tem (final boss)__  
     *100 / 20 / 20*  
     No element  
     Will OTK on 20th Turn
