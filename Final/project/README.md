@@ -39,28 +39,28 @@
 ## Enemy types
   *Stats {HP/ATK/DEF}*
 
-### Beast (lowest tier) Takes full (normal dmg)
+### Beast (lowest tier) Takes full (normal dmg)  
   1. __Wolves__  
 		*5 / 2 / 0*
   2. __Cougars__  
     *3 / 4 / 0*
  	3. __Bears__  
 		*5 / 2 / 2*
-### Bandits (Tier 1)
+### Bandits (Tier 1)  
 	1. __Highwaymen - full dmg__  
 		*8 / 4 / 2*
 	2. __Rouge Knights - random triangle weapon__  
 		*10 / 4 / 4*
 	3. __Rogue Mage - Random element__  
 		*8 / 6 / 0*
-### Skeleton (Tier 2)
+### Skeleton (Tier 2)  
 	1. __Regular__  
 		*14 / 6 / 2*
 	2. __Mage // arhcer - High atk/ low hp/def__  
 		*12 / 8 / 0*
 	3. __Lich (controller)__  
 		*18 / 8 / 8*
-### Horrors (Tier 3)
+### Horrors (Tier 3)  
 	1. __Deformed beast__  
 		*16 / 6 / 0*
 	2. __Deformed humans__  
@@ -88,7 +88,7 @@
   1. __Two random events__
 	2. __Regular mobs__
 	3. __Boss__
-	4. __Hidden event__
+	4. __Hidden event__  
 		a. High chance of event but boss and regular is possible  
 		b. Trader  
 		c. Shrine (give up gold for item?)  
