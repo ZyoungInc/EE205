@@ -82,14 +82,14 @@ private:
   int debuffamt;
 
 public:
-  BuffSpell(string n, int c, int d) :
+  DebuffSpell(string n, int c, int d) :
      name(n),
      cost(c),
      debuffamt(d),
      {}
   virtual void Effect() override{
-    mob.def - mob.def - this -> debuffamt;
-    cout << "Mob Defense Increased by " << this -> debuffamt  << endl
+    mob.def = mob.def - this -> debuffamt;
+    cout << "Mob Defense Decreased by " << this -> debuffamt  << endl
   }
 }
 
