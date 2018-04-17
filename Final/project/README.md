@@ -70,7 +70,7 @@
 		*18 / 6 / 6*
   3. __Other worldly horrors__  
 		*20 / 10 / 10*
-  4. __Horror gate guarded // Random weapon and element__
+  4. __Horror gate guarded // Random weapon and element__  
 		*40 / 10 / 15*
 
 ### Demon (Boss)
