@@ -1,13 +1,13 @@
-# Soul Runner
+# Soul Quest
 **Working title...**
 
 # Story
 > Through unfortunate circumstances, your beloved wife died in a fire and wish to
 > see her once again. In a desperate bid, you sell your soul to a demon for a
 > chance of bringing your wife back from the underworld. Halfway through the
-> ritual, you blackout and awake in the underworld. It was a trick! Now you must
-> make your way through the underworld to confront the demon and reclaim your soul
-> and maybe your wife.
+> ritual, you blackout and awake in the Demon's dungeon. It was a trick! Now you must
+> make your way through the dungeon, confront the demon and reclaim your soul
+> (and maybe your wife). Kappa
 
 # Game features
 
