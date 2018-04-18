@@ -1,6 +1,5 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#ifndef WEAPON_RARE_HPP
+#define WEAPON_RARE_HPP
 
 using namespace std;
 
@@ -37,4 +36,6 @@ public:
 class Cursed : public Rare{
 private:
 public:
-}
+};
+
+#endif // WEAPON_RARE_HPP

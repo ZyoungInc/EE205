@@ -1,0 +1,4 @@
+#ifndef DIALOGUE_HPP
+#define DIALOGUE_HPP
+
+#endif //DIALOGUE_HPP
