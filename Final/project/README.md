@@ -7,7 +7,7 @@
 > chance of bringing your wife back from the underworld. Halfway through the
 > ritual, you blackout and awake in the Demon's dungeon. It was a trick! Now you must
 > make your way through the dungeon, confront the demon and reclaim your soul
-> (and maybe your wife). Kappa
+> (and maybe your wife). TL;DR You got cucked Kappa~
 
 # Game features
 
