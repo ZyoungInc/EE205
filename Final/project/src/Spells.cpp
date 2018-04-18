@@ -3,7 +3,7 @@
 #include <vector>
 
 using namespace std;
-
+/*
 class OffensiveSpell {
 private:
     int damage;
@@ -94,4 +94,4 @@ public:
 }
 
 
-}
+}*/
