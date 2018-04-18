@@ -1,6 +1,8 @@
-# You can use variables in Makefiles in order to make all of the repetitive 
-# typing much easier. Here, we include the C++11 version flag as well as 
-# additional warning flags to make compilation stricter (and, thus, our programs 
+# You can use variables in Makefiles in order to make all of the repetitive
+# typing much easier. Here, we include the C++11 version flag as well as
+# additional warning flags to make compilation stricter (and, thus, our programs
+# Here, we are calling functions available in GNU Make in order to get all of 
+# the .o and .cpp files in ./src so we can use them in our rules later.
 # safer).
 #
 CXXFLAGS := -Wall -Wextra -pedantic -std=c++11
@@ -9,11 +11,8 @@ SRC_DIR := ./src
 OBJ_DIR := ./src
 INCLUDE_DIRS := -I./dep/ -I./include/
 
-# Here, we are calling functions available in GNU Make in order to get all of 
-# the .o and .cpp files in ./src so we can use them in our rules later.
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
-
 all: ./bin/test-rand.out  
 
 # This build each of the .cpp in the src dir into a .o
@@ -25,48 +24,29 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		-o ./bin/test-rand.out \
 		./tst/test-rand.cpp $(OBJ_FILES)
 	./bin/test-rand.out
-
-./bin/test-Cook.out: $(OBJ_FILES) ./tst/test-Cook.cpp ./include/*.hpp
+./bin/test-weapon_type.out: $(OBJ_FILES) ./tst/test-weapon_type.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
-		-o ./bin/test-Cook.out \
-		./tst/test-Cook.cpp $(OBJ_FILES)
-	./bin/test-Cook.out
+		-o ./bin/test-weapon_type.out \
+		./tst/test-weapon_type.cpp $(OBJ_FILES)
+	./bin/test-weapon_type.out
 
-./bin/test-SupplyRunner.out: $(OBJ_FILES) ./tst/test-SupplyRunner.cpp ./include/*.hpp
+./bin/test-weapon_rare.out:$(OBJ_FILES) ./tst/test-weapon_rare.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
-		-o ./bin/test-SupplyRunner.out \
-		./tst/test-SupplyRunner.cpp $(OBJ_FILES)
-	./bin/test-SupplyRunner.out
-
-./bin/example-Cashier.out: $(OBJ_FILES) ./tst/example-Cashier.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
-		-o ./bin/example-Cashier.out \
-		./tst/example-Cashier.cpp $(OBJ_FILES)
-	./bin/example-Cashier.out
-
-./bin/example-Cook.out: $(OBJ_FILES) ./tst/example-Cook.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
-		-o ./bin/example-Cook.out \
-		./tst/example-Cook.cpp $(OBJ_FILES)
-	./bin/example-Cook.out
-
-./bin/example-SupplyRunner.out: $(OBJ_FILES) ./tst/example-SupplyRunner.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
-		-o ./bin/example-SupplyRunner.out \
-		./tst/example-SupplyRunner.cpp $(OBJ_FILES)
-	./bin/example-SupplyRunner.out
+		-o ./bin/test-weapon_rare.out \
+		./tst/test-weapon_rare.cpp $(OBJ_FILES)
+	./bin/test-weapon_rare.out
 
 # Convenience rules for the command line to quickly test a class
+# Class testing
+weapon_type: ./bin/test-weapon_type.out
+
+weapon_rare: ./bin/test-weaponr_rare.out
 
 rand: ./bin/test-rand.out
-cook: ./bin/test-Cook.out
-runner: ./bin/test-SupplyRunner.out
 
-excashier: ./bin/example-Cashier.out
-excook: ./bin/example-Cook.out
-exrunner: ./bin/example-SupplyRunner.out
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 clean:
 	rm ./src/*.o
 	rm ./bin/*.out
-
