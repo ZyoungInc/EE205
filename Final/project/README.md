@@ -24,44 +24,44 @@ Working title...
   -[Description]
 -> Enemy types
 stats HP/ATK/DEF /
- Beast (lowest tier) // Takes full (normal dmg)
+ Beast (lowest tier 1) // Takes full (normal dmg)
 	-Wolves
 		5 / 2 / 0
 	-Cougars
  		3 / 4 / 0
  	-Bears
 		5 / 2 / 2
- Bandits (tier 1)
+ Bandits (tier 2)
 	-Highwaymen // full dmg
 		 8 / 4 / 2
 	-Rouge Knights // random triangle weapon
 		10 / 4 / 4
 	-Rogue Mage // Random element
 		8 / 6 / 0
- Skeleton (Tier 2)
+ Skeleton (Tier 3)
 	- regular
 		14 / 6 / 2
 	- mage // arhcer --High atk/ low hp/def
 		12 / 8 // 0
 	-lich (controller)
 		18 / 8 / 8
- Horrors (tier 3)
+ Horrors (tier 4)// horror have a 20% chance of being elemental
 	-Deformed beast
 		16 / 6 / 0
-	-Deformed Humans
+	-Deformed Humans random weapon
 		18 / 6 / 6
 	-Other worldly horrors
 		20 / 10 / 10
 	-Horror gate guarded // Random weapon and element 
 		40 / 10 / 15
- Demon (boss)
+ Demon (boss) tier 5
         -Fire Demon
                 40 / 20 / 10 //fire element
         -Nature Demon
                 50 / 15 / 15 //nature element
         -Water Demon
                 60 / 10 / 20 //water element
-        -Satan(final boss)
+        -Satan(final boss) tier 6 //no mods
                 100 / 20 / 20 // Will OTK on 20th Turn, no element
 
 -> Branching paths
