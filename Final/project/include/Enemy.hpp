@@ -1,40 +1,23 @@
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
+
 #include <string>
-#include <vector>
+#include <utility>
 #include "game-utility.hpp"
+#include "unit.hpp"
 
 //Generates enemy 
-class Enemy {
+class Enemy public unit{
 	private:
-		unsigned int enemy_health_point;
-		unsigned int enemy_MAX_health_point;
-		unsigned int enemy_def;
-		unsigned int enemy_atk;
-		std::string enemy_subtype;
-		std::map <std::string,std::string> eff_enemy;
+		std::pair <std::string,std::string> eff_enemy;
 	
 	public:
-		//construct enemy
+		//construct enemy base on tier level, BOSS is tier 6 (satan)
 		Enemy(unsigned char tier_level);
-		
-		//getters
-		unsigned int enemy_hp();
-		
-		unsigned int enemy_atk();
-		
-		unsigned int enemy_def();
-		
-		std::string enemy_subtype();
-		
-		std::map <std::string,std::string>  enemy_eff();
-		
-		//setter
-		
-		void damage_enemy(unsigned int damge);
-		
-		void debuff_atk(unsigned int debuff);
-		
-		void debuff_def(unsigned int debuff);
-		
+	
+		/*Function description : Grab the enemy's effects, first is elemental
+		  second is weapon type
+		  Input: None
+		  Output: string pair of enemy effect*/
+		std::pair <std::string,std::string>  get_enemy_eff(void);
 }
-		
-		

@@ -1,18 +1,20 @@
 #ifndef UNIT_HPP
 #define UNIT_HPP
+
 #include <utility>
 
 class Unit {
-private:
+protected:
   std::string name;
   int health;
+  int MAXhealth;
   int mana;
   int attack;
   int defense;
 public:
   // Constructs a unit with unit Variables
   Unit(std::string name_,
-        int health_,
+        int MAXhealth_,
         int mana_,
         int attack_,
         int defense_);
