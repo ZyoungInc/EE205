@@ -8,6 +8,7 @@ Unit::Unit(std::string name_,
       int defense_) :
     name(name_),
     health(health_),
+	MAXhealth(health_),// added max HP
     mana(mana_),
     attack(attack_),
     defense(defense_) {}
@@ -31,6 +32,7 @@ Unit::Unit(Unit&& other) :
 //Getters
 std::string Unit::get_name() const {return name;}
 int Unit::get_health() const {return health;}
+int Unit::get_MAXhealth() const {return Maxhealth;}
 int Unit::get_mana() const {return mana;}
 int Unit::get_attack() const {return attack;}
 int Unit::get_defense() const {return defense;}
@@ -38,6 +40,7 @@ int Unit::get_defense() const {return defense;}
 //Setters
 void Unit::set_name(std::string s) { name = s;}
 void Unit::set_health(int hp) {health = hp;}
+void Unit::set_MAXhealth(int hp) {MAXhealth = hp;}
 void Unit::set_mana(int mp) {mana = mp;}
 void Unit::set_attack(int atk) {attack = atk;}
 void Unit::set_defense(int def) {defense = def;}
