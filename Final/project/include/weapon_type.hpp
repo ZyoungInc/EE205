@@ -1,29 +1,38 @@
 #ifndef WEAPON_TYPE_HPP
 #define WEAPON_TYPE_HPP
 
-using namespace std;
-
-class Weapon {
+class Equip {
 private:
+  string name;
+  int itemID;
 public:
-  Weapon ();
-  unsigned damage;
-  void deal_damage();
+  Item(const std::string& name) : name(name), itemID(id){}
+  const string& getName(void) const {return this->name}
+  int getID(void) const {return this->itemID}
+}
+
+class Weapon : public Equip{
+public:
+  Weapon(const std::string& name, int id) : Item(name, id) {}
+  virtual int getDamage(void) const = 0;
 }
 
 class Sword : public Weapon{
-private:
 public:
+  Sword() : Weapon("Sword", 0) {}
+  virtual int getDamage(void) const {return 5}
 }
 
 class Spear : public Weapon{
-private:
 public:
+  Spear() : Weapon("Spear", 1) {}
+  virtual int getDamage(void) const {return 5}
 }
 
 class Axe : public Weapon{
-private:
 public:
+  Axe() : Weapon("Axe", 2) {}
+  virtual int getDamage(void) const {return 5}
 };
 
 #endif // WEAPON_TYPE_HPP
