@@ -1,40 +1,52 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#ifndef WEAPON_RARE_HPP
+#define WEAPON_RARE_HPP
 
-using namespace std;
-
-class Rare{
+class Bonus {
 private:
+  string name;
+  int bonusID;
 public:
+  Bonus(const std::string& name) : name(name), bonusID(id){}
+  const string& getName(void) const {return this->name}
+  int getID(void) const {return this->bonusID}
+}
+
+class Rare : Bonus{
+public:
+  Rare(const std::string& name, int id) : Item(name, id) {}
+  virtual int getBonusDamage(void) const = 0;
 }
 
 class Bronze : public Rare{
-private:
 public:
+  Bronze() : Rare("Bronze", 0)
+  virtual int getBonusDamage(void) const {return 1}
 }
 
 class Silver : public Rare{
-private:
 public:
+  Silver() : Rare("Silver", 0)
+  virtual int getBonusDamage(void) const {return 3}
 }
 
 class Gold : public Rare{
-private:
 public:
+  Gold() : Rare("Silver", 0)
+  virtual int getBonusDamage(void) const {return 5}
 }
 
 class Platinum : public Rare{
-private:
 public:
+  Platinum() : Rare("Platinum", 0)
+  virtual int getBonusDamage(void) const {return 7}
 }
 
 class Legendary : public Rare{
-private:
 public:
-}
+  Legendary() : Rare("Legendary", 0)
+  virtual int getBonusDamage(void) const {return 9}
+};
 
-class Cursed : public Rare{
-private:
-public:
-}
+//Cursed may be implimented later
+
+#endif // WEAPON_RARE_HPP
