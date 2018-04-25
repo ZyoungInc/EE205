@@ -12,6 +12,8 @@ protected:
   int attack;
   int defense;
 public:
+
+  Unit();
   // Constructs a unit with unit Variables
   Unit(std::string name_,
         int MAXhealth_,
@@ -38,6 +40,6 @@ public:
   void set_mana(int mp);
   void set_attack(int atk);
   void set_defense(int def);
-}
+};
 
 #endif // UNIT_HPP

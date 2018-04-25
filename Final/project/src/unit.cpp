@@ -1,5 +1,14 @@
 #include "unit.hpp"
 
+Unit::Unit() :
+    name(""),
+    health(0),
+	MAXhealth(0),// added max HP
+    mana(0),
+    attack(0),
+    defense(0) {}
+
+
 // Constructs a unit with unit Variables
 Unit::Unit(std::string name_,
       int health_,

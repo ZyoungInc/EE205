@@ -7,7 +7,7 @@
 #include "unit.hpp"
 
 //Generates enemy 
-class Enemy public unit{
+class Enemy : public Unit {
 	private:
 		std::pair <std::string,std::string> eff_enemy;
 	
@@ -20,4 +20,6 @@ class Enemy public unit{
 		  Input: None
 		  Output: string pair of enemy effect*/
 		std::pair <std::string,std::string>  get_enemy_eff(void);
-}
+};
+
+#endif //ENEMY_HPP
