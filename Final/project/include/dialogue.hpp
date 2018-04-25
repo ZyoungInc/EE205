@@ -1,7 +1,10 @@
 #ifndef DIALOGUE_HPP
 #define DIALOGUE_HPP
 
-class DisplayStory {
+#include <iostream>
+#include <fstream>
+
+class DisplayText {
 private:
 protected:
 public:

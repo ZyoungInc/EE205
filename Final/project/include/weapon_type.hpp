@@ -33,6 +33,11 @@ class Axe : public Weapon{
 public:
   Axe() : Weapon("Axe", 2) {}
   virtual int getDamage(void) const {return 5}
+}
+
+class Staff : public Weapon{
+  Staff() : Staff("Staff", 3){}
+  virtual int getDamage(void) const {return 5}
 };
 
 #endif // WEAPON_TYPE_HPP
