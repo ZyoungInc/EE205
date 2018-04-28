@@ -2,6 +2,7 @@
 #define UNIT_HPP
 
 #include <utility>
+#include <string>
 
 class Unit {
 protected:
@@ -18,8 +19,8 @@ public:
   Unit();
 
   Unit(std::string name_,
-        int MAXhealth_,
-        int MAXmana_,
+        int health_,
+        int mana_,
         int attack_,
         int defense_);
 
@@ -46,6 +47,15 @@ public:
   void set_MAXmana(int mp);
   void set_attack(int atk);
   void set_defense(int def);
+  
+  double eff_calc_other(std::pair<std::string, std::string> attacker,
+                          std::pair<std::string, std::string> taker);
+ // void attack_other(Unit& other);
+ // void spell_other(Unit& other);
+ //void on_attack(int damage);
+  //bool is_dead() ;
+  //void on_death();
+ // void spell_other(Unit& other);
 };
 
 #endif // UNIT_HPP
