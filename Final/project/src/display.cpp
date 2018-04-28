@@ -5,6 +5,9 @@
  */
 #include "display.hpp"
 
+//Constructor
+Display(int yshift_) : yshift(yshift_) {}
+
 Display::drawGame() {
   //clear whole screen
   clear();
@@ -37,95 +40,225 @@ Display::drawGame() {
   wrefresh(optionwin);
 }
 //updates dialogue in dialogue window
-int Display::updateDialogue(std::vector<std::string> Dialogue, int yshift){
+void Display::updateDialogue(std::vector<std::string> Dialogue){
 
   //grab dialogue vector and convert to string
 
   //update dialogue window
-  mvwprintw(dialoguewin, yshift, 1, "%s", Dialogue);
+  mvwprintw(dialoguewin, this->yshift, 1, "%s", Dialogue);
   refresh();
   wrefresh(dialoguewin);
-  return yshift+1;
+  set_yshift(yshift+1);
 }
-int Display::updateCombat(int name, int damage, int yshift){
-  mvwprintw(dialoguewin, yshift, 1, "%d was attacked for %d damage", name, damage);
+void Display::updateCombat(int name, int damage){
+  mvwprintw(dialoguewin, this->yshift, 1, "%d was attacked for %d damage", name, damage);
   wrefresh(dialoguewin);
-  return yshift+1;
+  set_yshift(yshift+1);
 }
-int Display::updateDeath(int name, int yshift){
-  mvwprintw(dialoguewin, yshift, 1, "The %d died", name);
+void Display::updateDeath(int name){
+  mvwprintw(dialoguewin, this->yshift, 1, "%d has been killed", name);
   wrefresh(dialoguewin);
-  return yshift+1;
+  set_yshift(yshift + 1);
 }
 
-void Display::updateAvatarHUD(std::string name, int health, int mana, int attack, int defense){
-  mvwprintw(avatarwin, 1, 1, "%s", name);
-  mvwprintw(avatarwin, 2, 1, "%d", health);
-  mvwprintw(avatarwin, 3, 1, "%d", mana);
-  mvwprintw(avatarwin, 4, 1, "%d", attack);
-  mvwprintw(avatarwin, 5, 1, "%d", defense);
+void Display::updateAvatarHUD(std::string name){
+  mvwprintw(avatarwin, 1, 1, "%s", player.get_name());
+  mvwprintw(avatarwin, 2, 1, "%d/%d", player.get_health(), player.get_MAXhealth());
+  mvwprintw(avatarwin, 3, 1, "%d/%d", player.get_mana(), player.get_MAXmana());
+  mvwprintw(avatarwin, 4, 1, "%d", player.get_attack());
+  mvwprintw(avatarwin, 5, 1, "%d", player.get_defense());
   wrefresh(avatarwin);
 
 }
 
-void Display::updateEnemyHUD(std::string name, int health, int mana, int attack, int defense){
-  mvwprintw(enemywin, 1, 1, "%s", name);
-  mvwprintw(enemywin, 2, 1, "%d", health);
-  mvwprintw(enemywin, 3, 1, "%d", mana);
-  mvwprintw(enemywin, 4, 1, "%d", attack);
-  mvwprintw(enemywin, 5, 1, "%d", defense);
+void Display::updateEnemyHUD(unsigned char tier){
+  mvwprintw(enemywin, 1, 1, "%s", enemy.get_name());
+  mvwprintw(enemywin, 2, 1, "%d/%d", enemy.get_health(), enemy.get_MAXhealth());
+  mvwprintw(enemywin, 3, 1, "%d", enemy.get_mana());
+  mvwprintw(enemywin, 4, 1, "%d", enemy.get_attack());
+  mvwprintw(enemywin, 5, 1, "%d", enemy.get_defense());
   wrefresh(enemywin);
 }
 
 void Display::updateOptions(){
+  wclear(optionwin);
+  wrefresh(optionwin);
   keypad(optionwin, true);
+  switch(this->selecter)
+  {
+    case 1:
+    //Spells Options
+    string Option1[4] = {"Attack", "Skills", "Flee", "Quit"};
+    int choice1;
+    int highlight1 = 0;
 
-  string Options[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "Flee"};
-  int choice;
-  int highlight = 0;
+    while(1)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if(i == highlight1)
+                wattron(optionwin, A_REVERSE);
+            mvwprintw(optionwin, i+1, 1, Option1[i].c_str());
+            wattroff(optionwin, A_REVERSE);
+        }
+        choice1 = wgetch(optionwin);
+
+        switch(choice1)
+        {
+            case KEY_UP:
+                highlight1--;
+                if(highlight1 == -1)
+                    highlight1 = 0;
+                break;
+            case KEY_DOWN:
+                highlight1++;
+                if(highlight1 == 4)
+                    highlight1 = 3;
+                break;
+            default:
+                break;
+        }
+        if(choice1 == 10)
+            break;
+        }
+        //Attack with basic damage
+        if(Option1[highlight1] == Option1[0])
+        {
+          break;
+        }
+        //Go to spells selector
+        else if(Option1[highlight1] == Option1[1])
+        {
+          set_selecter(2);
+          break;
+        }
+        //Flee, stay in first selector
+        else if(Option1[highlight1] == Option1[2])
+        {
+          break;
+        }
+        //Kill yourself and quits the game
+        else if(Option1[highlight1] == Option1[3])
+        {
+          endwin();
+          break;
+        }
+
+        case 2:
+        //Spells Options
+        string Option2[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "Back"};
+        int choice2;
+        int highlight2 = 0;
+
+        while(1)
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                if(i == highlight2)
+                    wattron(optionwin, A_REVERSE);
+                mvwprintw(optionwin, i+1, 1, Option2[i].c_str());
+                wattroff(optionwin, A_REVERSE);
+            }
+            choice2 = wgetch(optionwin);
+
+            switch(choice2)
+            {
+                case KEY_UP:
+                    highlight2--;
+                    if(highlight2 == -1)
+                        highlight2 = 0;
+                    break;
+                case KEY_DOWN:
+                    highlight2++;
+                    if(highlight2 == 5)
+                        highlight2 = 4;
+                    break;
+                default:
+                    break;
+            }
+            if(choice2 == 10)
+                break;
+            }
+            //Attack with spell 1 stay in spell selecter
+            if(Option2[highlight2] == Option2[0])
+            {
+              break;
+            }
+            //Attack with spell 1 stay in spell selecter
+            else if(Option2[highlight2] == Option2[1])
+            {
+              break;
+            }
+            //Attack with spell 1 stay in spell selecter
+            else if(Option2[highlight2] == Option2[2])
+            {
+              break;
+            }
+            //Attack with spell 1 stay in spell selecter
+            else if(Option2[highlight2] == Option2[3])
+            {
+              break;
+            }
+            //Go back to first selecter
+            else if(Option2[highlight2] == Option2[4])
+            {
+              set_selecter(1);
+              break;
+            }
+
+  case 3:
+  //Spells Options
+  string Option3[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "Back"};
+  int choice3;
+  int highlight3 = 0;
 
   while(1)
   {
       for(int i = 0; i < 5; i++)
       {
-          if(i == highlight)
+          if(i == highlight3)
               wattron(optionwin, A_REVERSE);
-          mvwprintw(optionwin, i+1, 1, startMenu[i].c_str());
+          mvwprintw(optionwin, i+1, 1, Option3[i].c_str());
           wattroff(optionwin, A_REVERSE);
       }
-      choice = wgetch(optionwin);
+      choice3 = wgetch(optionwin);
 
-      switch(choice)
+      switch(choice3)
       {
           case KEY_UP:
-              highlight--;
-              if(highlight == -1)
-                  highlight = 0;
+              highlight3--;
+              if(highlight3 == -1)
+                  highlight3 = 0;
               break;
           case KEY_DOWN:
-              highlight++;
-              if(highlight == 5)
-                  highlight = 4;
+              highlight3++;
+              if(highlight3 == 5)
+                  highlight3 = 4;
               break;
           default:
               break;
       }
-      if(choice == 10)
+      if(choice3 == 10)
           break;
       }
-      if(Options[highlight] == Options[0])
+      if(Option3[highlight3] == Option3[0])
         //attack with spell1
-      else if(Options[highlight] == Options[1])
+      else if(Option3[highlight3] == Option3[1])
 
-      else if(Options[highlight] == Options[2])
+      else if(Option3[highlight3] == Option3[2])
 
-      else if(Options[highlight] == Options[3])
+      else if(Option3[highlight3] == Option3[3])
 
-      else if(Options[highlight] == Options[4])
+      else if(Option3[highlight3] == Option3[4])
+
     }
+
+  }
 
       //Getters
       int Display::get_yshift() {return yshift;}
+      int Display::get_selecter() {return selecter;}
 
       //Setters
       void Display::set_yshift(int y) {yshift = y;}
+      void Display::set_selecter(int s) {selecter = s;}

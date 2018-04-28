@@ -6,7 +6,7 @@
 
 Enemy::Enemy(unsigned char tier_level) {
 	switch(tier_level) {
-    case 1 : 
+    case 1 :
 		//Beasts
 		unsigned char enemy_subtype = RandNum(1, 3);
 		if(enemy_subtype == 1) {
@@ -25,7 +25,7 @@ Enemy::Enemy(unsigned char tier_level) {
 			eff_enemy.second = "Normal";
 		}
 		break;
-    case 2 : 
+    case 2 :
 		//Highway bandit
 		unsigned char enemy_subtype = RandNum(1, 3);
 		if(enemy_subtype == 1) {
@@ -37,14 +37,14 @@ Enemy::Enemy(unsigned char tier_level) {
 			Unit("Rogue Knight", 10, 0 , 4 , 4);
 			eff_enemy.first = random_element-eff(100);
 			eff_enemy.second = "Normal";
-			
+
 		}
 		else {
 			Unit("Rogue Mage", 8, 0 , 6 , 0);
 			eff_enemy.first = "Normal"
 			eff_enemy.second = random_wep_eff(100);
 		break;
-	case 3 : 
+	case 3 :
 		//Skeletons
 		unsigned char enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
@@ -67,7 +67,7 @@ Enemy::Enemy(unsigned char tier_level) {
 			eff_enemy.second = "Normal";
 		}
 		break;
-	case 4 : 
+	case 4 :
 		//Horrors enemys
 		unsigned char enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
@@ -106,7 +106,7 @@ Enemy::Enemy(unsigned char tier_level) {
 			Unit("Water Demon", 60, 0 , 10, 20);
 			eff_enemy.first = "Water";
 			eff_enemy.second = "Normal";
-		
+
 		}
 		break;
 	case 6 :
@@ -116,9 +116,9 @@ Enemy::Enemy(unsigned char tier_level) {
 		break;
 	default:
 		throw "Error: not a valid tier level" ;
-		
+
 	}
-	
+
 }
 
 std::pair <std::string,std::string>  Enemy::get_enemy_eff() {
