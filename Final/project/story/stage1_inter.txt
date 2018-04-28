@@ -1,0 +1,7 @@
+You have cleared stage 1!
+
+{Insert exposition here}
+
+You have been defeated!
+
+{Insert exposition here}
