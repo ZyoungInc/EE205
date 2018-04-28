@@ -1,7 +1,7 @@
 # You can use variables in Makefiles in order to make all of the repetitive
 # typing much easier. Here, we include the C++11 version flag as well as
 # additional warning flags to make compilation stricter (and, thus, our programs
-# Here, we are calling functions available in GNU Make in order to get all of 
+# Here, we are calling functions available in GNU Make in order to get all of
 # the .o and .cpp files in ./src so we can use them in our rules later.
 # safer).
 #
@@ -13,7 +13,7 @@ INCLUDE_DIRS := -I./dep/ -I./include/
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
-all: ./bin/test-rand.out  
+all: ./bin/test-rand.out
 
 # This build each of the .cpp in the src dir into a .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
@@ -24,6 +24,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		-o ./bin/test-rand.out \
 		./tst/test-rand.cpp $(OBJ_FILES)
 	./bin/test-rand.out
+	
 ./bin/test-weapon_type.out: $(OBJ_FILES) ./tst/test-weapon_type.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
 		-o ./bin/test-weapon_type.out \
@@ -40,8 +41,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
 		-o ./bin/test-display0.out \
 		./tst/test-display0.cpp $(OBJ_FILES)
-	./bin/test-display0.out	
-	
+	./bin/test-display0.out
+
 # Convenience rules for the command line to quickly test a class
 # Class testing
 weapon_type: ./bin/test-weapon_type.out
