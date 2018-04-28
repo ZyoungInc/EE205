@@ -36,6 +36,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		./tst/test-weapon_rare.cpp $(OBJ_FILES)
 	./bin/test-weapon_rare.out
 
+./bin/test-display0.out:$(OBJ_FILES) ./tst/test-display0.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+		-o ./bin/test-display0.out \
+		./tst/test-display0.cpp $(OBJ_FILES)
+	./bin/test-display0.out	
+	
 # Convenience rules for the command line to quickly test a class
 # Class testing
 weapon_type: ./bin/test-weapon_type.out
@@ -43,6 +49,8 @@ weapon_type: ./bin/test-weapon_type.out
 weapon_rare: ./bin/test-weaponr_rare.out
 
 rand: ./bin/test-rand.out
+
+display0: ./bin/test-display0.out
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
