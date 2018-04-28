@@ -3,35 +3,39 @@
 #include <algorithm>
 #include "combat.hpp"
 #include "unit.hpp"
-//#include "Enemy.hpp"
+#include "Enemy.hpp"
+//#include "Player.hpp"
+#include "display.hpp"
 #include "game-utility.hpp"
 
-Combat::Combat(Unit& Unit_, Display& Display_) :
-  Unit(Unit_),
-  Display(Display_) {}
+Combat::Combat(Unit& unit_, Display& display_, int kills_, int action_) :
+  Unit(unit_),
+  Display(display_),
+  kills(kills_),
+  action(action_) {}
 
-void attack_other(Unit& other) {
-  int damage = std::max(0, this->Unit.get_attack() - Unit.other.get_defense());
-  other.on_attack(damage);
-}
+void Combat::combat_phase(Player& player, Enemy& enemy)
+{
+  while(!player.is_dead() && !enemy.is_dead())
+  {
+    set_action(display.updateOptions());
 
-void on_attack(int damage) {
-  //Display damage feed
-  set_yshift(Display.updateCombat());
+    if(this->action == "Attack")
+      player.attack_other(enemy);
+    else if(this->action == "Spells"){
+      set_action(display.updateOptions());
 
-  this->Unit.get_health() -= damage;
-
-  if (this->Unit.get_health() <= 0) {
-    on_death();
+    }
+    if(enemy.is_dead()) {}
+    else {enemy.attack_other(player);}
   }
+
 }
 
-bool is_dead() const {
-  return this->Unit.get_health() <=0;
-}
+//Getters
+int Combat::get_kills() {return kills;}
+std::string Combat::get_action() {return action;}
 
-void on_death(){
-  //Display Unit died
-  set_yshift(Display.updateDeath());
-  //if player unit is dead, end Game
-}
+//setters
+void Combat::set_kills(int k) {this->kills = k;}
+void Combat::set_action(std::string a) {this->action = a;}

@@ -16,15 +16,15 @@ int RandNum(int lowrand, int highrand) {
 }
 
 
-std::string random_element-eff(unsigned int chance_Percent) {
+std::string random_element_eff(unsigned int chance_Percent) {
 	unsigned int roll_100 = RandNum( 1 , 100);
 	if (roll_100 <= chance_Percent) {
 		unsigned int element_rand = RandNum(1, 3);
 		if(element_rand == 1) {
-			return "Fire"; 
+			return "Fire";
 		}
 		else if (element_rand == 2) {
-			return "Nature"; 
+			return "Nature";
 		}
 		else {
 			return "Water";
@@ -34,16 +34,16 @@ std::string random_element-eff(unsigned int chance_Percent) {
 		return "Normal";
 	}
 }
-		
+
 std::string random_wep_eff(unsigned int chance_Percent){
 	unsigned int roll_100 = RandNum( 1 , 100);
 	if (roll_100 <= chance_Percent) {
 		unsigned int wep_rand = RandNum(1, 3);
-		if(element_rand == 1) {
-			return "Sword"; 
+		if(wep_rand == 1) {
+			return "Sword";
 		}
-		else if (element_rand == 2) {
-			return "Lance"; 
+		else if (wep_rand == 2) {
+			return "Lance";
 		}
 		else {
 			return "Axe";
@@ -53,4 +53,3 @@ std::string random_wep_eff(unsigned int chance_Percent){
 		return "Normal";
 	}
 }
-	

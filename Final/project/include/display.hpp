@@ -4,25 +4,27 @@
 
 class Display {
 private:
-    Unit& Unit;
-    int yshift;
+    Unit unit;
+    int yshift = 1;
+    int selecter = 1;
 
 public:
-  
+  //Constructor
+  Display(int yshift_, int selecter_);
 
     void drawGame();
-    int updateDialogue(std::vector<std::string> Dialogue, int yshift);
-    int updateCombat(int name, int damage, int yshift);
-    int updateDeath(int name, int yshift);
-    void updateAvatarHUD(std::string name, int health, int mana, int attack, int defense);
-    void updateEnemyHUD(std::string name, int health, int mana, int attack, int defense);
+    int updateDialogue(std::vector<std::string> Dialogue);
+    int updateCombat(int name, int damage);
+    int updateDeath(int name);
+    void updateAvatarHUD(Unit player);
+    void updateEnemyHUD(Unit enemy);
     void updateOptions();
     void drawMenu();
     //Getters
     int get_yshift();
 
     //Setters
-    void set_yshift(int yshift_);
+    void set_yshift(int y);
 };
 
 
