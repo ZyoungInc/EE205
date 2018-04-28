@@ -1,47 +1,44 @@
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
+#include <string>
+#include "game-utility.hpp"
+#include <utility>
 
-//Abstract base class
+//Base weapon class
 class Weapon {
 protected:
   std::string type;
-  std::vector<std::string> rarity;
+  std::string rarity;
   int wdamage;
-  int rdamage;
+  int wdefense;
 
 public:
-  void set_rarity(std::vector<std::string>);
-  int set_tdamage(int w, int r);
-  virtual std::string type(void) = 0;
+  //Default Constructor
+  Weapon();
+  //Overloaded Constructor
+  Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_);
+  //Getters
+  std::string get_type();
+  std::string get_rarity();
+  int get_wdamage();
+  int get_wdefense();
+  //setters
+  void set_type(std::string t);
+  void set_rarity(std::string r);
+  void set_wdamage(int dmg);
+  void set_wdefense(int def);
 };
 
-class Sword: public IWeapon {
+class Warrior_Weap: public Weapon {
 public:
-  virtual std::string type(void) override {
-    return "Sword";
-  }
+  Warrior_Weap(unsigned char rarity_level);
 };
 
-class Axe: public IWeapon {
+class Mage_Weap: public Weapon {
 public:
-  virtual std::string type(void) override {
-    return "Axe";
-  }
+  Mage_Weap(unsigned char rarity_level);
 };
 
-class Lance: public IWeapon {
-public:
-  virtual std::string type(void) override {
-    return "Lance";
-  }
-};
-
-class Staff: public IWeapon {
-public:
-  virtual std::string type(void) override {
-    return "Normal";
-  }
-};
 
 
 #endif // WEAPON_HPP
