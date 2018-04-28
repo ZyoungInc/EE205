@@ -1,10 +1,14 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
+
 #include <ncurses.h>
+#include "Unit.hpp"
+#include <vector>
+#include <string>
 
 class Display {
 private:
-    Unit unit;
+	//Unit Player;
     int yshift = 1;
     int selecter = 1;
 
@@ -26,7 +30,5 @@ public:
     //Setters
     void set_yshift(int y);
 };
-
-
 
 #endif /* DISPLAY_HPP */

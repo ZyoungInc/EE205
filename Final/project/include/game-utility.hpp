@@ -15,14 +15,8 @@ std::string random_element_eff(unsigned int chance_Percent);
 
 /*Function description : Generates a random weapon based on chance else normal wep
 / Input: unsigned int example 40% = 40
-<<<<<<< HEAD
   Output: string of the element example "Fire" */		
 std::string random_wep_eff(unsigned int chance_Percent);		
 
-#endif //GAME_UTILITY_HPP
-=======
-  Output: string of the element example "Fire" */
-std::string random_wep_eff(unsigned int chance_Percent);
-
 #endif // GAME_UTILITY_HPP
->>>>>>> a91e231d317c102b759e2e15b12df6ffdfc09042
+

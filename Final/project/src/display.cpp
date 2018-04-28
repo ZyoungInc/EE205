@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 #include "display.hpp"
+#include "Unit.hpp"
+#include <string>
 
 //Constructor
-Display(int yshift_) : yshift(yshift_) {}
+Display::Display(int yshift_, int selecter_) :
+	yshift(yshift_),
+	selecter(selecter_)	{}
 
-Display::drawGame() {
+void Display::drawGame() {
   //clear whole screen
   clear();
 

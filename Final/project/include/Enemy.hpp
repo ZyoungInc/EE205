@@ -4,17 +4,12 @@
 #include <string>
 #include <utility>
 #include "game-utility.hpp"
-#include "unit.hpp"
+#include "Unit.hpp"
 
-<<<<<<< HEAD
-//Generates enemy 
-class Enemy : public Unit {
-=======
-//Generates enemy
+
 class Enemy : public Unit{
->>>>>>> a91e231d317c102b759e2e15b12df6ffdfc09042
+
 	private:
-		Unit(Unit);
 		std::pair <std::string,std::string> eff_enemy;
 
 	public:
@@ -28,8 +23,5 @@ class Enemy : public Unit{
 		std::pair <std::string,std::string>  get_enemy_eff(void);
 };
 
-<<<<<<< HEAD
-#endif //ENEMY_HPP
-=======
 #endif // ENEMY_HPP
->>>>>>> a91e231d317c102b759e2e15b12df6ffdfc09042
+

@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
     if(startMenu[highlight] == startMenu[0])
     {
         //start game
-        while(game.is_running())
+       // while(game.is_running())
     }
         //start game
 

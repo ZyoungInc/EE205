@@ -2,7 +2,6 @@
 #define UNIT_HPP
 
 #include <utility>
-#include <string>
 
 class Unit {
 protected:

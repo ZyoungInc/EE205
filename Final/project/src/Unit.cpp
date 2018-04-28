@@ -1,6 +1,5 @@
 #include <algorithm>
 #include "Unit.hpp"
-#include <string>
 
 //Default constructor
 Unit::Unit() :
