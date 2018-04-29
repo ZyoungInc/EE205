@@ -1,8 +1,11 @@
 #include <ncurses.h>
 #include <iostream>
+#include <string>
 #include "displayMenu.hpp"
 
-int drawMenuDisplay(int yMax_, xMax_) {
+using namespace std;
+
+int drawMenuDisplay(int yMax_, int xMax_) {
 	int yMax = yMax_; 
 	int xMax = xMax_;
 	
