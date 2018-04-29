@@ -44,10 +44,24 @@ Unit::Unit(Unit&& other) :
 
 //Getters
 std::string Unit::get_name() {return name;}
-int Unit::get_health() {return health;}
+int Unit::get_health() {
+  if (hp + health > MAXhealth)
+    health = MAXhealth;
+    else if (health + hp < 0)
+      health = 0;
+      else
+        health += hp;
+  return health;}
 int Unit::get_MAXhealth()  {return MAXhealth;}
 int Unit::get_MAXmana()  {return MAXmana;}
-int Unit::get_mana()  {return mana;}
+int Unit::get_mana()  {
+  if (mana_u + mana > MAXmana)
+    mana = MAXmana;
+    else if (mana + mana_u < 0)
+      mana = 0;
+      else
+        mana += mana_u;
+  return mana;}
 int Unit::get_attack()  {return attack;}
 int Unit::get_defense()  {return defense;}
 
