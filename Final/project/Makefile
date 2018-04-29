@@ -20,21 +20,21 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(INCLUDE_DIRS) $(CPPFLAGS) $(CXXFLAGS) -c -o  $@ $<
 
 ./bin/test-rand.out: $(OBJ_FILES) ./tst/test-rand.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
 		-o ./bin/test-rand.out \
-		./tst/test-rand.cpp $(OBJ_FILES)
+		./tst/test-rand.cpp $(OBJ_FILES) -lncurses
 	./bin/test-rand.out
 
 ./bin/test-display0.out:$(OBJ_FILES) ./tst/test-display0.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
 		-o ./bin/test-display0.out \
-		./tst/test-display0.cpp $(OBJ_FILES)
+		./tst/test-display0.cpp $(OBJ_FILES) -lncurses
 	./bin/test-display0.out
 
 ./bin/test-displayMenu.out:$(OBJ_FILES) ./tst/test-displayMenu.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
 		-o ./bin/test-displayMenu.out \
-		./tst/test-displayMenu.cpp $(OBJ_FILES)
+		./tst/test-displayMenu.cpp $(OBJ_FILES) -lncurses
 	./bin/test-displayMenu.out
 
 ./bin/test-Enemy.out:$(OBJ_FILES) ./tst/test-Enemy.cpp ./include/*.hpp
