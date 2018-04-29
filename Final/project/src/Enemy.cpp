@@ -51,7 +51,7 @@ Enemy::Enemy(unsigned int tier_level) {
 			MAXhealth = health = 10;
 			attack = 4;
 			defense = 4;
-			elemental_Type = random_element_eff(100);
+			elemental_Type = random_wep_eff(100);
 			weapon_Type = "Normal";
 		}
 		else {
@@ -59,8 +59,8 @@ Enemy::Enemy(unsigned int tier_level) {
 			MAXhealth = health = 8;
 			attack = 6;
 			defense = 0;
-			elemental_Type = "Normal";
-			weapon_Type = random_wep_eff(100);
+			elemental_Type = random_element_eff(100);
+			weapon_Type = "Normal";
 		}
 	}
 	else if(tier_level == 3) { 
