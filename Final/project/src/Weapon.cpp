@@ -27,108 +27,187 @@ Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefens
 
 //Inherited Warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
-  int weapon_type;
-  switch(rarity_level){
-    case 1: //Bronze melee weapon
-		  weapon_type = RandNum(1, 3);
-		    if(weapon_type == 1){
-          Weapon("Bronze", "Sword", 2, 2, 10, 10);
-		    }
-		      else if(weapon_type == 2){
-            Weapon("Bronze", "Axe", 3, 1, 10, 10);
-		      }
-            else{
-              Weapon("Bronze", "Lance", 1, 3, 10, 10);
-		        }
+	int weapon_type;
+	switch(rarity_level){
+		case 1: //Bronze melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 10;
+			this->MAXmana = 10;	
+			this->rarity = "Bronze";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 2;
+				this->wdefense = 2;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 3;
+				this->wdefense = 1;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 1;
+				this->wdefense = 3;
+			}
+			break;
+		case 2: //Silver melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 20;
+			this->MAXmana = 15;	
+			this->rarity = "Silver";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 3;
+				this->wdefense = 3;
+			}
+			else if(weapon_type == 2){
+				this->type = "Sword";
+				this->wdamage = 4;
+				this->wdefense = 2;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 2;
+				this->wdefense = 4;
+			}
+			break;
+		case 3: //Gold melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 35;
+			this->MAXmana = 30;	
+			this->rarity = "Gold";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 4;
+				this->wdefense = 4;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 5;
+				this->wdefense = 3;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 3;
+				this->wdefense = 5;
+			}
+			break;
+		case 4: //Platinum melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 55;
+			this->MAXmana = 45;	
+			this->rarity = "Platinum";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 5;
+				this->wdefense = 5;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 6;
+				this->wdefense = 4;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 4;
+				this->wdefense = 5;
+			}
 		  break;
-    case 2: //Silver melee weapon
-		  weapon_type = RandNum(1, 3);
-		    if(weapon_type == 1){
-          Weapon("Silver", "Sword", 3, 3, 20, 15);
-		    }
-          else if(weapon_type == 2){
-            Weapon("Silver", "Axe", 4, 2, 20, 15);
-		      }
-            else{
-              Weapon("Silver", "Lance", 2, 4, 20, 15);
-		      }
-      break;
-    case 3: //Gold melee weapon
-      weapon_type = RandNum(1, 3);
-        if(weapon_type == 1){
-          Weapon("Gold", "Sword", 4, 4, 35, 30);
-        }
-        else if(weapon_type == 2){
-          Weapon("Gold", "Axe", 5, 3, 35, 30);
-        }
-          else{
-            Weapon("Gold", "Lance", 3, 5, 35, 30);
-          }
-      break;
-    case 4: //Platinum melee weapon
-		  weapon_type = RandNum(1, 3);
-		    if(weapon_type == 1){
-			    Weapon("Platinum", "Sword", 5, 5, 55, 45);
-        }
-		      else if(weapon_type == 2){
-            Weapon("Platinum", "Axe", 6, 4, 55, 45);
-          }
-		        else{
-              Weapon("Platinum", "Lance", 4, 6, 55, 45);
-		      }
-      break;
-    case 5: //Diamond melee weapon
-      weapon_type = RandNum(1, 3);
-		    if(weapon_type == 1){
-		      Weapon("Diamond", "Sword", 6, 6, 80, 70);
-        }
-        else if(weapon_type == 2){
-          Weapon("Diamond", "Axe", 7, 5, 80, 70);
-        }
-          else{
-            Weapon("Diamond", "Lance", 5, 7, 80, 70);
-		      }
-		   break;
-    case 6: //Legendary melee weapon
-      weapon_type = RandNum(1, 3);
-        if(weapon_type == 1){
-          Weapon("Legendary", "Sword", 9, 9, 111, 99);
-	      }
-        else if(weapon_type == 2){
-		        Weapon("Legendary", "Axe", 11, 7, 111, 99);
-	      }
-        else{
-		        Weapon("Legendary", "Lance", 7, 11, 111, 99);
-        }
-    break;
-    default:
-		  throw "Not a weapon";
+		case 5: //Diamond melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 80;
+			this->MAXmana = 70;	
+			this->rarity = "Diamond";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 6;
+				this->wdefense = 6;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 7;
+				this->wdefense = 5;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 5;
+				this->wdefense = 7;
+			}
+			break;
+		case 6: //Legendary melee weapon
+			weapon_type = RandNum(1, 3);
+			this->MAXhealth = 111;
+			this->MAXmana = 100;	
+			this->rarity = "Legendary";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 9;
+				this->wdefense = 9;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 11;
+				this->wdefense = 7;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 7;
+				this->wdefense = 11;
+			}
+			break;
+		default:
+			throw "Not a weapon";
 	}
 }
 //Inherited mage weapon class constructor
 Mage_Weap::Mage_Weap(unsigned char rarity_level) {
-  switch(rarity_level){
-    case 1: //Bronze type staff weapon
-        Weapon("Bronze", "Staff", 1, 0, 10, 10);
-      break;
-    case 2: //Silver type staff weapon
-        Weapon("Silver", "Staff", 3, 1, 15, 25);
-      break;
-    case 3: //Gold type staff weapon
-        Weapon("Gold", "Staff", 5, 2, 30, 50);
-      break;
-    case 4: //Platinum type staff weapon
-        Weapon("Platinum", "Staff", 7, 3, 40, 65);
-      break;
-    case 5: //Diamond type staff weapon
-        Weapon("Diamond", "Staff", 9, 4, 60, 80);
-      break;
-    case 6: //Legendary type staff weapon
-        Weapon("Legendary", "Staff", 13, 5, 99, 111);
-      break;
-    default:
-      throw "Not a weapon";
-  }
+	this->type = "Staff";
+	switch(rarity_level){
+		case 1: //Bronze type staff weapon
+			this->rarity = "Bronze";
+			this->wdamage = 1;
+			this->wdefense = 0;
+			this->MAXhealth = 10;
+			this->MAXmana = 10;	
+			break;
+		case 2: //Silver type staff weapon
+			this->rarity = "Silver";
+			this->wdamage = 3;
+			this->wdefense = 1;
+			this->MAXhealth = 10;
+			this->MAXmana = 25;	
+			break;
+		case 3: //Gold type staff weapon
+			this->rarity = "Gold";
+			this->wdamage = 5;
+			this->wdefense = 2;
+			this->MAXhealth = 30;
+			this->MAXmana = 50;	
+			break;
+		case 4: //Platinum type staff weapon
+			this->rarity = "Platinum";
+			this->wdamage = 7;
+			this->wdefense = 3;
+			this->MAXhealth = 40;
+			this->MAXmana = 65;	
+			break;
+		case 5: //Diamond type staff weapon
+			this->rarity = "Diamond";
+			this->wdamage = 9;
+			this->wdefense = 4;
+			this->MAXhealth = 60;
+			this->MAXmana = 80;	
+			break;
+		case 6: //Legendary type staff weapon
+			this->rarity = "Diamond";
+			this->wdamage = 13;
+			this->wdefense = 5;
+			this->MAXhealth = 99;
+			this->MAXmana = 11;	
+			break;
+		default:
+			throw "Not a weapon";
+	}
 }
 
 //Getters
