@@ -38,9 +38,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	./bin/test-displayMenu.out
 
 ./bin/test-Enemy.out:$(OBJ_FILES) ./tst/test-Enemy.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
 		-o ./bin/test-Enemy.out \
-		./tst/test-Enemy.cpp $(OBJ_FILES)
+		./tst/test-Enemy.cpp $(OBJ_FILES) -lncurses
 	./bin/test-Enemy.out
 
 ./bin/test-displayChar.out:$(OBJ_FILES) ./tst/test-displayChar.cpp ./include/*.hpp
@@ -55,6 +55,18 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		./tst/test-displayDiag.cpp $(OBJ_FILES) -lncurses
 	./bin/test-displayDiag.out
 
+./bin/test-displayOptions.out:$(OBJ_FILES) ./tst/test-displayOptions.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
+		-o ./bin/test-displayOptions.out \
+		./tst/test-displayOptions.cpp $(OBJ_FILES) -lncurses
+	./bin/test-displayOptions.out
+
+./bin/test-displayEnemyHUD.out:$(OBJ_FILES) ./tst/test-displayEnemyHUD.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
+		-o ./bin/test-displayEnemyHUD.out \
+		./tst/test-displayEnemyHUD.cpp $(OBJ_FILES) -lncurses
+	./bin/test-displayEnemyHUD.out
+
 # Convenience rules for the command line to quickly test a class
 # Class testing
 
@@ -67,6 +79,12 @@ displayMenu: ./bin/test-displayMenu.out
 displayChar: ./bin/test-displayChar.out
 
 displayDiag: ./bin/test-displayDiag.out
+
+displayOptions: ./bin/test-displayOptions.out
+
+displayEnemyHUD: ./bin/test-displayEnemyHUD.out
+
+Enemy: ./bin/test-Enemy.out
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))

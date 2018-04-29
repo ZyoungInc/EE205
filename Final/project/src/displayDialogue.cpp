@@ -5,10 +5,10 @@
 using namespace std;
 
 void displayOpeningDiag(int yMax_, int xMax_) {
-	
-	int yMax = yMax_; 
+
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
+
 	//create title window for game
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
@@ -28,15 +28,17 @@ void displayOpeningDiag(int yMax_, int xMax_) {
     wrefresh(menuwin);
 
     getchar();
+		werase(menuwin);
+		wrefresh(menuwin);
 
 }
 
 
 void displayEndingDiag(int yMax_, int xMax_) {
-	
-	int yMax = yMax_; 
+
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
+
 	//create title window for game
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
@@ -58,11 +60,11 @@ void displayEndingDiag(int yMax_, int xMax_) {
 }
 
 void displayStageDiag(int yMax_, int xMax_, int stage) {
-	
-	int yMax = yMax_; 
+
+	int yMax = yMax_;
 	int xMax = xMax_;
 
-	
+
 	//create title window for game
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
@@ -81,10 +83,10 @@ void displayStageDiag(int yMax_, int xMax_, int stage) {
 }
 
 void displayDeathDiag(int yMax_, int xMax_) {
-	
-	int yMax = yMax_; 
+
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
+
 	//create title window for game
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);

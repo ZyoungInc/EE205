@@ -86,12 +86,13 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         break;
         case 2:
         {
-        //Spells Options
-        for(unsigned int i = 0; i < TEMP.size(); i++)
+        /*//Spells Options
+        for(unsigned int i = 0; i < temp.size(); i++)
         {
-          Option2[i] = TEMP[i].get_name();
-        }
-        Option2[5] = "Back";
+          Option2[i] = temp[i].get_name();
+        }*/
+        string Option2[5] = {"a", "b", "c", "d", "e"};
+        //Option2[5] = "Back";
         /*string Option2[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "hi"};
         if(classChoice == 1)//Warrior spells
         {
