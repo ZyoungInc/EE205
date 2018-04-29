@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(INCLUDE_DIRS) $(CPPFLAGS) $(CXXFLAGS) -c -o  $@ $<
 
 ./bin/test-rand.out: $(OBJ_FILES) ./tst/test-rand.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
 		-o ./bin/test-rand.out \
 		./tst/test-rand.cpp $(OBJ_FILES)
 	./bin/test-rand.out
@@ -42,6 +42,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		-o ./bin/test-displayMenu.out \
 		./tst/test-displayMenu.cpp $(OBJ_FILES)
 	./bin/test-displayMenu.out
+	
+./bin/test-Enemy.out:$(OBJ_FILES) ./tst/test-Enemy.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+		-o ./bin/test-Enemy.out \
+		./tst/test-Enemy.cpp $(OBJ_FILES)
+	./bin/test-Enemy.out
 
 # Convenience rules for the command line to quickly test a class
 # Class testing
@@ -52,6 +58,8 @@ rand: ./bin/test-rand.out
 display0: ./bin/test-display0.out
 
 displayMenu: ./bin/test-displayMenu.out
+
+testEnemy: ./bin/test-Enemy.out
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))

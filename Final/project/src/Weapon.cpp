@@ -9,15 +9,21 @@ Weapon::Weapon() :
   type("Hands"),
   wdamage(2),
   wdefense(2),
-  MAXhealth(10)
-  MAXmana(10) {}
+  MAXhealth(10),
+  MAXmana(10) {
+	  
+  }
 
 //Overloaded base weapon constructor
-Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_) :
+Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_,int MAXhealth_, int MAXmana_) :
   rarity(rarity_),
   type(type_),
   wdamage(wdamage_),
-  wdefense(wdefense_) {}
+  wdefense(wdefense_),
+  MAXhealth(MAXhealth_),
+  MAXmana(MAXmana_) {
+	  
+  }
 
 //Inherited Warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
@@ -138,5 +144,5 @@ void Weapon::set_type(std::string t) {this->type = t;}
 void Weapon::set_rarity(std::string r) {this->rarity = r;}
 void Weapon::set_wdamage(int dmg) {this->wdamage = dmg;}
 void Weapon::set_wdefense(int def) {this->wdefense = def;}
-void Weapon::get_MAXhealth(int hp) {return MAXhealth;}
-void Weapon::get_MAXmana(int mp) {return MAXmana;}
+void Weapon::set_MAXhealth(int hp) {this->MAXhealth = hp;}
+void Weapon::set_MAXmana(int mp) {this->MAXmana = mp;}
