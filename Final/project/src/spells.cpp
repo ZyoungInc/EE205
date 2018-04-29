@@ -2,38 +2,44 @@
 #include <string>
 #include <vector>
 #include "spells.hpp"
-using namespace std;
-  Spell::Spell (int c, int d, int h, string n, string e ):
+#define HEAL_DMG 2
+#define VAMPIRE_DMG 2
+
+Spell::Spell() :
+	cost(0),
+    damage(0),
+    hits(0),
+    name(""),
+    EleType("") {
+	}
+
+
+//Overloaded constructor for spells
+Spell::Spell(int c, int d, int h, string n, string e ) :
     cost(c),
     damage(d),
     hits(h),
     name(n),
-    EleType(e)
-  {}
-  //Choice between 2 sets of spells
-  Spell::Spellset(int Choice){
-    if (Choice == 1)
-    {
-    Fireball Spell(1, 2, 1, "Fireball", "Fire")
-    Torrent Spell (1, 2, 1, "Torrent", "Water")
-    Wrath Spell (1, 2, 1, "Wrath", "Nature")
-    Heal Spell (1, 2, 1, "Heal", "None")
-    }
-    else if(Choice == 2) {
-      Slash Spell (1, 3, 1, "Slash", "None")
-      Flurry Spell (1, 1, 3, "Flurry", "None")
-      HeavyBlow Spell (1, 5, 1, "HeavyBlow", "None")
-      VampiricStrike Spell (1, 2, 1, "VampiricStrike", "None")
-    }
-
-}
-
+    EleType(e) {
+	}
+	
 //Getters
-int Spell::get_cost() const {return cost;}
-int Spell::get_damage() const{return damage;}
-int Spell::get_hits() const {return hits;}
-string Spell::get_name() const {return name;}
-string Spell::get_EleType() const {return EleType;}
+int Spell::get_cost() {return cost;}
+int Spell::get_damage() {return damage;}
+int Spell::get_hits()  {return hits;}
+string Spell::get_name()  {return name;}
+string Spell::get_EleType() {return EleType;}
+int Spell::check_Effect(int playerATK) {
+	if (this->name == "Heal") {
+		return  (playerATK * HEAL_DMG);
+	}
+	if (this->name == "VampiricStrike") {
+		return (playerATK * VAMPIRE_DMG);
+	}
+	else {
+		return 0;
+	}
+}
 
 //Setters
 void Spell::set_cost(int c) {cost = c;}
@@ -42,11 +48,36 @@ void Spell::set_hits(int h){hits = h;}
 void Spell::set_name(string n){name = n;}
 void Spell::set_Type(string e){EleType = e;}
 
-void Spell::Effect(){
-if (Spell.name == "Heal") player.health = player.health + (player.ATK()*Heal.damage)
-if (Spell.name == "VampiricStrike") player.health = player.health +(player.ATK()*VampiricStrike.damage)
-}
 string magearray[4] = {"Fireball: Fire Element, Damage: 1.5x ATK, Cost: 10 Mana", "Torrent: Water Element, Damage: 1.5x ATK, Cost: 10 Mana", "Wrath: Nature Element, Deals 1.5x ATK", "Restore: Heals you for 1/2 MaxHP. Cost: 20 Mana" };
 
-string warriorarray[4] = {"Slash: No Element, Damage: 2x ATK, Cost 10 Mana", "Flurry: No Element, Damage: 1x ATK 3 times, Cost: 10 Mana", "HeavyBlow: No Element, Deals 5x ATK, Cost: 10 Mana", "VampiricStrike:No Element Damage: 2x ATK Heals for Damage Dealt, Cost: 20 Mana "
+string warriorarray[4] = {"Slash: No Element, Damage: 2x ATK, Cost 10 Mana", "Flurry: No Element, Damage: 1x ATK 3 times, Cost: 10 Mana", "HeavyBlow: No Element, Deals 5x ATK, Cost: 10 Mana", "VampiricStrike:No Element Damage: 2x ATK Heals for Damage Dealt, Cost: 20 Mana " };
+
+vector<Spell> MakeSpellBook(int choice) {
+	vector<Spell> tempSpellBook;
+	if (choice == 1)
+    {
+		Spell FireBall(1, 2, 1, "Fireball", "Fire") ;
+		Spell Torrent(1, 2, 1, "Torrent", "Water");
+		Spell Wrath(1, 2, 1, "Wrath", "Nature");
+		Spell Heal(1, 2, 1, "Heal", "None");
+		tempSpellBook.push_back(FireBall);
+		tempSpellBook.push_back(Torrent);
+		tempSpellBook.push_back(Wrath);
+		tempSpellBook.push_back(Heal);
+		return tempSpellBook;
+    }
+    else if (choice == 2) {
+		Spell Slash(1, 3, 1, "Slash", "None");
+		Spell Flurry(1, 1, 3, "Flurry", "None");
+		Spell HeavyBlow(1, 5, 1, "HeavyBlow", "None");
+		Spell VampiricStrike (1, 2, 1, "VampiricStrike", "None");
+		tempSpellBook.push_back(Slash);
+		tempSpellBook.push_back(Flurry);
+		tempSpellBook.push_back(HeavyBlow);
+		tempSpellBook.push_back(VampiricStrike);
+		return tempSpellBook;
+    }
+	else {
+		throw "Invalid choice";
+	}
 }

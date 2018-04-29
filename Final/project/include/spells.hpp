@@ -1,3 +1,10 @@
+#ifndef SPELL_HPP
+#define SPELL_HPP
+
+#include <string>
+#include <vector>
+using namespace std;
+
 class Spell{
 private:
   int cost;
@@ -7,16 +14,17 @@ private:
   string EleType;
 
 public:
+
+  //Default contructor
+  Spell ();
   //Constructor
   Spell (int c, int d, int h, string n, string e );
-  //Choice between 2 sets of spells
-  Spellset(int Choice);
 
   // Copy Constructor
-  Spell(const Spell& other);
+  //Spell(const Spell& other);
 
   //Move Constructor
-  Spell(Spell&& other);
+  //Spell(Spell&& other);
 
   //Getters
   int get_cost();
@@ -24,6 +32,11 @@ public:
   int get_hits();
   string get_name();
   string get_EleType();
+  
+  /*Function description : Checks if the spell has a heal component
+  Input: Require player's atk dmg
+  Output: return the amount of healing done by spell */
+  int check_Effect(int PlayerATK);
 
   //Setters
   void set_cost(int c);
@@ -32,5 +45,10 @@ public:
   void set_name(string n);
   void set_Type(string e);
 
-  void Effect();
-}
+
+};
+
+vector<Spell> MakeSpellBook(int choice);
+
+#endif // SPELL_HPP
+
