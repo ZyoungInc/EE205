@@ -1,27 +1,42 @@
 #include <ncurses.h>
 #include <string>
 #include <iostream>
+#include <ctime>
 #include "displayMenu.hpp"
+#include "displayChar.hpp"
 
 using namespace std;
 
 int main() {
-	
+
 	//NCURSES START
     initscr();
     noecho();
     cbreak();
-	
+  //seed randnum
+    srand(time(0));
+
 	//get screen size
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
-	
+
 	//Run game menu to get user's choice
-	int inMenu = 0;
-	while (inMenu == 0) {
-		inMenu = drawMenuDisplay(yMax, xMax);
+	int state = 0;
+	while (state == 0) {
+		state = drawMenuDisplay(yMax, xMax);
 	}
-	
+  pair<int, string> chInput;
+	while (state == 1) {
+		chInput = drawCharDisplay(yMax, xMax);
+    if(chInput.first == 1)
+      state = chInput.first + 2;
+    else
+      state = chInput.first + 1;
+    //Construct player
+    //Player();
+	}
+
 	endwin();
-	cout << inMenu << endl;
+	cout << state << endl;
+  cout << chInput.second << endl;
 }

@@ -1,32 +1,27 @@
-#include "game.hpp"
-#include "player.hpp"
-#include <curses.h>
 #include <ncurses.h>
+#include "displayChar.hpp"
+#include <string>
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
-Game::Game() :  {cout << "constructor" << endl;}
+pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
+  int yMax = yMax_;
+  int xMax = xMax_;
 
-Game::~Game(){
-  cout << "destructor" << endl;
-}
-void Game::createPlayer()
-{
   clear();
-  char name[50];
+  char name[80];
   while(1){
-  mvprintw(stdscr, 1, 1, "What is your name: ");
-  while(getch() != 10)
-  {
-    name += getch();
-  }
-    refresh();
-    player.set_name(name);
-
+  mvwprintw(stdscr, 1, 1, "What is your name: ");
+  getstr(name);
+  mvwprintw(stdscr, 1, 20, name);
+    wrefresh(stdscr);
+    break;
   }
   //create a menu window for input
-  WINDOW * classwin = newwin(4, xMax-1, 7, 1);
+  WINDOW * classwin = newwin(7, xMax - 1, 4, 1);
+  //box(classwin, 0, 0);
   refresh();
   wrefresh(classwin);
   //allows use of arrow keys
@@ -37,14 +32,17 @@ void Game::createPlayer()
   int highlight = 0;
   while(1)
   {
-    mvprintw(stdscr, 3, 1, "What class would you like to play? : ");
+    mvwprintw(stdscr, 3, 1, "What class would you like to play? : ");
+    wrefresh(stdscr);
+
       for(int i = 0; i < 2; i++)
       {
           if(i == highlight)
               wattron(classwin, A_REVERSE);
-          mvwprintw(classwin, i+4, 1, startMenu[i].c_str());
+          mvwprintw(classwin, i+1, 1, classSelect[i].c_str());
           wattroff(classwin, A_REVERSE);
       }
+      wrefresh(classwin);
       choice = wgetch(classwin);
 
       switch(choice)
@@ -66,19 +64,17 @@ void Game::createPlayer()
           break;
       }
       if(classSelect[highlight] == classSelect[0])
-        player.set_class("Warrior");
+      {
+        pair <int, string> temp_state;
+      	temp_state.first = 1;
+      	temp_state.second = name;
+      	return temp_state;
+      }
       if(classSelect[highlight] == classSelect[1])
-        player.set_class("Mage");
-
-}
-bool Game::is_running(void)
-{
-  createPlayer();
-  Display.drawGame();
-  Display.updateDialogue();
-
-
-
-  cout << "End of the game" << endl;
-  return false;
+      {
+        pair <int, string> temp_state;
+      	temp_state.first = 2;
+      	temp_state.second = name;
+      	return temp_state;
+      }
 }
