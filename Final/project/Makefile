@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(INCLUDE_DIRS) $(CPPFLAGS) $(CXXFLAGS) -c -o  $@ $<
 
 ./bin/test-rand.out: $(OBJ_FILES) ./tst/test-rand.cpp ./include/*.hpp
-	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
 		-o ./bin/test-rand.out \
 		./tst/test-rand.cpp $(OBJ_FILES)
 	./bin/test-rand.out
@@ -36,6 +36,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		-o ./bin/test-displayMenu.out \
 		./tst/test-displayMenu.cpp $(OBJ_FILES)
 	./bin/test-displayMenu.out
+
+./bin/test-Enemy.out:$(OBJ_FILES) ./tst/test-Enemy.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) -lncurses \
+		-o ./bin/test-Enemy.out \
+		./tst/test-Enemy.cpp $(OBJ_FILES)
+	./bin/test-Enemy.out
 
 ./bin/test-displayChar.out:$(OBJ_FILES) ./tst/test-displayChar.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \

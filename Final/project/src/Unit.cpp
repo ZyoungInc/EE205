@@ -53,9 +53,23 @@ int Unit::get_defense()  {return defense;}
 
 //Setters
 void Unit::set_name(std::string s) { name = s;}
-void Unit::set_health(int hp) {health = hp;}
+void Unit::set_health(int hp) {
+	if (hp + health > MAXhealth)
+		health = MAXhealth;
+    else if (health + hp < 0)
+		health = 0;
+	else
+        health += hp;
+}
 void Unit::set_MAXhealth(int hp) {MAXhealth = hp;}
-void Unit::set_MAXmana(int mp) {MAXmana = mp;}
+void Unit::set_MAXmana(int mp) {
+	if (mp + mana > MAXmana)
+		mana = MAXmana;
+    else if (mana + mp < 0)
+		mana = 0;
+	else
+        mana += mp;
+}
 void Unit::set_mana(int mp) {mana = mp;}
 void Unit::set_attack(int atk) {attack = atk;}
 void Unit::set_defense(int def) {defense = def;}

@@ -5,128 +5,178 @@
 #include "Unit.hpp"
 #include "Enemy.hpp"
 
-Enemy::Enemy(unsigned char tier_level) {
+Enemy::Enemy(unsigned int tier_level) {
 	int enemy_subtype;
-	switch(tier_level) {
-		case 1 : 
-			//Beasts
-			enemy_subtype = RandNum(1, 3);
-			if(enemy_subtype == 1) {
-				Unit ("Wolf", 5, 0, 2 , 0);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 2) {
-				Unit("Cougar", 3, 0 , 4 , 0);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			else {
-				Unit("Bear", 3, 0 , 4 , 0);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			break;
-		case 2 : 
-			//Highway bandit
-			enemy_subtype = RandNum(1, 3);
-			if(enemy_subtype == 1) {
-				Unit("Highway Bandit", 8, 0 , 4 , 2);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 2) {
-				Unit("Rogue Knight", 10, 0 , 4 , 4);
-				eff_enemy.first = random_element_eff(100);
-				eff_enemy.second = "Normal";
-			}
-			else {
-				Unit("Rogue Mage", 8, 0 , 6 , 0);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = random_wep_eff(100);
-			}
-			break;
-		case 3 : 
-			//Skeletons
-			enemy_subtype = RandNum(1, 4);
-			if(enemy_subtype == 1) {
-				Unit("Skeleton warrior", 14, 0 , 6 , 2);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 2) {
-				Unit("Skeleton Mage", 12, 0 , 8 , 0);
-				eff_enemy.first = random_element_eff(100);
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 3) {
-				Unit("Skeleton Archer", 12, 0 , 8 , 0);
-				eff_enemy.first = "Normal";
-				eff_enemy.second = "Normal";
-			}
-			else {
-				Unit("Arch Lich", 18, 0 , 8 , 8);
-				eff_enemy.first = random_element_eff(100);
-				eff_enemy.second = "Normal";
-			}
-			break;
-		case 4 : 
-			//Horrors enemys
-			enemy_subtype = RandNum(1, 4);
-			if(enemy_subtype == 1) {
-				Unit("Deformed beast", 16, 0 , 6 , 0);
-				eff_enemy.first = random_element_eff(20);
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 2) {
-				Unit("Deformed human", 18, 0 , 6 , 6);
-				eff_enemy.first = random_element_eff(20);
-				eff_enemy.second = random_wep_eff(100);
-			}
-			else if (enemy_subtype == 3) {
-				Unit("Other worldly horror", 20, 0 , 10, 10);
-				eff_enemy.first = random_element_eff(20);
-				eff_enemy.second = random_wep_eff(50);
-			}
-			else {
-				Unit("Horror gate guard", 40, 0 , 10, 15);
-				eff_enemy.first = random_element_eff(100);
-				eff_enemy.second = random_wep_eff(100);
-			}
-			break;
-		case 5 :
-			//Demon
-			enemy_subtype = RandNum(1, 3);
-			if(enemy_subtype == 1) {
-				Unit("Fire Demon", 40, 0 , 20 , 10);
-				eff_enemy.first = "Fire";
-				eff_enemy.second = "Normal";
-			}
-			else if (enemy_subtype == 2) {
-				Unit("Fire Demon", 50, 0 , 15 , 15);
-				eff_enemy.first = "Nature";
-				eff_enemy.second = "Normal";
-			}
-			else {
-				Unit("Water Demon", 60, 0 , 10, 20);
-				eff_enemy.first = "Water";
-				eff_enemy.second = "Normal";
-			}
-			break;
-		case 6 :
-			Unit("Satan", 100, 0 , 20, 20);
-			eff_enemy.first = "Normal";
-			eff_enemy.second = "Normal";
-			break;
-		default:
-			throw "Error: not a valid tier level" ;
+	if (tier_level == 1) {
+		//Beasts
+		enemy_subtype = RandNum(1, 3);
+		if(enemy_subtype == 1) {
+			name =  "Wolf";
+			MAXhealth = health = 5 ;
+			attack = 2;
+			defense = 0;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 2) {
+			name =  "Cougar";
+			MAXhealth = health = 3 ;
+			attack = 4;
+			defense = 0;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+		else {
+			name =  "Bear";
+			MAXhealth = health = 3 ;
+			attack = 4;
+			defense = 0;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+	}
+	else if(tier_level == 2) { 
+		//Highway bandit
+		enemy_subtype = RandNum(1, 3);
+		if(enemy_subtype == 1) {
+			name =  "Highway Bandit";
+			MAXhealth = health = 8 ;
+			attack = 4;
+			defense = 2;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 2) {
+			name =  "Rogue Knight";
+			MAXhealth = health = 10;
+			attack = 4;
+			defense = 4;
+			elemental_Type = random_element_eff(100);
+			weapon_Type = "Normal";
+		}
+		else {
+			name =  "Rogue Mage";
+			MAXhealth = health = 8;
+			attack = 6;
+			defense = 0;
+			elemental_Type = "Normal";
+			weapon_Type = random_wep_eff(100);
+		}
+	}
+	else if(tier_level == 3) { 
+		//Skeletons
+		enemy_subtype = RandNum(1, 4);
+		if(enemy_subtype == 1) {
+			name =  "Skeleton warrior";
+			MAXhealth = health = 14;
+			attack = 6;
+			defense = 2;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 2) {
+			name =  "Skeleton Mage";
+			MAXhealth = health = 12;
+			attack = 8;
+			defense = 0;
+			elemental_Type = random_element_eff(100);
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 3) {
+			name =  "Skeleton Archer";
+			MAXhealth = health = 12;
+			attack = 8;
+			defense = 0;
+			elemental_Type = "Normal";
+			weapon_Type = "Normal";
+		}
+		else {
+			name =  "Arch Lich";
+			MAXhealth = health = 18;
+			attack = 8;
+			defense = 8;
+			elemental_Type = random_element_eff(100);
+			weapon_Type = "Normal";
+		}
+	}
+	else if(tier_level == 4) {
+		//Horrors enemys
+		enemy_subtype = RandNum(1, 4);
+		if(enemy_subtype == 1) {
+			name =  "Deformed beast";
+			MAXhealth = health = 16;
+			attack = 6;
+			defense = 0;
+			elemental_Type = random_element_eff(20);
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 2) {
+			name =  "Deformed human";
+			MAXhealth = health = 18;
+			attack = 6;
+			defense = 6;
+			elemental_Type = random_element_eff(20);
+			weapon_Type = random_wep_eff(100);
+		}
+		else if (enemy_subtype == 3) {
+			name =  "Other worldly horror";
+			MAXhealth = health = 20;
+			attack = 10;
+			defense = 10;
+			elemental_Type = random_element_eff(20);
+			weapon_Type = random_wep_eff(50);
+		}
+		else {
+			name =  "Horror gate guard";
+			MAXhealth = health = 40;
+			attack = 10;
+			defense = 15;
+			elemental_Type = random_element_eff(100);
+			weapon_Type = random_wep_eff(100);
+		}
+	}
+	else if (tier_level == 5) {
+		//Demon
+		enemy_subtype = RandNum(1, 3);
+		if(enemy_subtype == 1) {
+			name =  "Fire Demon";
+			MAXhealth = health = 40;
+			attack = 20;
+			defense = 10;
+			elemental_Type = "Fire";
+			weapon_Type = "Normal";
+		}
+		else if (enemy_subtype == 2) {
+			name =  "Nature Demon";
+			MAXhealth = health = 50;
+			attack = 15;
+			defense = 15;
+			elemental_Type = "Nature";
+			weapon_Type = "Normal";
+		}
+		else {
+			name =  "Water";
+			MAXhealth = health = 60;
+			attack = 10;
+			defense = 20;
+			elemental_Type = "Water";
+			weapon_Type = "Normal";
+		}
+	}
+	else if(tier_level == 6) {
+		name =  "Satan";
+		MAXhealth = health = 100;
+		attack = 20;
+		defense = 20;
+		elemental_Type = "Normal";
+		weapon_Type = "Normal";
+	}
+	else {
+		throw "Error: not a valid tier level" ;
 	}
 
 }
 
-std::pair <std::string,std::string>  Enemy::get_enemy_eff() {
-	std::pair <std::string, std::string> temp_enemy_eff;
-	temp_enemy_eff.first = eff_enemy.first;
-	temp_enemy_eff.second = eff_enemy.second;
-	return temp_enemy_eff;
-}
+std::string Enemy::get_element(void) { return this->elemental_Type; }
+
+std::string Enemy::get_wep_type(void) { return this->weapon_Type; }

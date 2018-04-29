@@ -10,17 +10,19 @@
 class Enemy : public Unit{
 
 	private:
-		std::pair <std::string,std::string> eff_enemy;
-
+		std::string elemental_Type;
+		std::string weapon_Type;
+		
 	public:
 		//construct enemy base on tier level, BOSS is tier 6 (satan)
-		Enemy(unsigned char tier_level);
+		Enemy(unsigned int tier_level);
 
 		/*Function description : Grab the enemy's effects, first is elemental
 		  second is weapon type
 		  Input: None
 		  Output: string pair of enemy effect*/
-		std::pair <std::string,std::string>  get_enemy_eff(void);
+		std::string get_element(void);
+		std::string get_wep_type(void);
 };
 
 #endif // ENEMY_HPP
