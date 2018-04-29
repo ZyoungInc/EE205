@@ -1,7 +1,7 @@
-#include "Weapon.hpp"
+#include <utility>
 #include <string>
 #include "game-utility.hpp"
-#include <utility>
+#include "Weapon.hpp"
 
 //Default Constructor
 Weapon::Weapon() :
@@ -10,7 +10,7 @@ Weapon::Weapon() :
   wdamage(2),
   wdefense(2) {}
 
-//Overloaded base weapon Constructor
+//Overloaded base weapon constructor
 Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_) :
   rarity(rarity_),
   type(type_),
@@ -21,47 +21,43 @@ Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefens
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
   int weapon_type;
   switch(rarity_level){
-    case 1:
-		  //Bronze
+    case 1: //Bronze melee weapon
 		  weapon_type = RandNum(1, 3);
-		  if(weapon_type == 1){
-			Weapon("Bronze", "Sword", 2, 2);
-		  }
-		  else if(weapon_type == 2){
-			Weapon("Bronze", "Axe", 3, 1);
-		  }
-		  else{
-			Weapon("Bronze", "Lance", 1, 3);
-		  }
+		    if(weapon_type == 1){
+          Weapon("Bronze", "Sword", 2, 2);
+		    }
+		      else if(weapon_type == 2){
+            Weapon("Bronze", "Axe", 3, 1);
+		      }
+            else{
+              Weapon("Bronze", "Lance", 1, 3);
+		        }
 		  break;
-    case 2:
-		  //Silver
+    case 2: //Silver melee weapon
 		  weapon_type = RandNum(1, 3);
-		  if(weapon_type == 1){
-			Weapon("Silver", "Sword", 3, 3);
-		  }
-		  else if(weapon_type == 2){
-			Weapon("Silver", "Axe", 4, 2);
-		  }
-		  else{
-			Weapon("Silver", "Lance", 2, 4);
-		  }
+		    if(weapon_type == 1){
+			       Weapon("Silver", "Sword", 3, 3);
+		    }
+		      else if(weapon_type == 2){
+			       Weapon("Silver", "Axe", 4, 2);
+		      }
+		        else{
+			           Weapon("Silver", "Lance", 2, 4);
+		      }
 		  break;
-	case 3:
-		//Gold
-        weapon_type = RandNum(1, 3);
+    case 3: //Gold melee weapon
+      weapon_type = RandNum(1, 3);
         if(weapon_type == 1){
           Weapon("Gold", "Sword", 4, 4);
-        }
+          }
         else if(weapon_type == 2){
           Weapon("Gold", "Axe", 5, 3);
         }
-        else{
-          Weapon("Gold", "Lance", 3, 5);
+              else{
+                Weapon("Gold", "Lance", 3, 5);
         }
         break;
-	case 4:
-		  //Platinum
+	case 4: //Platinum melee weapon
 		  weapon_type = RandNum(1, 3);
 		  if(weapon_type == 1){
 			Weapon("Platinum", "Sword", 5, 5);
@@ -98,38 +94,34 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 	  else{
 		Weapon("Legendary", "Lance", 7, 11);
 	  }
-	  default:
+    break;
+  default:
 		throw "Not a weapon";
 	}
 }
 //Inherited mage weapon class constructor
 Mage_Weap::Mage_Weap(unsigned char rarity_level) {
   switch(rarity_level){
-    case 1:
-      //Bronze
+    case 1: //Bronze type staff weapon
         Weapon("Bronze", "Staff", 1, 0);
       break;
-    case 2:
-      //Silver
+    case 2: //Silver type staff weapon
         Weapon("Silver", "Staff", 3, 1);
       break;
-      case 3:
-        //Gold
-          Weapon("Gold", "Staff", 5, 2);
-        break;
-        case 4:
-          //Platinum
-            Weapon("Platinum", "Staff", 7, 3);
-          break;
-          case 5:
-            //Diamond
-              Weapon("Diamond", "Staff", 9, 4);
-            break;
-            case 6:
-              //Legendary
-                Weapon("Legendary", "Staff", 13, 5);
-              default:
-                throw "Not a weapon";
+    case 3: //Gold type staff weapon
+        Weapon("Gold", "Staff", 5, 2);
+      break;
+    case 4: //Platinum type staff weapon
+        Weapon("Platinum", "Staff", 7, 3);
+      break;
+    case 5: //Diamond type staff weapon
+        Weapon("Diamond", "Staff", 9, 4);
+      break;
+    case 6: //Legendary type staff weapon
+        Weapon("Legendary", "Staff", 13, 5);
+      break;
+    default:
+      throw "Not a weapon";
   }
 }
 
@@ -138,8 +130,13 @@ std::string Weapon::get_type() {return type;}
 std::string Weapon::get_rarity() {return rarity;}
 int Weapon::get_wdamage() {return wdamage;}
 int Weapon::get_wdefense() {return wdefense;}
-//setters
+int Weapon::get_MAXhealth() {return MAXhealth;}
+int Weapon::get_MAXmana() {return MAXmana;}
+
+//Setters
 void Weapon::set_type(std::string t) {this->type = t;}
 void Weapon::set_rarity(std::string r) {this->rarity = r;}
 void Weapon::set_wdamage(int dmg) {this->wdamage = dmg;}
 void Weapon::set_wdefense(int def) {this->wdefense = def;}
+void Weapon::get_MAXhealth(int hp) {return MAXhealth;}
+void Weapon::get_MAXmana(int mp) {return MAXmana;}

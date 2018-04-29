@@ -55,12 +55,12 @@ int Unit::get_health() {
 int Unit::get_MAXhealth()  {return MAXhealth;}
 int Unit::get_MAXmana()  {return MAXmana;}
 int Unit::get_mana()  {
-  if (mana_u + mana > MAXmana)
+  if (mp + mana > MAXmana)
     mana = MAXmana;
-    else if (mana + mana_u < 0)
+    else if (mana + mp < 0)
       mana = 0;
       else
-        mana += mana_u;
+        mana += mp;
   return mana;}
 int Unit::get_attack()  {return attack;}
 int Unit::get_defense()  {return defense;}
