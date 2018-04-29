@@ -4,6 +4,7 @@
 #include <ctime>
 #include "displayMenu.hpp"
 #include "displayChar.hpp"
+#include "displayOptions.hpp"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ int main() {
     //Construct player
     //Player();
 	}
+  int spellChoice = drawOptionDisplay(yMax, xMax, chInput.first);
 
 	endwin();
 	cout << state << endl;
