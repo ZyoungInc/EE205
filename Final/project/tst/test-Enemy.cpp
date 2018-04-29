@@ -10,12 +10,12 @@ using namespace std;
 
 int main() {
 	unsigned int randomNum = 1;
-	int flag = 0;
+	char flag = 2;
 	srand(time(0));
 	
-	cout << "This program continously generates enemy until 1 is pressed" << endl;
+	cout << "This program continously generates enemy until q is entered" << endl;
 	
-	while (flag != 1) {
+	while (flag != 'q') {
 		randomNum = RandNum(1 , 6);
 		Enemy newEnemy(randomNum);
 
