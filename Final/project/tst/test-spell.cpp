@@ -18,6 +18,7 @@ int main() {
 	
 	cout << "Healing done by Fireball : " << testMageSpell[2].check_Effect(49) << endl;
 	cout << "Healing done by VampiricStrike : " << testWarSpell[3].check_Effect(3) << endl;
+	//EX player.set_hp(testWarrSpell[3].check_Effect(player.get_atk)); to see if spells heals
 	
 	return 0;	
 }
