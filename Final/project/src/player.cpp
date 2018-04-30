@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Weapon Weapon;
+
 // Constructs a Player with default stats and  chosen name
 Player::Player(string name, Weapon wep):
   name(name),
@@ -29,17 +29,17 @@ Player::Player(string name, Weapon wep):
     MAXMana(newwep.MAXMana) {}
 
     //Getters
-    string get_name() {return name;}
+    string Player::get_name() {return name;}
     int Player::get_health() {return health;}
     int Player::get_MAXhealth() {return MAXhealth;}
     int Player::get_mana() {return mana;}
     int Player::get_MAXmana() {return MAXmana;}
     int Player::get_attack() {return att;}
-    int Player::et_defense() {return def;}
+    int Player::get_defense() {return def;}
 
     //Setters
     void Player::set_name(string s) {name = s;}
-    void Player::set_health(int hp)
+    void Player::set_health(int hp){
     if (hp + health > MAXhealth)
       health = MAXhealth;
       else if (health + hp < 0)
@@ -47,8 +47,8 @@ Player::Player(string name, Weapon wep):
     else
           health += hp;
   }
-    void Player::set_MAXhealth(int hp){Maxhealth = hp;}
-    void Player::set_mana(int mp)
+    void Player::set_MAXhealth(int hp){MAXhealth = hp;}
+    void Player::set_mana(int mp){
     if (mp + mana > MAXmana)
   		mana = MAXmana;
       else if (mana + mp < 0)
@@ -56,7 +56,7 @@ Player::Player(string name, Weapon wep):
   	else
           mana += mp;
   }
-    void Player::set_MAXmana(int mp){Maxmana = mp;}
+    void Player::set_MAXmana(int mp){MAXmana = mp;}
     void Player::set_attack(int atk){ att = atk;}
     void Player::set_defense(int d){def = d;}
 
