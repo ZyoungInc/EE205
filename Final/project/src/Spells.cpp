@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "spells.hpp"
+#include "Spells.hpp"
 #define HEAL_DMG 2
 #define VAMPIRE_DMG 2
 
@@ -22,7 +22,7 @@ Spell::Spell(int c, int d, int h, string n, string e ) :
     name(n),
     EleType(e) {
 	}
-	
+
 //Getters
 int Spell::get_cost() {return cost;}
 int Spell::get_damage() {return damage;}

@@ -66,12 +66,18 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		-o ./bin/test-displayEnemyHUD.out \
 		./tst/test-displayEnemyHUD.cpp $(OBJ_FILES) -lncurses
 	./bin/test-displayEnemyHUD.out
-	
+
+./bin/test-displayPlayerHUD.out:$(OBJ_FILES) ./tst/test-displayPlayerHUD.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
+		-o ./bin/test-displayPlayerHUD.out \
+		./tst/test-displayPlayerHUD.cpp $(OBJ_FILES) -lncurses
+	./bin/test-displayPlayerHUD.out
+
 ./bin/test-Weapon.out:$(OBJ_FILES) ./tst/test-Weapon.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
 		-o ./bin/test-Weapon.out \
 		./tst/test-Weapon.cpp $(OBJ_FILES) -lncurses
-	./bin/test-Weapon.out	
+	./bin/test-Weapon.out
 
 # Convenience rules for the command line to quickly test a class
 # Class testing
@@ -89,6 +95,8 @@ displayDiag: ./bin/test-displayDiag.out
 displayOptions: ./bin/test-displayOptions.out
 
 displayEnemyHUD: ./bin/test-displayEnemyHUD.out
+
+displayPlayerHUD: ./bin/test-displayPlayerHUD.out
 
 Enemy: ./bin/test-Enemy.out
 

@@ -75,11 +75,13 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         //Flee, stay in first selector
         else if(Option1[highlight1] == Option1[2])
         {
+          return 5;
           selecter = 1;
         }
         //Kill yourself and quits the game
         else if(Option1[highlight1] == Option1[3])
         {
+          return 5;
           endwin();
         }
       }
@@ -160,6 +162,7 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
             else if(Option2[highlight2] == Option2[4])
             {
               selecter = 1;
+              break;
             }
           }
 						default:
