@@ -18,7 +18,7 @@ protected:
 	  int MAXmana;
 	  int attack;
 	  int defense;
-		Weapon *weap = new Weapon;
+		Weapon *weap;
 
 public:
 		Player(); //Constructor

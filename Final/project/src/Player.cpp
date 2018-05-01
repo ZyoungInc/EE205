@@ -21,18 +21,15 @@ Player::Player() :
 
 Player::~Player() {}
 
-// Constructs a Player with default stats and  chosen name
-Player::Player(string name_, Weapon *weap_) :
-  weap(weap_),
-  name(name_),
-  //rarity(weap->get_rarity()),
-  //type(weap->get_type()),
-  MAXhealth(weap->get_MAXhealth()),
-  health(weap->get_MAXhealth()),
-  MAXmana(weap->get_MAXmana()),
-  mana(weap->get_MAXmana()),
-  attack(weap->get_wdamage()),
-  defense(weap->get_wdefense()) {}
+/* Constructs a Player with default stats and  chosen name */
+Player::Player(string name_, Weapon *weap_) {
+	this->name = name_;
+	weap = weap_;
+	this->MAXhealth = this->health = weap->get_MAXhealth();
+	this->MAXmana = this->mana = weap->get_MAXmana();
+	this->attack = weap->get_wdamage();
+	this->defense = weap->get_wdefense();
+}
 
   /*//Copy Constructor
   Player::Player(const Player& other) :

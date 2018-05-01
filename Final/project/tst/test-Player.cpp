@@ -23,6 +23,15 @@ int main() {
 	while (input != 'q') {
 		randomNum = RandNum(1, 6);
 		Warrior_Weap weap(randomNum);
+		
+		cout << "Weapon type: " << weap.get_type() << endl;
+		cout << "Rarity: "  << weap.get_rarity() << endl;
+		cout << "ATK: "  <<  weap.get_wdamage() << endl;
+		cout << "DEF: "  << weap.get_wdefense() << endl;
+		cout << "MaxHP: "  <<  weap.get_MAXhealth() << endl;
+		cout << "MaxMP: "  << weap.get_MAXmana() << endl;
+		
+		
 		Player newPlayer("Nate", &weap);
 
 
