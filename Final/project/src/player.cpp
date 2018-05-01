@@ -2,12 +2,13 @@
 #include <utility>
 #include "game-utility.hpp"
 #include "player.hpp"
+#include "Weapon.hpp"
 
 using namespace std;
 
 Weapon Weapon;
 // Constructs a Player with default stats and  chosen name
-Player::Player(string name, Weapon wep);:
+Player::Player(string name, Weapon wep):
   name(name),
 	MAXhealth(wep.get_MAXhealth),
   MAXmana(wep.get_MAXmana),
@@ -18,7 +19,7 @@ Player::Player(string name, Weapon wep);:
 
   //Move Constructor
   Player::Player(Player&& other, char rarity_level):
-    Warrior_Weap newwep(rarity_level);
+    Warrior_Weap newwep(rarity_level),
     name(move other.name),
     health(move(other.health)),
     mana(move(other.mana)),
