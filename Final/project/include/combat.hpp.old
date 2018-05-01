@@ -5,21 +5,22 @@
 #include <cstdlib>
 #include "Enemy.hpp"
 //#include "Player.hpp"
-#include "display.hpp"
-#include "unit.hpp"
+//#include "Display.hpp"
+#include "Unit.hpp"
+#include "Weapon.hpp"
+#include "game-utility.hpp"
 
 class Combat {
 protected:
-    Unit& unit;
-    Display& dialogue;
     int kills;
     std::string action;
 
   public:
-    Player player;
-    Enemy enemy;
-    Combat(Unit& unit_, Display& display_, int kills_);
-    void attack_other(Unit& other);
+    //Default Constructor
+    Combat();
+    //Overloaded Constructor
+    Combat(int action_);
+    void attack_other(Player& p, Enemy& e);
     void on_attack(int damage);
     bool is_dead();
     void on_death();

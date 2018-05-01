@@ -17,6 +17,8 @@ protected:
 public:
   //Default Constructor
   Weapon();
+  //Destructor
+  ~Weapon();
 
   //Overloaded Constructor
   Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_, int MAXhealth_, int MAXmana_);

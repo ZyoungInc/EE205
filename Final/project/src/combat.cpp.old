@@ -5,14 +5,59 @@
 #include "unit.hpp"
 #include "Enemy.hpp"
 //#include "Player.hpp"
-#include "display.hpp"
+//#include "display.hpp"
 #include "game-utility.hpp"
+#include "Weapon.hpp"
 
-Combat::Combat(Unit& unit_, Display& display_, int kills_, int action_) :
-  Unit(unit_),
-  Display(display_),
-  kills(kills_),
-  action(action_) {}
+Combat::Combat() :
+  action(0) {}
+
+Combat::Combat(int action_, Player& p, Enemy& e) {
+  if(action == 1)
+  {
+    attack_other(p, e)
+  }
+}
+void Combat::player_attack(Player& p, Enemy& e, int action) {
+  if(action == 3)
+    int damage = std::max(0, p.get_attack() - e.get_defense());
+  else if(action == 4)
+    int damage = std::max(0, p.get_attack() - e.get_defense());
+  e.on_attack(damage);
+}
+
+void Combat::enemy_attack(Player& p, Enemy& e){
+  int damage = std::max(0, e.get_attack() - p.get_defense());
+  p.on_attack(damage);
+}
+void Combat::spell_attack(Player& p, Enemy& e) {
+  int damage = std::max(0, int(spell.damage * effect) - e.defense);
+  e.on_attack(damage);
+}
+
+void Combat::on_attack(int damage) {
+  //Display damage feed
+  set_yshift(Display.updateCombat(this->health, damage));
+
+  this->health -= damage;
+
+  if (this->health <= 0) {
+    on_death();
+  }
+}
+
+bool Unit::is_dead()  {
+  return this->health <=0;
+}
+
+void Unit::on_death(){
+  //Display Unit died
+  dialogue.set_yshift(dialogue.updateDeath(this->name));
+  //if player unit is dead, end Game
+
+  //counter for enemies_killed
+  set_kills(this->kills);
+}
 
 void Combat::combat_phase(Player& player, Enemy& enemy)
 {

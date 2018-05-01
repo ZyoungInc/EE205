@@ -75,12 +75,13 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         //Flee, stay in first selector
         else if(Option1[highlight1] == Option1[2])
         {
+          return 5;
           selecter = 1;
         }
         //Kill yourself and quits the game
         else if(Option1[highlight1] == Option1[3])
         {
-          endwin();
+          return 1;
         }
       }
         break;
@@ -139,27 +140,28 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
             //Attack with spell 1 stay in spell selecter
             if(Option2[highlight2] == Option2[0])
             {
-              return 1;
+              return 3;
             }
             //Attack with spell 2 stay in spell selecter
             else if(Option2[highlight2] == Option2[1])
             {
-              return 2;
+              return 4;
             }
             //Attack with spell 3 stay in spell selecter
             else if(Option2[highlight2] == Option2[2])
             {
-              return 3;
+              return 5;
             }
             //Attack with spell 4 stay in spell selecter
             else if(Option2[highlight2] == Option2[3])
             {
-              return 4;
+              return 6;
             }
             //Go back to first selecter
             else if(Option2[highlight2] == Option2[4])
             {
               selecter = 1;
+              break;
             }
           }
 						default:

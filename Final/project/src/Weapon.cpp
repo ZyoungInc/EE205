@@ -1,5 +1,6 @@
 #include <utility>
 #include <string>
+#include <iostream>
 #include "game-utility.hpp"
 #include "Weapon.hpp"
 
@@ -10,9 +11,11 @@ Weapon::Weapon() :
   wdamage(2),
   wdefense(2),
   MAXhealth(10),
-  MAXmana(10) {
 
-  }
+  MAXmana(10) {std::cout << "Basic Weapon constructed" << std::endl;}
+
+//Destructor
+Weapon::~Weapon() {std::cout << "Weapon destructed" << std::endl;}
 
 //Overloaded base weapon constructor
 Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_,int MAXhealth_, int MAXmana_) :
@@ -21,10 +24,9 @@ Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefens
   wdamage(wdamage_),
   wdefense(wdefense_),
   MAXhealth(MAXhealth_),
-  MAXmana(MAXmana_) {
 
-  }
-
+  MAXmana(MAXmana_) {std::cout << "Base Weapon constructor called" << std::endl;}
+ 
 //Inherited warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 	int weapon_type;
@@ -203,7 +205,9 @@ Mage_Weap::Mage_Weap(unsigned char rarity_level) {
 			this->wdamage = 13;
 			this->wdefense = 5;
 			this->MAXhealth = 99;
+
 			this->MAXmana = 111;
+
 			break;
 		default:
 			throw "Not a weapon";

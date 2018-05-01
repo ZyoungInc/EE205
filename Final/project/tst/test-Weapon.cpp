@@ -19,6 +19,7 @@ int main() {
 	cout << "" << endl;
 
 	cout << UNDL("Create default weapon") << endl;
+
 	cout << "Weapon type: " << testweapon.get_type() << endl;
 	cout << "Rarity: " << testweapon.get_rarity() << endl;
 	cout << FRED("ATK: ") << testweapon.get_wdamage() << endl;
@@ -28,6 +29,7 @@ int main() {
 	cout << "" << endl;
 
 //Loop for generating more weapons
+
 	while(input != 'q') {
 		randNum = RandNum(1 , 6);
 
@@ -41,10 +43,12 @@ int main() {
 		cout << FGRN("MaxHP: ")  <<  testweapon1.get_MAXhealth() << endl;
 		cout << FBLU("MaxMP: ")  << testweapon1.get_MAXmana() << endl;
 
+
 		Mage_Weap testweapon2(randNum);
 		cout << "" << endl;
 
 		cout << UNDL("Create Mage weapon") << endl;
+
 		cout << "Weapon type: " << testweapon2.get_type() << endl;
 		cout << "Rarity: "  << testweapon2.get_rarity() << endl;
 		cout << FRED("ATK: ")  <<  testweapon2.get_wdamage() << endl;
