@@ -3,7 +3,7 @@
 #include "game-utility.hpp"
 #include "Weapon.hpp"
 
-//Default Constructor
+//Default  base weapon constructor
 Weapon::Weapon() :
   rarity("Normal"),
   type("Hands"),
@@ -11,7 +11,7 @@ Weapon::Weapon() :
   wdefense(2),
   MAXhealth(10),
   MAXmana(10) {
-	  
+
   }
 
 //Overloaded base weapon constructor
@@ -22,17 +22,17 @@ Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefens
   wdefense(wdefense_),
   MAXhealth(MAXhealth_),
   MAXmana(MAXmana_) {
-	  
+
   }
 
-//Inherited Warrior weapon class constructor
+//Inherited warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 	int weapon_type;
 	switch(rarity_level){
 		case 1: //Bronze melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 10;
-			this->MAXmana = 10;	
+			this->MAXmana = 10;
 			this->rarity = "Bronze";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -53,7 +53,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 		case 2: //Silver melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 20;
-			this->MAXmana = 15;	
+			this->MAXmana = 15;
 			this->rarity = "Silver";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -74,7 +74,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 		case 3: //Gold melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 35;
-			this->MAXmana = 30;	
+			this->MAXmana = 30;
 			this->rarity = "Gold";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -95,7 +95,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 		case 4: //Platinum melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 55;
-			this->MAXmana = 45;	
+			this->MAXmana = 45;
 			this->rarity = "Platinum";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -116,7 +116,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 		case 5: //Diamond melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 80;
-			this->MAXmana = 70;	
+			this->MAXmana = 70;
 			this->rarity = "Diamond";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -137,7 +137,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 		case 6: //Legendary melee weapon
 			weapon_type = RandNum(1, 3);
 			this->MAXhealth = 111;
-			this->MAXmana = 100;	
+			this->MAXmana = 100;
 			this->rarity = "Legendary";
 			if(weapon_type == 1){
 				this->type = "Sword";
@@ -168,42 +168,42 @@ Mage_Weap::Mage_Weap(unsigned char rarity_level) {
 			this->wdamage = 1;
 			this->wdefense = 0;
 			this->MAXhealth = 10;
-			this->MAXmana = 10;	
+			this->MAXmana = 10;
 			break;
 		case 2: //Silver type staff weapon
 			this->rarity = "Silver";
 			this->wdamage = 3;
 			this->wdefense = 1;
 			this->MAXhealth = 10;
-			this->MAXmana = 25;	
+			this->MAXmana = 25;
 			break;
 		case 3: //Gold type staff weapon
 			this->rarity = "Gold";
 			this->wdamage = 5;
 			this->wdefense = 2;
 			this->MAXhealth = 30;
-			this->MAXmana = 50;	
+			this->MAXmana = 50;
 			break;
 		case 4: //Platinum type staff weapon
 			this->rarity = "Platinum";
 			this->wdamage = 7;
 			this->wdefense = 3;
 			this->MAXhealth = 40;
-			this->MAXmana = 65;	
+			this->MAXmana = 65;
 			break;
 		case 5: //Diamond type staff weapon
 			this->rarity = "Diamond";
 			this->wdamage = 9;
 			this->wdefense = 4;
 			this->MAXhealth = 60;
-			this->MAXmana = 80;	
+			this->MAXmana = 80;
 			break;
 		case 6: //Legendary type staff weapon
-			this->rarity = "Diamond";
+			this->rarity = "Legendary";
 			this->wdamage = 13;
 			this->wdefense = 5;
 			this->MAXhealth = 99;
-			this->MAXmana = 11;	
+			this->MAXmana = 111;
 			break;
 		default:
 			throw "Not a weapon";
