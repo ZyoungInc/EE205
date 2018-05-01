@@ -43,6 +43,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		./tst/test-Enemy.cpp $(OBJ_FILES) -lncurses
 	./bin/test-Enemy.out
 
+./bin/test-Player.out:$(OBJ_FILES) ./tst/test-Player.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS) \
+		-o ./bin/test-Player.out \
+		./tst/test-Player.cpp $(OBJ_FILES) -lncurses
+	./bin/test-Player.out
+
 ./bin/test-displayChar.out:$(OBJ_FILES) ./tst/test-displayChar.cpp ./include/*.hpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
 		-o ./bin/test-displayChar.out \
@@ -99,6 +105,8 @@ displayEnemyHUD: ./bin/test-displayEnemyHUD.out
 displayPlayerHUD: ./bin/test-displayPlayerHUD.out
 
 Enemy: ./bin/test-Enemy.out
+
+Player: ./bin/test-Player.out
 
 Weapon: ./bin/test-Weapon.out
 

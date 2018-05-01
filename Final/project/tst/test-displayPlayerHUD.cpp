@@ -53,15 +53,16 @@ int main() {
 
   drawEnemyDisplay(yMax, xMax);
 
-  drawOptionDisplay(yMax, xMax, chInput.first);
-
+  state = drawOptionDisplay(yMax, xMax, chInput.first);
+  if(state != 1)
+  {
 	displayEndingDiag(yMax, xMax);
 
 	displayStageDiag(yMax, xMax, stage);
 
 	displayDeathDiag(yMax, xMax);
-
-	state = drawMenuDisplay(yMax, xMax);
+  }
+	 state = drawMenuDisplay(yMax, xMax);
 
 	}
 
