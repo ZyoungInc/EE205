@@ -40,11 +40,13 @@ public:
   void set_MAXmana(int mp);
 };
 
+//Warrior weapon for warrior class
 class Warrior_Weap: public Weapon {
 public:
   Warrior_Weap(unsigned char rarity_level);
 };
 
+//Mage weapon for mage class
 class Mage_Weap: public Weapon {
 public:
   Mage_Weap(unsigned char rarity_level);

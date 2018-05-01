@@ -4,13 +4,14 @@
 #include "game-utility.hpp"
 #include "Weapon.hpp"
 
-//Default Constructor
+//Default  base weapon constructor
 Weapon::Weapon() :
   rarity("Normal"),
   type("Hands"),
   wdamage(2),
   wdefense(2),
   MAXhealth(10),
+
   MAXmana(10) {std::cout << "Basic Weapon constructed" << std::endl;}
 
 //Destructor
@@ -23,9 +24,10 @@ Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefens
   wdamage(wdamage_),
   wdefense(wdefense_),
   MAXhealth(MAXhealth_),
-  MAXmana(MAXmana_) {std::cout << "Base Weapon constructor called" << std::endl;}
 
-//Inherited Warrior weapon class constructor
+  MAXmana(MAXmana_) {std::cout << "Base Weapon constructor called" << std::endl;}
+ 
+//Inherited warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 	int weapon_type;
 	switch(rarity_level){
@@ -199,11 +201,13 @@ Mage_Weap::Mage_Weap(unsigned char rarity_level) {
 			this->MAXmana = 80;
 			break;
 		case 6: //Legendary type staff weapon
-			this->rarity = "Diamond";
+			this->rarity = "Legendary";
 			this->wdamage = 13;
 			this->wdefense = 5;
 			this->MAXhealth = 99;
-			this->MAXmana = 11;
+
+			this->MAXmana = 111;
+
 			break;
 		default:
 			throw "Not a weapon";
