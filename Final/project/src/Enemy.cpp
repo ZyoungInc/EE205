@@ -7,6 +7,7 @@
 
 Enemy::Enemy(unsigned int tier_level) {
 	int enemy_subtype;
+	tier = tier_level;
 	if (tier_level == 1) {
 		//Beasts
 		enemy_subtype = RandNum(1, 3);
@@ -35,7 +36,7 @@ Enemy::Enemy(unsigned int tier_level) {
 			weapon_Type = "Normal";
 		}
 	}
-	else if(tier_level == 2) { 
+	else if(tier_level == 2) {
 		//Highway bandit
 		enemy_subtype = RandNum(1, 3);
 		if(enemy_subtype == 1) {
@@ -63,7 +64,7 @@ Enemy::Enemy(unsigned int tier_level) {
 			weapon_Type = "Normal";
 		}
 	}
-	else if(tier_level == 3) { 
+	else if(tier_level == 3) {
 		//Skeletons
 		enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
@@ -155,7 +156,7 @@ Enemy::Enemy(unsigned int tier_level) {
 			weapon_Type = "Normal";
 		}
 		else {
-			name =  "Water";
+			name =  "Water Demon";
 			MAXhealth = health = 60;
 			attack = 10;
 			defense = 20;
@@ -177,6 +178,6 @@ Enemy::Enemy(unsigned int tier_level) {
 
 }
 
+int Enemy::get_tier(void) {return this->tier;}
 std::string Enemy::get_element(void) { return this->elemental_Type; }
-
 std::string Enemy::get_wep_type(void) { return this->weapon_Type; }

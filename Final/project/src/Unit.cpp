@@ -74,28 +74,6 @@ void Unit::set_mana(int mp) {mana = mp;}
 void Unit::set_attack(int atk) {attack = atk;}
 void Unit::set_defense(int def) {defense = def;}
 
-double Unit::eff_calc_other(std::pair<std::string, std::string> attacker,
-                          std::pair<std::string, std::string> taker) {
-  double effect = 1;
-  //Element triange
-  if(attacker.first == "fire" && taker.first == "nature") effect = 2;
-  else if(attacker.first == "fire" && taker.first == "water") effect = 0.5;
-  else if(attacker.first == "water" && taker.first == "fire") effect = 2;
-  else if(attacker.first == "water" && taker.first == "nature") effect = 0.5;
-  else if(attacker.first == "nature" && taker.first == "water") effect = 2;
-  else if(attacker.first == "nature" && taker.first == "fire") effect = 0.5;
-  //Weapon Triangle
-  else if(attacker.second == "Sword" && taker.second == "Axe") effect = 2;
-  else if(attacker.second == "Sword" && taker.second == "Lance") effect = 0.5;
-  else if(attacker.second == "Lance" && taker.second == "Sword") effect = 2;
-  else if(attacker.second == "Lance" && taker.second == "Axe") effect = 0.5;
-  else if(attacker.second == "Axe" && taker.second == "Lance") effect = 2;
-  else if(attacker.second == "Axe" && taker.second == "Sword") effect = 0.5;
-
-  return effect;
-
-}
-
 /*void Unit::attack_other(Unit& other) {
 
   int damage = std::max(0, this->attack - other.defense);

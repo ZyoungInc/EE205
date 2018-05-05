@@ -3,11 +3,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
-//#include "Spell.hpp"
-//#include "Player.hpp"
+#include "Spells.hpp"
+#include "Player.hpp"
 using namespace std;
 
-int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
+unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
   int yMax = yMax_;
   int xMax = xMax_;
   int selecter = 1;
@@ -64,8 +64,7 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         //Attack with basic damage
         if(Option1[highlight1] == Option1[0])
         {
-          return 5;
-          selecter = 0;
+          return 2;
         }
         //Go to spells selector
         else if(Option1[highlight1] == Option1[1])
@@ -75,8 +74,8 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         //Flee, stay in first selector
         else if(Option1[highlight1] == Option1[2])
         {
-          return 5;
-          selecter = 1;
+          return 7;
+          //selecter = 1;
         }
         //Kill yourself and quits the game
         else if(Option1[highlight1] == Option1[3])
@@ -87,23 +86,28 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         break;
         case 2:
         {
-        /*//Spells Options
-        for(unsigned int i = 0; i < temp.size(); i++)
+        //Spells Options
+        /*for(unsigned int i = 0; i < temp(MakeSpellBook(classChoice)).size(); i++)
         {
-          Option2[i] = temp[i].get_name();
-        }*/
-        string Option2[5] = {"a", "b", "c", "d", "e"};
-        //Option2[5] = "Back";
-        /*string Option2[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "hi"};
+          string Option2[i] = temp[i].get_name();
+        }
+        //Option2[5] = "Back";*/
+        vector<string> spellName;
         if(classChoice == 1)//Warrior spells
         {
-          std::cout << "hi" << endl;
-          string Option2[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "Back"};
+          spellName.push_back("Slash");
+      		spellName.push_back("Flurry");
+      		spellName.push_back("HeavyBlow");
+      		spellName.push_back("VampiricStrike");
+          spellName.push_back("Back");
         }
         else { //Mage spells
-          std::cout << "hilo" << endl;
-          string Option2[5] = {"Spell 1", "Spell 2", "Spell 3", "Spell 4", "Back"};
-        }*/
+          spellName.push_back("FireBall");
+          spellName.push_back("Torrent");
+          spellName.push_back("Wrath");
+          spellName.push_back("Heal");
+          spellName.push_back("Back");
+        }
         int choice2;
         int highlight2 = 0;
 
@@ -113,7 +117,7 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
             {
                 if(i == highlight2)
                     wattron(optionwin, A_REVERSE);
-                mvwprintw(optionwin, i+1, 1, Option2[i].c_str());
+                mvwprintw(optionwin, i+1, 1, spellName[i].c_str());
                 wattroff(optionwin, A_REVERSE);
             }
             wrefresh(optionwin);
@@ -138,27 +142,27 @@ int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
                 break;
             }
             //Attack with spell 1 stay in spell selecter
-            if(Option2[highlight2] == Option2[0])
+            if(spellName[highlight2] == spellName[0])
             {
               return 3;
             }
             //Attack with spell 2 stay in spell selecter
-            else if(Option2[highlight2] == Option2[1])
+            else if(spellName[highlight2] == spellName[1])
             {
               return 4;
             }
             //Attack with spell 3 stay in spell selecter
-            else if(Option2[highlight2] == Option2[2])
+            else if(spellName[highlight2] == spellName[2])
             {
               return 5;
             }
             //Attack with spell 4 stay in spell selecter
-            else if(Option2[highlight2] == Option2[3])
+            else if(spellName[highlight2] == spellName[3])
             {
               return 6;
             }
             //Go back to first selecter
-            else if(Option2[highlight2] == Option2[4])
+            else if(spellName[highlight2] == spellName[4])
             {
               selecter = 1;
               break;

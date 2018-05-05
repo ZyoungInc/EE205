@@ -7,10 +7,9 @@
 #include "Unit.hpp"
 #include "Enemy.hpp"
 
-void drawEnemyDisplay(int yMax_, int xMax_){
+void drawEnemyDisplay(int yMax_, int xMax_, Enemy& newEnemy){
   int yMax = yMax_;
   int xMax = xMax_;
-  unsigned int randomNum = 1;
 
   //make box for enemyHUD
   WINDOW * enemywin = newwin(yMax-1, xMax-1, yMax-11, xMax-(xMax/4));
@@ -18,10 +17,10 @@ void drawEnemyDisplay(int yMax_, int xMax_){
   refresh();
   wrefresh(enemywin);
   //Create random enemy
-  randomNum = RandNum(1 , 6);
-  Enemy newEnemy(randomNum);
+  //randomNum = RandNum(1 , 6);
+  //Enemy newEnemy(randomNum);
   //displays enemy HUD
-  mvwprintw(enemywin, 1, 1, "%s (Tier %d)", newEnemy.get_name().c_str(), randomNum);
+  mvwprintw(enemywin, 1, 1, "%s (Tier %d)", newEnemy.get_name().c_str(), newEnemy.get_tier());
   mvwprintw(enemywin, 2, 1, "HP: %d/%d", newEnemy.get_health(), newEnemy.get_MAXhealth());
   mvwprintw(enemywin, 3, 1, "MP: %d/%d", newEnemy.get_mana(), newEnemy.get_mana());
   mvwprintw(enemywin, 4, 1, "ATK: %d", newEnemy.get_attack());
