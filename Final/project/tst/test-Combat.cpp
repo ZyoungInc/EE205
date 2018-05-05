@@ -35,41 +35,46 @@ int main() {
 
   //Run game menu to get user's choice
 	int state = 0; //use to track game's state
-	int stage = 1; //use to track player's tier level
 	pair<int, string> chInput;
 
 	state = drawMenuDisplay(yMax, xMax);
 
 	while (state == 1) {
+  	int stage = 1; //use to track player's tier level
+    int souls = 0; //use to track how many kills player has
 		chInput = drawCharDisplay(yMax, xMax);
     Weapon weap;
     randomNum = RandNum(1, 6);
+    displayOpeningDiag(yMax, xMax);
+    while(stage < 7)
+    {
 		if(chInput.first == 1)
     {
 			state = chInput.first + 2;
-      weap = Warrior_Weap(randomNum);
+      weap = Warrior_Weap(stage);
     }
 		else
     {
 			state = chInput.first + 1;
-      weap = Mage_Weap(randomNum);
+      weap = Mage_Weap(stage);
     }
 		//Construct player
-    Player p(chInput.second, chInput.first, &weap);
-
-	displayOpeningDiag(yMax, xMax);
+    Player p(chInput.second, chInput.first, souls, &weap);
 
 	drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
 
     randomNum = RandNum(1, 6);
-	Enemy e(randomNum);
+	  Enemy e(stage);
     drawEnemyDisplay(yMax, xMax, e);
     Combat battle(&p, &e, yMax, xMax);
 
 	while(state != 1) {
 		state = drawOptionDisplay(yMax, xMax, chInput.first);
-		if(state == 1)
+		if(state == 1)//quit command
+    {
+      stage = 7;
 			break;
+    }
 		else if(state == 7 && RandNum(1,4) == 2)
 			//Flee command only work 25%
 			break;
@@ -80,10 +85,37 @@ int main() {
 
 			drawEnemyDisplay(yMax, xMax, e);
 		}
-		if(state == 1)
-			break;
+		if(state == 1)//Enemy died
+    {
+      if(stage == 6)
+      {
+        displayEndingDiag(yMax, xMax);
+        stage++;
+        break;
+      }
+      else
+      {
+        souls++;
+        if(souls > 4)
+        {
+          if(displayStageDiag(yMax, xMax, stage) == true)
+          {
+            stage++;
+            souls = 0;
+          }
+        }
+			   break;
+      }
+    }
+    else if(state == 2)//Player died
+    {
+      displayDeathDiag(yMax, xMax);
+      break;
+    }
 	}
-
+  if(stage == 7)
+    break;
+}
 	state = drawMenuDisplay(yMax, xMax);
 	}
 

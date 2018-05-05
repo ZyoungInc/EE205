@@ -47,22 +47,24 @@ int Combat::combat_phase(unsigned int action, int classPick, Player *p, Enemy *e
                               p->get_weapType(), p->get_eleType());
       enemy_attack(p, e, effect);
     }
-    if(e->get_health() == 0 || p->get_health() == 0)
+    if(e->get_health() == 0)
       return 1;
-    else
+    else if(p->get_health() == 0)
       return 2;
+    else
+      return 3;
   }
 
 float Combat::eff_calc_other(std::string atkWeap, std::string atkEle,
                           std::string defWeap, std::string defEle) {
   float effect = 1;
   //Element triange
-  if(atkEle == "fire" && defEle == "nature") effect = 2;
-  else if(atkEle == "fire" && defEle == "water") effect = 0.5;
-  else if(atkEle == "water" && defEle == "fire") effect = 2;
-  else if(atkEle == "water" && defEle == "nature") effect = 0.5;
-  else if(atkEle == "nature" && defEle == "water") effect = 2;
-  else if(atkEle == "nature" && defEle == "fire") effect = 0.5;
+  if(atkEle == "Fire" && defEle == "Nature") effect = 2;
+  else if(atkEle == "Fire" && defEle == "Water") effect = 0.5;
+  else if(atkEle == "Water" && defEle == "Nature") effect = 2;
+  else if(atkEle == "Water" && defEle == "Nature") effect = 0.5;
+  else if(atkEle == "Nature" && defEle == "Water") effect = 2;
+  else if(atkEle == "Nature" && defEle == "Fire") effect = 0.5;
   //Weapon Triangle
   else if(atkWeap == "Sword" && defWeap == "Axe") effect = 2;
   else if(atkWeap == "Sword" && defWeap == "Lance") effect = 0.5;
@@ -119,6 +121,7 @@ bool Combat::is_dead()  {
 
 void Combat::on_death(){
   is_dead();
+
   //Display Unit died
   //dialogue.set_yshift(dialogue.updateDeath(this->name));
   //if player unit is dead, end Game
@@ -128,12 +131,10 @@ void Combat::on_death(){
 }
 
 //Getters
-int Combat::get_souls() {return souls;}
 int Combat::get_action() {return action;}
 int Combat::get_yshift() {return yshift;}
 
 //setters
-void Combat::set_souls(int s) {souls += s;}
 void Combat::set_action(int a) {action = a;}
 void Combat::set_yshift(int y) {
   yshift += y;

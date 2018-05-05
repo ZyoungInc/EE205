@@ -20,12 +20,13 @@ protected:
 	  int MAXmana;
 	  int attack;
 	  int defense;
+		int souls;
 		Weapon *weap;
 
 public:
 		Player(); //Constructor
 		~Player(); //Destructor
-		Player(std::string name_, unsigned int classChoice, Weapon *weap_); //Overloaded Constructor
+		Player(std::string name_, unsigned int classChoice, int souls_, Weapon *weap_); //Overloaded Constructor
 		//Player(const Player& other); //copy constructor
 		//Player(Player&& other); //move constructor
 		//Composition of Spells
@@ -43,6 +44,7 @@ public:
 		int get_MAXmana();
 		int get_attack();
 		int get_defense();
+		int get_souls();
 
 		//Setters
 		void set_name(std::string s);
@@ -57,5 +59,6 @@ public:
    	void set_defense(int d);
 		void set_weapType(std::string w);
 		void set_eleType(std::string e);
+		void set_souls(int s);
 };
 #endif //PLAYER_HPP
