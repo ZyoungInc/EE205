@@ -22,11 +22,11 @@ Combat::Combat(Player *p_, Enemy *e_, int yMax_, int xMax_)
 {
   p = p_;
   e = e_;
-  int yMax = yMax_;
-  int xMax = xMax_;
+  this->yMax = yMax_;
+  this->xMax = xMax_;
 
   //create title window for game
-	WINDOW * combatwin = newwin(yMax-12, xMax-1, 1, 1);
+	combatwin = newwin(yMax-12, xMax-1, 1, 1);
     box(combatwin, 0, 0);
     mvwprintw(combatwin, get_yshift(), 1, "You encounter a %s", e->get_name().c_str());
     set_yshift(1);

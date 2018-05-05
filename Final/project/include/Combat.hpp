@@ -18,7 +18,10 @@ protected:
     int yshift = 1;
     Player *p;
     Enemy *e;
-
+	WINDOW * combatwin;
+	int yMax;
+	int xMax;
+	
   public:
     //Default Constructor
     Combat();
