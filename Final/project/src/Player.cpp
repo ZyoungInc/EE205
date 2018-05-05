@@ -19,12 +19,13 @@ Player::Player() :
 	health(0),
 	mana(0),
   attack(0),
-  defense(0) {}
+  defense(0),
+  souls(0) {}
 
 Player::~Player() {}
 
 /* Constructs a Player with default stats and  chosen name */
-Player::Player(string name_, unsigned int classChoice, Weapon *weap_) {
+Player::Player(string name_, unsigned int classChoice, int souls_, Weapon *weap_) {
 	this->name = name_;
 	weap = weap_;
 	this->MAXhealth = this->health = weap->get_MAXhealth();
@@ -33,6 +34,7 @@ Player::Player(string name_, unsigned int classChoice, Weapon *weap_) {
     this->mana = 0;
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
+  this->souls = souls_;
   weapon_Type = weap->get_type();
 }
 
@@ -88,6 +90,7 @@ Player::Player(string name_, unsigned int classChoice, Weapon *weap_) {
     int Player::get_MAXmana() {return MAXmana;}
     int Player::get_attack() {return attack;}
     int Player::get_defense() {return defense;}
+    int Player::get_souls() {return souls;}
 
   //Setters
     void Player::set_name(string s) {name = s;}
@@ -116,3 +119,4 @@ Player::Player(string name_, unsigned int classChoice, Weapon *weap_) {
     void Player::set_weapType(std::string w) {weapon_Type = w;}
     void Player::set_eleType(std::string e) {elemental_Type = e;}
     void Player::set_spellName(std::string s) {spellName = s;}
+    void Player::set_souls(int s) {souls = s;}

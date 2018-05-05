@@ -13,7 +13,6 @@
 
 class Combat {
 protected:
-    int souls;
     int action;
     int yshift = 1;
     Player *p;
@@ -21,7 +20,7 @@ protected:
 	WINDOW * combatwin;
 	int yMax;
 	int xMax;
-	
+
   public:
     //Default Constructor
     Combat();

@@ -59,27 +59,86 @@ void displayEndingDiag(int yMax_, int xMax_) {
     getchar();
 }
 
-void displayStageDiag(int yMax_, int xMax_, int stage) {
+bool displayStageDiag(int yMax_, int xMax_, int stage) {
 
 	int yMax = yMax_;
 	int xMax = xMax_;
 
+	//create ask window for game
+	WINDOW * askwin = newwin(yMax-12, xMax-1, 1, 1);
+		box(askwin, 0, 0);
+		mvwprintw(askwin, 2, 5, "Gate Guardian: I see you have collected many souls,");
+		mvwprintw(askwin, 3, 5, "give them to me and I will grant you passage further into the depths of hell");
+		refresh();
+		wrefresh(askwin);
 
-	//create title window for game
-	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
-    box(titlewin, 0, 0);
-    mvwprintw(titlewin, 2, 5, "You have cleared stage %d" , stage);
-    refresh();
-    wrefresh(titlewin);
-
-    //create a menu window for input
+		//create a menu window for input
     WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
     box(menuwin, 0, 0);
-	mvwprintw(menuwin, 3, (xMax/2), "Press any key to continue");
     refresh();
     wrefresh(menuwin);
 
-    getchar();
+    //allows use of arrow keys
+    keypad(menuwin, true);
+
+    string startMenu[2] = {"Yes", "No"};
+    int choice;
+    int highlight = 0;
+
+    while(1)
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            if(i == highlight)
+                wattron(menuwin, A_REVERSE);
+            mvwprintw(menuwin, i+1, (xMax/2), startMenu[i].c_str());
+            wattroff(menuwin, A_REVERSE);
+        }
+        choice = wgetch(menuwin);
+
+        switch(choice)
+        {
+            case KEY_UP:
+                highlight--;
+                if(highlight == -1)
+                    highlight = 0;
+                break;
+            case KEY_DOWN:
+                highlight++;
+                if(highlight == 2)
+                    highlight = 1;
+                break;
+            default:
+                break;
+        }
+        if(choice == 10)
+            break;
+	}
+
+    if(startMenu[highlight] == startMenu[0])
+    {
+			//create title window for game
+			WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
+		    box(titlewin, 0, 0);
+		    mvwprintw(titlewin, 2, 5, "You have cleared stage %d" , stage);
+		    refresh();
+		    wrefresh(titlewin);
+
+		    //create a menu window for input
+		    WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
+		    box(menuwin, 0, 0);
+			mvwprintw(menuwin, 3, (xMax/2), "Press any key to continue");
+		    refresh();
+		    wrefresh(menuwin);
+
+		    getchar();
+        return true;
+    }
+    else
+	{
+		return false;
+	}
+
 }
 
 void displayDeathDiag(int yMax_, int xMax_) {

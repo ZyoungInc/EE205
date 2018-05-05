@@ -95,17 +95,17 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
         vector<string> spellName;
         if(classChoice == 1)//Warrior spells
         {
-          spellName.push_back("Slash");
-      		spellName.push_back("Flurry");
-      		spellName.push_back("HeavyBlow");
-      		spellName.push_back("VampiricStrike");
+          spellName.push_back("Slash: 3x ATK, Cost 5 Mana");
+      		spellName.push_back("Flurry: 1x ATK 3 times, Cost: 10 Mana");
+      		spellName.push_back("HeavyBlow: Deals 5x ATK, Cost: 10 Mana");
+      		spellName.push_back("VampiricStrike: 3x ATK and heals you, Cost: 10 Mana");
           spellName.push_back("Back");
         }
         else { //Mage spells
-          spellName.push_back("FireBall");
-          spellName.push_back("Torrent");
-          spellName.push_back("Wrath");
-          spellName.push_back("Heal");
+          spellName.push_back("FireBall: Fire Element, Damage: 3x ATK, Cost: 10 Mana");
+          spellName.push_back("Torrent: Water Element, Damage: 3x ATK, Cost: 10 Mana");
+          spellName.push_back("Wrath: Nature Element, Damage: 3x ATK, Cost: 10 Mana");
+          spellName.push_back("Restore: Heals you for 1/2 MaxHP. Cost: 20 Mana");
           spellName.push_back("Back");
         }
         int choice2;
