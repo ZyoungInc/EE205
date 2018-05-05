@@ -4,6 +4,8 @@
 #include <ctime>
 #include <cstdlib>
 #include "Enemy.hpp"
+#include "Player.hpp"
+#include "Weapon.hpp"
 #include "game-utility.hpp"
 #include "displayMenu.hpp"
 #include "displayChar.hpp"
@@ -38,20 +40,28 @@ int main() {
 	while (state == 1) {
 
 		chInput = drawCharDisplay(yMax, xMax);
-
+    Weapon weap;
 		if(chInput.first == 1)
+    {
 			state = chInput.first + 2;
+      weap = Warrior_Weap(RandNum(1,6));
+    }
 		else
+    {
 			state = chInput.first + 1;
+      weap = Mage_Weap(RandNum(1,6));
+    }
 		//Construct player
-		//Player();
+    //Warrior_Weap weap(RandNum(1,6));
+    Enemy e(RandNum(1,6));
+		Player p(chInput.second, &weap);
 
 
 	displayOpeningDiag(yMax, xMax);
 
-  drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first);
+  drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
 
-  drawEnemyDisplay(yMax, xMax);
+  drawEnemyDisplay(yMax, xMax, e);
 
   state = drawOptionDisplay(yMax, xMax, chInput.first);
   if(state != 1)

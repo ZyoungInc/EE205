@@ -2,8 +2,8 @@
 #include <string>
 #include <vector>
 #include "Spells.hpp"
-#define HEAL_DMG 2
-#define VAMPIRE_DMG 2
+#define HEAL_DMG 5
+#define VAMPIRE_DMG 3
 
 Spell::Spell() :
 	cost(0),
@@ -54,23 +54,23 @@ string warriorarray[4] = {"Slash: No Element, Damage: 2x ATK, Cost 10 Mana", "Fl
 
 vector<Spell> MakeSpellBook(int choice) {
 	vector<Spell> tempSpellBook;
-	if (choice == 1)
+	if (choice == 2)
     {
-		Spell FireBall(1, 2, 1, "Fireball", "Fire") ;
-		Spell Torrent(1, 2, 1, "Torrent", "Water");
-		Spell Wrath(1, 2, 1, "Wrath", "Nature");
-		Spell Heal(1, 2, 1, "Heal", "None");
+		Spell FireBall(10, 3, 1, "Fireball", "Fire") ;
+		Spell Torrent(10, 3, 1, "Torrent", "Water");
+		Spell Wrath(10, 3, 1, "Wrath", "Nature");
+		Spell Heal(20, 0, 1, "Heal", "None");
 		tempSpellBook.push_back(FireBall);
 		tempSpellBook.push_back(Torrent);
 		tempSpellBook.push_back(Wrath);
 		tempSpellBook.push_back(Heal);
 		return tempSpellBook;
     }
-    else if (choice == 2) {
-		Spell Slash(1, 3, 1, "Slash", "None");
-		Spell Flurry(1, 1, 3, "Flurry", "None");
-		Spell HeavyBlow(1, 5, 1, "HeavyBlow", "None");
-		Spell VampiricStrike (1, 2, 1, "VampiricStrike", "None");
+    else if (choice == 1) {
+		Spell Slash(5, 3, 1, "Slash", "None");
+		Spell Flurry(10, 3, 3, "Flurry", "None");
+		Spell HeavyBlow(10, 5, 1, "HeavyBlow", "None");
+		Spell VampiricStrike (10, 3, 1, "VampiricStrike", "None");
 		tempSpellBook.push_back(Slash);
 		tempSpellBook.push_back(Flurry);
 		tempSpellBook.push_back(HeavyBlow);

@@ -48,8 +48,6 @@ public:
   void set_attack(int atk);
   void set_defense(int def);
   
-  double eff_calc_other(std::pair<std::string, std::string> attacker,
-                          std::pair<std::string, std::string> taker);
  // void attack_other(Unit& other);
  // void spell_other(Unit& other);
  //void on_attack(int damage);
