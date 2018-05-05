@@ -65,13 +65,13 @@ int main() {
 	Enemy e(randomNum);
     drawEnemyDisplay(yMax, xMax, e);
     Combat battle(&p, &e, yMax, xMax);
-	
+
 	while(state != 1) {
 		state = drawOptionDisplay(yMax, xMax, chInput.first);
 		if(state == 1)
 			break;
 		else if(state == 7 && RandNum(1,4) == 2)
-			//Flee command only work 50%
+			//Flee command only work 25%
 			break;
 		else {
 			state = battle.combat_phase(state, chInput.first, &p, &e);
@@ -83,10 +83,10 @@ int main() {
 		if(state == 1)
 			break;
 	}
-	
+
 	state = drawMenuDisplay(yMax, xMax);
 	}
-	
+
 	endwin();
 	return 0;
 }

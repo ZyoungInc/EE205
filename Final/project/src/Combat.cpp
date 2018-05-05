@@ -81,10 +81,10 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
   {
     damage = std::max(0, int(p->get_attack() * effect - e->get_defense()));
     p->set_mana(20);
-    /*//testing
-    mvwprintw(this->get_combatwin(), get_yshift(), 1, "You dealt %d damage to %s with basic attack", damage, e->get_name().c_str());
+    //testing
+    mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with basic attack", damage, e->get_name().c_str());
     set_yshift(1);
-    wrefresh(this->get_combatwin());*/
+    wrefresh(combatwin);
   }
   else if(action == 7)
     damage = 0;
@@ -92,9 +92,9 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
   {
     std::pair<int, int> spellDamage = p->cast_spell(classPick, action-3, p->get_attack());
     damage = std::max(0, spellDamage.second * int(spellDamage.first * effect - e->get_defense()));
-    /*mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with %s", damage, e->get_name().c_str(), p->get_spellName().c_str());
+    mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with %s", damage, e->get_name().c_str(), p->get_spellName().c_str());
     set_yshift(1);
-    wrefresh(combatwin);*/
+    wrefresh(combatwin);
   }
   e->set_health(-1 * damage);
   if (e->get_health() <= 0) {
@@ -104,6 +104,9 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 
 void Combat::enemy_attack(Player *p, Enemy *e, float effect){
   int damage = std::max(0, int(e->get_attack() * effect - p->get_defense()));
+  mvwprintw(combatwin, get_yshift(), 1, "%s dealt %d damage to you", e->get_name().c_str(), damage);
+  set_yshift(1);
+  wrefresh(combatwin);
   p->set_health(-1 * damage);
   if (p->get_health() <= 0) {
     on_death();
@@ -132,4 +135,12 @@ int Combat::get_yshift() {return yshift;}
 //setters
 void Combat::set_souls(int s) {souls += s;}
 void Combat::set_action(int a) {action = a;}
-void Combat::set_yshift(int y) {yshift += y;}
+void Combat::set_yshift(int y) {
+  yshift += y;
+  if(yshift == yMax-12)
+  {
+    wclear(combatwin);
+    box(combatwin, 0, 0);
+    yshift = 1;
+  }
+}
