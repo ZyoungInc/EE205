@@ -41,7 +41,6 @@ int main() {
 	state = drawMenuDisplay(yMax, xMax);
 
 	while (state == 1) {
-
 		chInput = drawCharDisplay(yMax, xMax);
     Weapon weap;
     randomNum = RandNum(1, 6);
@@ -60,32 +59,34 @@ int main() {
 
 	displayOpeningDiag(yMax, xMax);
 
-  drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
+	drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
 
     randomNum = RandNum(1, 6);
-		Enemy e(randomNum);
+	Enemy e(randomNum);
     drawEnemyDisplay(yMax, xMax, e);
     Combat battle(&p, &e, yMax, xMax);
-  while(state != 1)
-  {
-    state = drawOptionDisplay(yMax, xMax, chInput.first);
-    if(state == 1)
-      break;
-    else if(state == 7 && RandNum(1,4) == 2)
-        break;
-    else
-    {
-      state = battle.combat_phase(state, chInput.first, &p, &e);
 
-      drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
+	while(state != 1) {
+		state = drawOptionDisplay(yMax, xMax, chInput.first);
+		if(state == 1)
+			break;
+		else if(state == 7 && RandNum(1,4) == 2)
+			//Flee command only work 25%
+			break;
+		else {
+			state = battle.combat_phase(state, chInput.first, &p, &e);
 
-      drawEnemyDisplay(yMax, xMax, e);
-    }
-    if(state == 1)
-      break;
-  }
-  state = drawMenuDisplay(yMax, xMax);
-}
-  endwin();
-  return 0;
+			drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);
+
+			drawEnemyDisplay(yMax, xMax, e);
+		}
+		if(state == 1)
+			break;
+	}
+
+	state = drawMenuDisplay(yMax, xMax);
+	}
+
+	endwin();
+	return 0;
 }
