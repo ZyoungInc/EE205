@@ -110,6 +110,7 @@ int main() {
     else if(state == 2)//Player died
     {
       displayDeathDiag(yMax, xMax);
+      stage = 7;
       break;
     }
 	}
