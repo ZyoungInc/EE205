@@ -31,6 +31,8 @@ int main() {
 	//get screen size
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
+	int randNum = 0;
+	bool rand_event_trigger = false;
 
 	//Run game menu to get user's choice
 	int state = 0; //use to track game's state
@@ -122,8 +124,29 @@ int main() {
 					stage = 7;//get you out of game
 					break;
 				}
-				drawRandomEvent(yMax, xMax);
-				drawHealEvent(yMax, xMax, &p);
+			}
+			
+			randNum = RandNum(1, 101);
+			if(randNum >= 70) {
+				rand_event_trigger = drawRandomEvent(yMax, xMax);
+			}
+			
+			if(rand_event_trigger == true) {
+				randNum = RandNum(1, 7);
+				switch(randNum) {
+					case 1: drawHealEvent(yMax, xMax, &p);
+							break;
+					case 2: drawBeggerEvent(yMax, xMax, &p);
+							break;
+					case 3: drawLootEvent(yMax, xMax, &p);
+							break;
+					case 4: drawRestingEvent(yMax, xMax, &p);
+							break;
+					case 5: drawTrapEvent(yMax, xMax, &p);
+							break;
+					default: // ambush event
+							break;
+				}
 			}
 
 			if(stage == 7)//gets you out of game
