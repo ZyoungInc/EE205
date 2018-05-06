@@ -2,6 +2,7 @@
 #include "displayDialogue.hpp"
 #include <string>
 #include "Weapon.hpp"
+#include "displayColor.hpp"
 
 using namespace std;
 
@@ -149,8 +150,13 @@ void displayDeathDiag(int yMax_, int xMax_) {
 
 	//create title window for game
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
-    box(titlewin, 0, 0);
-    mvwprintw(titlewin, 2, 5, "Game over, You've died" );
+		start_color();
+		//init_pair(1, COLOR_RED, COLOR_WHITE);
+		REDW;
+		box(titlewin, 0, 0);
+		wbkgd(titlewin, COLOR_PAIR(1));
+    mvwprintw(titlewin, 2, 5, "Game over, You've died");
+		attroff(COLOR_PAIR(1));
     refresh();
     wrefresh(titlewin);
 

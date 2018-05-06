@@ -1,0 +1,6 @@
+#ifndef DISPLAYCOLOR_HPP
+#define DISPLAYCOLOR_HPP
+
+#define REDW init_pair(1, COLOR_RED, COLOR_WHITE)
+
+#endif //DISPLAYCOLOR_HPP
