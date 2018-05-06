@@ -27,13 +27,19 @@ Player::Player(string name_, unsigned int classChoice, int souls_, Weapon *weap_
 	this->name = name_;
 	this->weap = weap_;
 	this->MAXhealth = this->health = weap->get_MAXhealth();
-	this->MAXmana = this->mana = weap->get_MAXmana();
-	if(classChoice == 1)
-		this->mana = 0;
+	this->MAXmana = weap->get_MAXmana();	
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
 	this->souls = souls_;
 	this->weapon_Type = weap->get_type();
+	if(classChoice == 1) {
+		this->player_Class = "Warrior";
+		this->mana = 0;
+	}
+	else {
+		this->player_Class = "Mage";
+		this->mana = weap->get_MAXmana();
+	}
 }
 
 /*//Copy Constructor
@@ -63,8 +69,9 @@ std::pair<int, int> Player::cast_spell(unsigned int classChoice, unsigned int sp
 	set_eleType(eType);
 	set_spellName(sName);
 	set_health(heal);
-	if(cost <= this->mana)
+	if(cost <= this->mana) {
 		set_mana(-1*cost);
+	}
 	else
 	{
 		damage = 0;
@@ -80,29 +87,30 @@ std::pair<int, int> Player::cast_spell(unsigned int classChoice, unsigned int sp
 
 
 //Getters
-string Player::get_name() {return name;}
-string Player::get_weapType() {return weapon_Type;}
-string Player::get_eleType() {return elemental_Type;}
-string Player::get_spellName() {return spellName;}
-int Player::get_health() {return health;}
-int Player::get_MAXhealth() {return MAXhealth;}
-int Player::get_mana() {return mana;}
-int Player::get_MAXmana() {return MAXmana;}
-int Player::get_attack() {return attack;}
-int Player::get_defense() {return defense;}
-int Player::get_souls() {return souls;}
+string Player::get_name() {return this->name;}
+string Player::get_weapType() {return this->weapon_Type;}
+string Player::get_eleType() {return this->elemental_Type;}
+string Player::get_spellName() {return this->spellName;}
+string Player::get_Class() {return this->player_Class;}
+int Player::get_health() {return this->health;}
+int Player::get_MAXhealth() {return this->MAXhealth;}
+int Player::get_mana() {return this->mana;}
+int Player::get_MAXmana() {return this->MAXmana;}
+int Player::get_attack() {return this->attack;}
+int Player::get_defense() {return this->defense;}
+int Player::get_souls() {return this->souls;}
 
 //Setters
-void Player::set_name(string s) {name = s;}
+void Player::set_name(string s) {this->name = s;}
 //void Player::set_rarity(string r) {rarity = r;}
 //void Player::set_type(string t) {type = t;}
 void Player::set_health(int hp){
-	if(hp + health > MAXhealth)
-		health = MAXhealth;
+	if(hp + this->health > this->MAXhealth)
+		this->health = this->MAXhealth;
 	else if (health + hp < 0)
-		health = 0;
+		this->health = 0;
 	else
-		health += hp;
+		this->health += hp;
 }
 
 void Player::swap_weapon(Weapon *weap_) {
@@ -124,12 +132,12 @@ void Player::swap_weapon(Weapon *weap_) {
 
 void Player::set_MAXhealth(int hp){MAXhealth = hp;}
 void Player::set_mana(int mp){
-if (mp + mana > MAXmana)
-	mana = MAXmana;
+if (mp + this->mana > this->MAXmana)
+	this->mana = this->MAXmana;
 else if (mana + mp < 0)
-	mana = 0;
+	this->mana = 0;
 else
-	mana += mp;
+	this->mana += mp;
 }
 
 void Player::set_MAXmana(int mp){MAXmana = mp;}

@@ -14,6 +14,7 @@ protected:
 	std::string weapon_Type;
 	std::string elemental_Type;
 	std::string spellName;
+	std::string player_Class;
 	int health;
 	int MAXhealth;
 	int mana;
@@ -38,6 +39,7 @@ public:
 	std::string get_weapType();
 	std::string get_eleType();
 	std::string get_spellName();
+	std::string get_Class();
 	int get_health();
 	int get_MAXhealth();
 	int get_mana();
