@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 #include <ncurses.h>
+#include <string>
+#include "string_conversion.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"
 //#include "Display.hpp"
@@ -17,7 +20,9 @@ protected:
     int yshift = 1;
     Player *p;
     Enemy *e;
-	WINDOW * combatwin;
+	vector <std::string> combat_log;
+	std::string temp_combat_log;
+	WINDOW * combatwin;//Hold a pointer to the combat window screen
 	int yMax;
 	int xMax;
 

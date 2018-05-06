@@ -1,8 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
+#include <string>
 #include <ncurses.h>
 #include "Combat.hpp"
+#include "string_conversion.hpp"
 #include "Unit.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"
@@ -47,6 +49,16 @@ int Combat::combat_phase(unsigned int action, int classPick, Player *p, Enemy *e
                               p->get_weapType(), p->get_eleType());
       enemy_attack(p, e, effect);
     }
+	//display combat log
+	int cnt = 0;
+	for(unsigned int i = combat_log.size(); i != 0; i--) {
+		mvwprintw(combatwin, (2+cnt), 3, combat_log[(i-1)].c_str());
+		cnt ++;
+		wrefresh(combatwin);
+	}
+	//mvwprintw(combatwin, get_yshift(), 3, "Number1 : %d" , combat_log.size());
+	//wrefresh(combatwin);
+	
     if(e->get_health() == 0)
       return 1;
     else if(p->get_health() == 0)
@@ -84,20 +96,59 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
     damage = std::max(0, int(p->get_attack() * effect - e->get_defense()));
     p->set_mana(20);
     //testing
-    mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with basic attack", damage, e->get_name().c_str());
-    set_yshift(1);
-    wrefresh(combatwin);
+    //mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with basic attack", damage, e->get_name().c_str());
+	//std::string temp_log("You dealt %d damage to %s with basic attack", damage, e->get_name().c_str());
+	temp_combat_log.clear();
+	temp_combat_log.append("You dealt ");
+	temp_combat_log.append(lexical_cast(damage));
+	temp_combat_log.append(" damage to ");
+	temp_combat_log.append(e->get_name());
+	temp_combat_log.append(" with basic attack");
+	
+	if(combat_log.size() >= 5) {
+		combat_log.erase(combat_log.begin());
+		combat_log.push_back(temp_combat_log);
+	}
+	else {
+		combat_log.push_back(temp_combat_log);
+	}
+	
   }
-  else if(action == 7)
+  else if(action == 7) {
+	//Flee command
+	if(combat_log.size() == 5) {
+		combat_log.erase(combat_log.begin());
+		combat_log.push_back("You've attempted to flee");
+	}
+	else {
+		combat_log.push_back("You've attempted to flee");
+	}
     damage = 0;
+  }
   else
   {
     std::pair<int, int> spellDamage = p->cast_spell(classPick, action-3, p->get_attack());
     damage = std::max(0, spellDamage.second * int(spellDamage.first * effect - e->get_defense()));
-    mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with %s", damage, e->get_name().c_str(), p->get_spellName().c_str());
-    set_yshift(1);
-    wrefresh(combatwin);
+    //mvwprintw(combatwin, get_yshift(), 1, "You dealt %d damage to %s with %s", damage, e->get_name().c_str(), p->get_spellName().c_str());
+    //set_yshift(1);
+    //wrefresh(combatwin);
+	temp_combat_log.clear();
+	temp_combat_log.append("You dealt ");
+	temp_combat_log.append(lexical_cast(damage));
+	temp_combat_log.append(" damage to ");
+	temp_combat_log.append(e->get_name());
+	temp_combat_log.append(" with ");
+	temp_combat_log.append(p->get_spellName());
+	
+	if(combat_log.size() >= 5) {
+		combat_log.erase(combat_log.begin());
+		combat_log.push_back(temp_combat_log);
+	}
+	else {
+		combat_log.push_back(temp_combat_log);
+	}
   }
+  
   e->set_health(-1 * damage);
   if (e->get_health() <= 0) {
     on_death();
@@ -106,9 +157,23 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 
 void Combat::enemy_attack(Player *p, Enemy *e, float effect){
   int damage = std::max(0, int(e->get_attack() * effect - p->get_defense()));
-  mvwprintw(combatwin, get_yshift(), 1, "%s dealt %d damage to you", e->get_name().c_str(), damage);
-  set_yshift(1);
-  wrefresh(combatwin);
+  //mvwprintw(combatwin, get_yshift(), 1, "%s dealt %d damage to you", e->get_name().c_str(), damage);
+  //set_yshift(1);
+  //wrefresh(combatwin);
+	temp_combat_log.clear();
+	temp_combat_log.append(e->get_name());
+	temp_combat_log.append(" dealt ");
+	temp_combat_log.append(lexical_cast(damage));
+	temp_combat_log.append(" damage to you ");
+
+	if(combat_log.size() >= 5) {
+		combat_log.erase(combat_log.begin());
+		combat_log.push_back(temp_combat_log);
+	}
+	else {
+		combat_log.push_back(temp_combat_log);
+	}
+  
   p->set_health(-1 * damage);
   if (p->get_health() <= 0) {
     on_death();
