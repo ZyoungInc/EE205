@@ -97,6 +97,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		./tst/test-Combat.cpp $(OBJ_FILES) -lncurses
 	./bin/test-Combat.out
 
+./bin/test-CombatEvents.out:$(OBJ_FILES) ./tst/test-CombatEvents.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
+		-o ./bin/test-CombatEvents.out \
+		./tst/test-CombatEvents.cpp $(OBJ_FILES) -lncurses
+	./bin/test-CombatEvents.out
 
 # Convenience rules for the command line to quickly test a class
 # Class testing
@@ -126,6 +131,8 @@ Weapon: ./bin/test-Weapon.out
 Spells: ./bin/test-spell.out
 
 Combat: ./bin/test-Combat.out
+
+CombatEvents: ./bin/test-CombatEvents.out
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))

@@ -122,10 +122,10 @@ void Player::swap_weapon(Weapon *weap_) {
 	if(this->MAXhealth < weap->get_MAXhealth()) {
 		//If the weapon increase your max hp, then increase your hp by the diffence
 		this->health += (weap->get_MAXhealth() - this->MAXhealth);
-		if(this->health >= weap->get_MAXhealth()) {
+	}
+	if(this->health >= weap->get_MAXhealth()) {
 			//Edge case if you get healed over your  MAXhealth
 			this->health = weap->get_MAXhealth();
-		}
 	}
 	this->MAXhealth = weap->get_MAXhealth();
 	this->weapon_Type = weap->get_type();
