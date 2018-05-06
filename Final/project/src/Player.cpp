@@ -105,20 +105,20 @@ void Player::set_health(int hp){
 		health += hp;
 }
 
-void swap_weapon(Weapon *weap_) {
+void Player::swap_weapon(Weapon *weap_) {
 	weap = weap_;
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
 	this->MAXmana = weap->get_MAXmana();
-	if(this->MAXhealth < weap->MAXhealth) {
+	if(this->MAXhealth < weap->get_MAXhealth()) {
 		//If the weapon increase your max hp, then increase your hp by the diffence
-		this->health += (weap->MAXhealth - this->MAXhealth);
-		if(this->health >= weap->MAXhealth) {
+		this->health += (weap->get_MAXhealth() - this->MAXhealth);
+		if(this->health >= weap->get_MAXhealth()) {
 			//Edge case if you get healed over your  MAXhealth
-			this->health = weap->MAXhealth;
+			this->health = weap->get_MAXhealth();
 		}
 	}
-	this->MAXhealth = weap->MAXhealth;
+	this->MAXhealth = weap->get_MAXhealth();
 	this->weapon_Type = weap->get_type();
 }
 
