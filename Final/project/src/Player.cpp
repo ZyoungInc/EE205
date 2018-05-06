@@ -114,7 +114,7 @@ void Player::set_health(int hp){
 }
 
 void Player::swap_weapon(Weapon *weap_) {
-	weap = weap_;
+	this->weap = weap_;
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
 	this->MAXmana = weap->get_MAXmana();
@@ -134,16 +134,16 @@ void Player::set_MAXhealth(int hp){MAXhealth = hp;}
 void Player::set_mana(int mp){
 if (mp + this->mana > this->MAXmana)
 	this->mana = this->MAXmana;
-else if (mana + mp < 0)
+else if (this->mana + mp < 0)
 	this->mana = 0;
 else
 	this->mana += mp;
 }
 
-void Player::set_MAXmana(int mp){MAXmana = mp;}
-void Player::set_attack(int atk){attack = atk;}
-void Player::set_defense(int d){defense = d;}
-void Player::set_weapType(std::string w) {weapon_Type = w;}
-void Player::set_eleType(std::string e) {elemental_Type = e;}
-void Player::set_spellName(std::string s) {spellName = s;}
-void Player::set_souls(int s) {souls = s;}
+void Player::set_MAXmana(int mp){this->MAXmana = mp;}
+void Player::set_attack(int atk){this->attack = atk;}
+void Player::set_defense(int d){this->defense = d;}
+void Player::set_weapType(std::string w) {this->weapon_Type = w;}
+void Player::set_eleType(std::string e) {this->elemental_Type = e;}
+void Player::set_spellName(std::string s) {this->spellName = s;}
+void Player::set_souls(int s) {this->souls = s;}
