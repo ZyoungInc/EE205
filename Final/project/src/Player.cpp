@@ -43,7 +43,7 @@ Player::Player(const Player& other) :
 	mana(other.mana),
 	attack(other.attack),
 	defense(other.defense) {}
-	
+
 //Move Constructor
 Player::Player(Player&& other) :
 	name(move(other.name)),
@@ -51,7 +51,7 @@ Player::Player(Player&& other) :
 	mana(move(other.mana)),
 	attack(move(other.attack)),
 	defense(move(other.defense)) {}*/
-	
+
 std::pair<int, int> Player::cast_spell(unsigned int classChoice, unsigned int spellChoice, int atk){
 	vector<Spell> spellBook(MakeSpellBook(classChoice));
 	int damage = atk * spellBook[spellChoice].get_damage();
@@ -60,17 +60,17 @@ std::pair<int, int> Player::cast_spell(unsigned int classChoice, unsigned int sp
 	int heal = spellBook[spellChoice].check_Effect(atk);
 	std::string eType = spellBook[spellChoice].get_EleType();
 	std::string sName = spellBook[spellChoice].get_name();
+	set_eleType(eType);
+	set_spellName(sName);
+	set_health(heal);
 	if(cost <= this->mana)
 		set_mana(-1*cost);
 	else
 	{
-		damage = atk;
-		hits = 1;
-		set_mana(20);
+		damage = 0;
+		hits = 0;
+		set_spellName("a failed spell");
 	}
-		set_eleType(eType);
-		set_spellName(sName);
-		set_health(heal);
 
 		std::pair<int, int> temp_cast_spell;
 		temp_cast_spell.first = damage;

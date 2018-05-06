@@ -10,9 +10,9 @@ Weapon::Weapon() :
   type("Hands"),
   wdamage(2),
   wdefense(2),
-  MAXhealth(20),
+  MAXhealth(15),
 
-  MAXmana(0) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
+  MAXmana(20) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
 
 //Destructor
 Weapon::~Weapon() {/*std::cout << "Weapon destructed" << std::endl;*/}
