@@ -16,9 +16,7 @@ void drawEnemyDisplay(int yMax_, int xMax_, Enemy& newEnemy){
   box(enemywin, 0, 0);
   refresh();
   wrefresh(enemywin);
-  //Create random enemy
-  //randomNum = RandNum(1 , 6);
-  //Enemy newEnemy(randomNum);
+
   //displays enemy HUD
   mvwprintw(enemywin, 1, 1, "%s (Tier %d)", newEnemy.get_name().c_str(), newEnemy.get_tier());
   mvwprintw(enemywin, 2, 1, "HP: %d/%d", newEnemy.get_health(), newEnemy.get_MAXhealth());

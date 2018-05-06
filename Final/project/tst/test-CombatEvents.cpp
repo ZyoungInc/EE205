@@ -26,7 +26,7 @@ int main() {
     initscr();
     noecho();
     cbreak();
-	unsigned int randomNum;//random generator variable
+
 	srand(time(NULL));//seeds rng
 	//get screen size
     int yMax, xMax;
@@ -48,7 +48,7 @@ int main() {
 		displayOpeningDiag(yMax, xMax);//displays opening dialogue
 		//Construct player
 		Player p(chInput.second, chInput.first, souls, &weap);
-		
+
 		while(stage < 7) {//while in the game
 			state = 3;//keeps you in correct state
 			p.set_souls(souls);
@@ -124,7 +124,6 @@ int main() {
 				}
 				drawRandomEvent(yMax, xMax);
 				drawHealEvent(yMax, xMax, &p);
-				
 			}
 
 			if(stage == 7)//gets you out of game

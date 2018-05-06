@@ -18,21 +18,7 @@ void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, 
   refresh();
   wrefresh(avatarwin);
 
-  //Create player
-  //Player newPlayer(parameter);
-
-  /*//Displays AvatarHUD
-  if(classChoice == 1)
-    mvwprintw(avatarwin, 1, 1, "%s (Warrior)", name.c_str());
-  else
-    mvwprintw(avatarwin, 1, 1, "%s (Mage)", name.c_str());
-  mvwprintw(avatarwin, 2, 1, "HP: %d/%d", newPlayer.get_health(), newPlayer.get_MAXhealth());
-  mvwprintw(avatarwin, 3, 1, "MP: %d/%d", newPlayer.get_mana(), newPlayer.get_MAXmana());
-  mvwprintw(avatarwin, 4, 1, "ATK: %d", newPlayer.get_wdamage());
-  mvwprintw(avatarwin, 5, 1, "DEF: %d", newPlayer.get_wdefense());
-  mvwprintw(avatarwin, 6, 1, "WPN: %s", newPlayer.get_type().c_str());
-  mvwprintw(avatarwin, 7, 1, "SOULS: %d", newPlayer.get_souls());
-  */
+  //display player stats
   if(classChoice == 1)
   {
     mvwprintw(avatarwin, 1, 1, "%s (Warrior)", name.c_str());

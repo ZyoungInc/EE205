@@ -5,15 +5,15 @@
 #include "Weapon.hpp"
 
 bool drawRandomEvent(int yMax_, int xMax_) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "You find yourself at a fork in the road");
-	mvwprintw(titlewin, 3, 5, "1. To the left you see a dark path");
-	mvwprintw(titlewin, 4, 5, "2. To the right you hear random noise, clearly an occupied room");
+	mvwprintw(titlewin, 2, 5, "You find yourself at a fork in the road:");
+	mvwprintw(titlewin, 3, 5, "1. To the left you see a dark path.");
+	mvwprintw(titlewin, 4, 5, "2. To the right you hear random noise, clearly an occupied room.");
     refresh();
     wrefresh(titlewin);
 
@@ -59,12 +59,12 @@ bool drawRandomEvent(int yMax_, int xMax_) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
-        return true; 
+        return true;
     }
-    else 
+    else
 	{
 		return false;
 	}
@@ -72,15 +72,15 @@ bool drawRandomEvent(int yMax_, int xMax_) {
 }
 
 int drawHealEvent(int yMax_, int xMax_, Player *p) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "A white robed figure approaches you an ask");
-	mvwprintw(titlewin, 3, 5, "you look rough, I could patch you up...for a price");
-	mvwprintw(titlewin, 4, 5, "ohh and don't try to scam me, I'm watching you");
+	mvwprintw(titlewin, 2, 5, "A white robed figure approaches you and asks,");
+	mvwprintw(titlewin, 3, 5, "you look rough, I could patch you up...for a price.");
+	mvwprintw(titlewin, 4, 5, "Ohh and don't try to scam me, I'm watching you.");
     refresh();
     wrefresh(titlewin);
 
@@ -126,7 +126,7 @@ int drawHealEvent(int yMax_, int xMax_, Player *p) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
 		if(p->get_souls() >= 3) {
@@ -134,21 +134,21 @@ int drawHealEvent(int yMax_, int xMax_, Player *p) {
 			p->set_health((p->get_health() * .6));
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "You were healed");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "You were healed.");
 			refresh();
 			wrefresh(titlewin);
 		}
 		else {
 			p->set_health(-1*(p->get_health() * .6));
 			wclear(titlewin);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "You paid a terrible price");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "You paid a terrible price.");
 			box(titlewin, 0, 0);
 			refresh();
 			wrefresh(titlewin);
 		}
-        
+
     }
-	
+
 	wclear(menuwin);
 	box(menuwin, 0, 0);
 	mvwprintw(menuwin, 2, (xMax/2)-11, "press any key to continue");
@@ -158,13 +158,13 @@ int drawHealEvent(int yMax_, int xMax_, Player *p) {
 }
 
 int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "A begger extend his hand and begs for souls");
+	mvwprintw(titlewin, 2, 5, "A begger extends his hand and begs for souls.");
     refresh();
     wrefresh(titlewin);
 
@@ -210,21 +210,21 @@ int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
 		if(p->get_souls() >= 1) {
 			p->set_souls(p->get_souls() - 1);
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, 5, "Thank you kind wander");
+			mvwprintw(titlewin, 2, 5, "Thank you kind wander.");
 			refresh();
 			wrefresh(titlewin);
 		}
 		else {
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "The beggar grabs your weapon and runs away");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "The beggar grabs your weapon and runs away.");
 			refresh();
 			wrefresh(titlewin);
 			Weapon weap;
@@ -237,14 +237,14 @@ int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
 		if(randnum <= 10) {
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "The beggar grabs your weapon and runs away");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "The beggar grabs your weapon and runs away.");
 			refresh();
 			wrefresh(titlewin);
 			Weapon weap;
 			p->swap_weapon(&weap);
 		}
 	}
-	
+
 	wclear(menuwin);
 	box(menuwin, 0, 0);
 	mvwprintw(menuwin, 2, 1, "press any key to continue");
@@ -254,14 +254,14 @@ int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
 }
 
 int drawLootEvent(int yMax_, int xMax_, Player *p) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
 	bool got_loot = false;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "A Chest with a trap in it, a soul will open the box");
+	mvwprintw(titlewin, 2, 5, "You see a Chest with a trap in it, it seems a soul will open the box.");
     refresh();
     wrefresh(titlewin);
 
@@ -307,14 +307,14 @@ int drawLootEvent(int yMax_, int xMax_, Player *p) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
 		if(p->get_souls() >= 1) {
 			p->set_souls(p->get_souls() - 1);
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, 5, "The loot is yours for the taking");
+			mvwprintw(titlewin, 2, 5, "The loot is yours for the taking.");
 			refresh();
 			wrefresh(titlewin);
 			got_loot = true;
@@ -323,12 +323,12 @@ int drawLootEvent(int yMax_, int xMax_, Player *p) {
 			p->set_health(p->get_health() * -.3);
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "You triggered the trap, the weapon was destroyed");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "You triggered the trap, the weapon was destroyed.");
 			refresh();
 			wrefresh(titlewin);
 		}
     }
-	
+
 	wclear(menuwin);
 	box(menuwin, 0, 0);
 	mvwprintw(menuwin, 2, 1, "press any key to continue");
@@ -338,19 +338,19 @@ int drawLootEvent(int yMax_, int xMax_, Player *p) {
 }
 
 int drawRestingEvent(int yMax_, int xMax_, Player *p) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area");
-	mvwprintw(titlewin, 3, 5, "You take a nice nap and feel refreshed");
+	mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area.");
+	mvwprintw(titlewin, 3, 5, "You take a nice nap and feel refreshed.");
     refresh();
     wrefresh(titlewin);
-	
+
 	p->set_health(p->get_health() * .4);
-	
+
 
     //create a menu window for input
 	WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
@@ -362,21 +362,21 @@ int drawRestingEvent(int yMax_, int xMax_, Player *p) {
     getchar();
 	werase(menuwin);
 	wrefresh(menuwin);
-	return 0;// not sure 
-}	
-	
+	return 0;// not sure
+}
+
 int drawTrapEvent(int yMax_, int xMax_, Player *p) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
-	//create diaglog window 
+
+	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
 	mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area");
 	mvwprintw(titlewin, 3, 5, "suddenly you feel the ground break under you ");
     refresh();
     wrefresh(titlewin);
-	
+
 	//create a menu window for input
     WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
     box(menuwin, 0, 0);
@@ -386,7 +386,7 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
     //allows use of arrow keys
     keypad(menuwin, true);
 
-    string startMenu[2] = {"1. Attempt to grab you weapon, taking damage in the process(30%)", "2. Avoid the hole, losing your weapon"};
+    string startMenu[2] = {"1. Attempt to grab your weapon, taking damage in the process(30%)", "2. Avoid the hole, losing your weapon"};
     int choice;
     int highlight = 0;
 
@@ -419,26 +419,26 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
 		p->set_health(p->get_health() * -.3 );
 		wclear(titlewin);
 		box(titlewin, 0, 0);
-		mvwprintw(titlewin, 2, (xMax/2)-11, "You grab you weapon but you take fall damage");
+		mvwprintw(titlewin, 2, (xMax/2)-11, "You grab your weapon but but end up hurting yourself in the process");
 		refresh();
 		wrefresh(titlewin);
     }
 	else {
 		wclear(titlewin);
 		box(titlewin, 0, 0);
-		mvwprintw(titlewin, 2, (xMax/2)-11, "Your weapon fall throug the hole, but you avoid any damage");
+		mvwprintw(titlewin, 2, (xMax/2)-11, "Your weapon fell through the hole, but you avoid any damage");
 		refresh();
 		wrefresh(titlewin);
 		Weapon weap;
 		p->swap_weapon(&weap);
 	}
-	
+
 	wclear(menuwin);
 	box(menuwin, 0, 0);
 	mvwprintw(menuwin, 2, (xMax/2)-11, "press any key to continue");
@@ -446,4 +446,3 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
 	getchar();
 	return 0;
 }
-	

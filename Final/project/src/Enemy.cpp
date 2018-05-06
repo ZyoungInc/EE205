@@ -1,6 +1,5 @@
 #include <string>
 #include <utility>
-
 #include "game-utility.hpp"
 #include "Unit.hpp"
 #include "Enemy.hpp"
