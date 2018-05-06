@@ -44,20 +44,12 @@ int main() {
     int souls = 0; //use to track how many kills player has
 		chInput = drawCharDisplay(yMax, xMax);
     Weapon weap;
+    Weapon dropWeap;
     randomNum = RandNum(1, 6);
     displayOpeningDiag(yMax, xMax);
     while(stage < 7)
     {
-		if(chInput.first == 1)
-    {
-			state = chInput.first + 2;
-      weap = Warrior_Weap(stage);
-    }
-		else
-    {
-			state = chInput.first + 1;
-      weap = Mage_Weap(stage);
-    }
+      state = 3;
 		//Construct player
     Player p(chInput.second, chInput.first, souls, &weap);
 
@@ -95,6 +87,24 @@ int main() {
       }
       else
       {
+        if(chInput.first == 1)
+        {
+    			if(RandNum(1,3) == 3)
+          {
+            dropWeap = Warrior_Weap(stage);
+            if(displayWeaponDrop(yMax, xMax, dropWeap) == true)
+              weap = dropWeap;
+          }
+        }
+    		else
+        {
+    			if(RandNum(1,3) == 3)
+          {
+            dropWeap = Mage_Weap(stage);
+            if(displayWeaponDrop(yMax, xMax, dropWeap) == true)
+              weap = dropWeap;
+          }
+        }
         souls++;
         if(souls > 4)
         {

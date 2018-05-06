@@ -6,13 +6,13 @@
 
 //Default  base weapon constructor
 Weapon::Weapon() :
-  rarity("Normal"),
+  rarity("Bloody"),
   type("Hands"),
-  wdamage(2),
-  wdefense(2),
+  wdamage(1),
+  wdefense(0),
   MAXhealth(10),
 
-  MAXmana(10) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
+  MAXmana(0) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
 
 //Destructor
 Weapon::~Weapon() {/*std::cout << "Weapon destructed" << std::endl;*/}

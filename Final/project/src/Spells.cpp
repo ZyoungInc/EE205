@@ -33,7 +33,7 @@ int Spell::check_Effect(int playerATK) {
 	if (this->name == "Heal") {
 		return  (playerATK * HEAL_DMG);
 	}
-	if (this->name == "VampiricStrike") {
+	else if (this->name == "VampiricStrike") {
 		return (playerATK * VAMPIRE_DMG);
 	}
 	else {
