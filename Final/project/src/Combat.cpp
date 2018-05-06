@@ -46,9 +46,9 @@ int Combat::combat_phase(unsigned int action, int classPick, Player *p, Enemy *e
         player_attack(p, e, action, classPick, effect);
     if(e->get_health() > 0)
     {
-      effect = eff_calc_other(e->get_wep_type(), e->get_element(),
+		effect = eff_calc_other(e->get_wep_type(), e->get_element(),
 							p->get_weapType(), p->get_eleType());
-      enemy_attack(p, e, effect);
+		enemy_attack(p, e, effect);
     }
 	
 	//Iterate through combat log and display it on screen

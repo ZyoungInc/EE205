@@ -28,7 +28,7 @@ int main() {
 	cout << FBLU("MaxMP: ") << testweapon.get_MAXmana() << endl;
 	cout << "" << endl;
 
-//Loop for generating more weapons
+	//Loop for generating more weapons
 
 	while(input != 'q') {
 		randNum = RandNum(1 , 6);
