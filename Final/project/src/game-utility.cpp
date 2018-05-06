@@ -2,24 +2,27 @@
 #include <ctime>
 #include <cstdlib>
 #include "game-utility.hpp"
+#define RAND_MAX 100000000
 using namespace std;
 
-//random number generator between two user defined integers
-int RandNum(int lowrand, int highrand) {
-  int xrand;
 
-  highrand = highrand - lowrand;
+int RandNum(int lower, int upper)
+{
+    int modulus = upper-lower;
+    int top = (RAND_MAX / modulus) * modulus;
+    int num;
+    do {
+	num = rand();
+    } while (num < top);
 
-  //srand(time(0)); not required here but needed in beginning of main
-  xrand = rand()%highrand+lowrand+1;
-  return xrand;
+    return num % modulus + lower;
 }
 
 
 std::string random_element_eff(unsigned int chance_Percent) {
-	unsigned int roll_100 = RandNum( 1 , 100);
+	unsigned int roll_100 = RandNum(1, 101);
 	if (roll_100 <= chance_Percent) {
-		unsigned int element_rand = RandNum(1, 3);
+		unsigned int element_rand = RandNum(1, 4);
 		if(element_rand == 1) {
 			return "Fire";
 		}
@@ -36,9 +39,9 @@ std::string random_element_eff(unsigned int chance_Percent) {
 }
 
 std::string random_wep_eff(unsigned int chance_Percent){
-	unsigned int roll_100 = RandNum( 1 , 100);
+	unsigned int roll_100 = RandNum(1, 101);
 	if (roll_100 <= chance_Percent) {
-		unsigned int wep_rand = RandNum(1, 3);
+		unsigned int wep_rand = RandNum(1, 4);
 		if(wep_rand == 1) {
 			return "Sword";
 		}

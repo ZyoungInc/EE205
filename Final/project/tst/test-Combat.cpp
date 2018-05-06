@@ -43,14 +43,13 @@ int main() {
 		chInput = drawCharDisplay(yMax, xMax);//displays character creation and returns that info
 		Weapon weap;//create default starting weapon
 		Weapon dropWeap;//creates default weapon drop
-		
-		displayOpeningDiag(yMax, xMax);//displays opening dialogue
-		
-		while(stage < 7) {//while in the game 
-			state = 3;//keeps you in correct state
-			//Construct player
-			Player p(chInput.second, chInput.first, souls, &weap);
 
+		displayOpeningDiag(yMax, xMax);//displays opening dialogue
+    //Construct player
+    Player p(chInput.second, chInput.first, souls, &weap);
+		while(stage < 7) {//while in the game
+			state = 3;//keeps you in correct state
+      p.set_souls(souls);
 			drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);//Displayes playerHUD
 			Enemy e(stage);//Creates random enemy according to stage level
 			drawEnemyDisplay(yMax, xMax, e);//displays enemyHUD
@@ -58,11 +57,11 @@ int main() {
 
 			while(state != 1) {//while in combat
 				state = drawOptionDisplay(yMax, xMax, chInput.first);//displays and waits for your battling displayOptions
-				if(state == 1) {//if quit command is selecte	
+				if(state == 1) {//if quit command is selecte
 					stage = 7;//gets you out of game by bypassing endgame
 					break;
 				}
-				else if(state == 7 && RandNum(1,4) == 2) {//if Flee command is selected
+				else if(state == 7 && RandNum(1,5) == 2) {//if Flee command is selected
 					//Flees only 25% of the time
 					break;
 				}
@@ -83,20 +82,24 @@ int main() {
 					{
 						if(chInput.first == 1)//if you are a warrior
 						{
-							if(RandNum(1,3) == 3)//randomly drop a weapon and asks if you want to equip
+							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Warrior_Weap(stage);
-								if(displayWeaponDrop(yMax, xMax, dropWeap) == true)
+								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
 									weap = dropWeap;
+                  p.swap_weapon(&weap);
+                }
 							}
 						}
 						else//if you are a mage
 						{
-							if(RandNum(1,3) == 3)//randomly drop a weapon and asks if you want to equip
+							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Mage_Weap(stage);
-								if(displayWeaponDrop(yMax, xMax, dropWeap) == true)
+								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
 									weap = dropWeap;
+                  p.swap_weapon(&weap);
+                }
 							}
 						}
 						souls++;//get the enemy that you killed soul
@@ -118,7 +121,7 @@ int main() {
 				  break;
 				}
 			}
-		
+
 			if(stage == 7)//gets you out of game
 				break;
 		}

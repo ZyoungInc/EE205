@@ -8,9 +8,9 @@
 Weapon::Weapon() :
   rarity("Bloody"),
   type("Hands"),
-  wdamage(1),
-  wdefense(0),
-  MAXhealth(10),
+  wdamage(2),
+  wdefense(2),
+  MAXhealth(20),
 
   MAXmana(0) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
 
@@ -32,8 +32,8 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 	int weapon_type;
 	switch(rarity_level){
 		case 1: //Bronze melee weapon
-			weapon_type = RandNum(1, 3);
-			this->MAXhealth = 10;
+			weapon_type = RandNum(1, 4);
+			this->MAXhealth = 20;
 			this->MAXmana = 100;
 			this->rarity = "Bronze";
 			if(weapon_type == 1){
@@ -53,8 +53,8 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			}
 			break;
 		case 2: //Silver melee weapon
-			weapon_type = RandNum(1, 3);
-			this->MAXhealth = 20;
+			weapon_type = RandNum(1, 4);
+			this->MAXhealth = 30;
 			this->MAXmana = 100;
 			this->rarity = "Silver";
 			if(weapon_type == 1){
@@ -74,7 +74,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			}
 			break;
 		case 3: //Gold melee weapon
-			weapon_type = RandNum(1, 3);
+			weapon_type = RandNum(1, 4);
 			this->MAXhealth = 40;
 			this->MAXmana = 100;
 			this->rarity = "Gold";
@@ -95,7 +95,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			}
 			break;
 		case 4: //Platinum melee weapon
-			weapon_type = RandNum(1, 3);
+			weapon_type = RandNum(1, 4);
 			this->MAXhealth = 60;
 			this->MAXmana = 100;
 			this->rarity = "Platinum";
@@ -116,7 +116,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			}
 		  break;
 		case 5: //Diamond melee weapon
-			weapon_type = RandNum(1, 3);
+			weapon_type = RandNum(1, 4);
 			this->MAXhealth = 80;
 			this->MAXmana = 100;
 			this->rarity = "Diamond";
@@ -137,7 +137,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			}
 			break;
 		case 6: //Legendary melee weapon
-			weapon_type = RandNum(1, 3);
+			weapon_type = RandNum(1, 4);
 			this->MAXhealth = 100;
 			this->MAXmana = 100;
 			this->rarity = "Legendary";
