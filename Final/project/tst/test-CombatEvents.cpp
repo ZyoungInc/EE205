@@ -124,6 +124,7 @@ int main() {
 					stage = 7;//get you out of game
 					break;
 				}
+				
 			}
 			
 			randNum = RandNum(1, 101);
@@ -149,11 +150,12 @@ int main() {
 				}
 			}
 
-			if(stage == 7)//gets you out of game
+			if(stage == 7) {//gets you out of game
 				break;
 			}
-			state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play again
 		}
+		state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play again
+	}
 
 	endwin();//deallocates window memory
 	return 0;//clean exit
