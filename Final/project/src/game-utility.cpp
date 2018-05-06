@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "game-utility.hpp"
-#define RAND_MAX 100000000
+
 using namespace std;
 
 

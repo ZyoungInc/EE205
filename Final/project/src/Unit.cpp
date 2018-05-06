@@ -5,10 +5,10 @@
 //Default constructor
 Unit::Unit() :
     name(""),
-    MAXhealth(0),// added max HP
-    MAXmana(0),
 	health(0),
+    MAXhealth(0),// added max HP
 	mana(0),
+	MAXmana(0),
     attack(0),
     defense(0) {}
 
@@ -19,10 +19,10 @@ Unit::Unit(std::string name_,
       int attack_,
       int defense_) :
     name(name_),
-	MAXhealth(health_),// added max HP
-    MAXmana(mana_),
 	health(health_),
+	MAXhealth(health_),// added max HP
 	mana(mana_),
+    MAXmana(mana_),
     attack(attack_),
     defense(defense_) {}
 

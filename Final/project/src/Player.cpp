@@ -12,10 +12,11 @@ using namespace std;
 //Default Constructor
 Player::Player() :
 	name(""),
-	MAXhealth(0),
-	MAXmana(0),
+	weapon_Type(""),
 	health(0),
+	MAXhealth(0),
 	mana(0),
+	MAXmana(0),
 	attack(0),
 	defense(0),
 	souls(0) {}

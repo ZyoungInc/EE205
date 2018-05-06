@@ -65,23 +65,23 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 					//Attack with basic damage
 					if(Option1[highlight1] == Option1[0])
 					{
-					  return 2;
+						return 2;
 					}
 					//Go to spells selector
 					else if(Option1[highlight1] == Option1[1])
 					{
-					  selecter = 2;
+						selecter = 2;
 					}
 					//Flee, stay in first selector
 					else if(Option1[highlight1] == Option1[2])
 					{
-					  return 7;
-					  //selecter = 1;
+						return 7;
+						//selecter = 1;
 					}
 					//Kill yourself and quits the game
 					else if(Option1[highlight1] == Option1[3])
 					{
-					  return 1;
+						return 1;
 					}
 					break;
 			}
@@ -175,4 +175,5 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 				throw "not an option";
 		}//end of switch(selecter) statment
 	}//end of while(selecter == 1 || selecter ==2)
+	return 1337; //if 1137 is return error
 }

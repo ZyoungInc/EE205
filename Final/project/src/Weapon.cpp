@@ -6,26 +6,24 @@
 
 //Default  base weapon constructor
 Weapon::Weapon() :
-  rarity("Bloody"),
-  type("Hands"),
-  wdamage(2),
-  wdefense(2),
-  MAXhealth(15),
-
-  MAXmana(20) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
+	type("Hands"),
+	rarity("Bloody"),
+	wdamage(2),
+	wdefense(2),
+	MAXhealth(15),
+	MAXmana(20) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
 
 //Destructor
 Weapon::~Weapon() {/*std::cout << "Weapon destructed" << std::endl;*/}
 
 //Overloaded base weapon constructor
 Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_,int MAXhealth_, int MAXmana_) :
-  rarity(rarity_),
-  type(type_),
-  wdamage(wdamage_),
-  wdefense(wdefense_),
-  MAXhealth(MAXhealth_),
-
-  MAXmana(MAXmana_) {std::cout << "Base Weapon constructor called" << std::endl;}
+    type(type_),
+	rarity(rarity_),
+	wdamage(wdamage_),
+	wdefense(wdefense_),
+	MAXhealth(MAXhealth_),
+	MAXmana(MAXmana_) {}
 
 //Inherited warrior weapon class constructor
 Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
