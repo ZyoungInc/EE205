@@ -8,9 +8,9 @@ using namespace std;
 int main() {
   int xrand;
   int lowrand = 1;
-  int highrand = 25;
-
+  int highrand = 2;
   srand(time(0));
+
   xrand = RandNum(lowrand, highrand);
 
   cout << "random number is " << xrand << endl;
