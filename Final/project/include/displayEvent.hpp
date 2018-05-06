@@ -13,4 +13,4 @@ int drawRestingEvent(int yMax_, int xMax_, Player *p);
 
 int drawTrapEvent(int yMax_, int xMax_, Player *p);
 
-//Notes, there also a trap event but its called the same as combat
+int drawEnemyEvent(int yMax_, int xMax_, Player *p);

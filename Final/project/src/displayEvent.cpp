@@ -446,3 +446,28 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
 	getchar();
 	return 0;
 }
+
+int drawEnemyEvent(int yMax_, int xMax_, Player *p) {
+	int yMax = yMax_;
+	int xMax = xMax_;
+
+	//create diaglog window
+	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
+    box(titlewin, 0, 0);
+	mvwprintw(titlewin, 2, 5, "You stumble upon a enemies awaiting in the room.");
+	mvwprintw(titlewin, 3, 5, "Prepare for combat");
+    refresh();
+    wrefresh(titlewin);
+
+    //create a menu window for input
+	WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
+    box(menuwin, 0, 0);
+	mvwprintw(menuwin, 3, (xMax/2), "Press any key to continue");
+    refresh();
+    wrefresh(menuwin);
+
+    getchar();
+	werase(menuwin);
+	wrefresh(menuwin);
+	return 0;// not sure
+}

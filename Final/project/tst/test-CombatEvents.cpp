@@ -145,9 +145,10 @@ int main() {
 							break;
 					case 5: drawTrapEvent(yMax, xMax, &p);
 							break;
-					default: // ambush event
+					default: drawEnemyEvent(yMax, xMax, &p);
 							break;
 				}
+				rand_event_trigger = false;
 			}
 
 			if(stage == 7) {//gets you out of game
