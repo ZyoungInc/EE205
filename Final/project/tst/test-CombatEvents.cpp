@@ -33,6 +33,7 @@ int main() {
     getmaxyx(stdscr, yMax, xMax);
 	int randNum = 0;
 	bool rand_event_trigger = false;
+  bool loot_trigger = false;
 
 	//Run game menu to get user's choice
 	int state = 0; //use to track game's state
@@ -89,6 +90,9 @@ int main() {
 							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Warrior_Weap(stage);
+                if(RandNum(1,4) == 3){
+                  dropWeap = Warrior_Weap(stage+1);
+                }
 								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
 									weap = dropWeap;
 									p.swap_weapon(&weap);
@@ -100,6 +104,9 @@ int main() {
 							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Mage_Weap(stage);
+                if(RandNum(1,4) == 3){
+                  dropWeap = Mage_Weap(stage+1);
+                }
 								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
 									weap = dropWeap;
 									p.swap_weapon(&weap);
@@ -124,22 +131,22 @@ int main() {
 					stage = 7;//get you out of game
 					break;
 				}
-				
+
 			}
-			
+
 			randNum = RandNum(1, 101);
 			if(randNum >= 70) {
 				rand_event_trigger = drawRandomEvent(yMax, xMax);
 			}
-			
-			if(rand_event_trigger == true) {
+
+			if(rand_event_trigger == true && stage != 7) {
 				randNum = RandNum(1, 7);
 				switch(randNum) {
 					case 1: drawHealEvent(yMax, xMax, &p);
 							break;
 					case 2: drawBeggerEvent(yMax, xMax, &p);
 							break;
-					case 3: drawLootEvent(yMax, xMax, &p);
+					case 3: loot_trigger = drawLootEvent(yMax, xMax, &p);
 							break;
 					case 4: drawRestingEvent(yMax, xMax, &p);
 							break;
@@ -148,16 +155,27 @@ int main() {
 					default: drawEnemyEvent(yMax, xMax, &p);
 							break;
 				}
+        if(loot_trigger == true){
+          if(chInput.first == 1){
+            dropWeap = Warrior_Weap(stage+1);
+          }
+          else{
+            dropWeap = Mage_Weap(stage+1);
+          }
+          if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
+            weap = dropWeap;
+            p.swap_weapon(&weap);
+        }
 				rand_event_trigger = false;
-			}
-
-			if(stage == 7) {//gets you out of game
-				break;
+        loot_trigger = false;
+  			}
 			}
 		}
-		state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play again
-	}
-
+    if(stage == 7) {//gets you out of game
+      break;
+  }
+		state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play agains
+}
 	endwin();//deallocates window memory
 	return 0;//clean exit
 }

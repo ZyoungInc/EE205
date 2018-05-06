@@ -253,7 +253,7 @@ int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
 	return 0;
 }
 
-int drawLootEvent(int yMax_, int xMax_, Player *p) {
+bool drawLootEvent(int yMax_, int xMax_, Player *p) {
 	int yMax = yMax_;
 	int xMax = xMax_;
 	bool got_loot = false;

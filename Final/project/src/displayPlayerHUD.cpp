@@ -32,7 +32,7 @@ void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, 
   mvwprintw(avatarwin, 2, 1, "HP: %d/%d", p.get_health(), p.get_MAXhealth());
   mvwprintw(avatarwin, 4, 1, "ATK: %d", p.get_attack());
   mvwprintw(avatarwin, 5, 1, "DEF: %d", p.get_defense());
-  mvwprintw(avatarwin, 6, 1, "WPN: %s %s", weap.get_rarity().c_str(), weap.get_type().c_str());
+  mvwprintw(avatarwin, 6, 1, "WPN: %s %s", p.get_rarity().c_str(), p.get_weapType().c_str());
   mvwprintw(avatarwin, 7, 1, "SOULS: %d", p.get_souls());
 
   wrefresh(avatarwin);

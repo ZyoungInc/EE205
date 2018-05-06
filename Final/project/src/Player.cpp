@@ -28,11 +28,12 @@ Player::Player(string name_, unsigned int classChoice, int souls_, Weapon *weap_
 	this->name = name_;
 	this->weap = weap_;
 	this->MAXhealth = this->health = weap->get_MAXhealth();
-	this->MAXmana = weap->get_MAXmana();	
+	this->MAXmana = weap->get_MAXmana();
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
 	this->souls = souls_;
 	this->weapon_Type = weap->get_type();
+	this->rarity_Type = weap->get_rarity();
 	if(classChoice == 1) {
 		this->player_Class = "Warrior";
 		this->mana = 0;
@@ -93,6 +94,7 @@ string Player::get_weapType() {return this->weapon_Type;}
 string Player::get_eleType() {return this->elemental_Type;}
 string Player::get_spellName() {return this->spellName;}
 string Player::get_Class() {return this->player_Class;}
+string Player::get_rarity(){return this->rarity_Type;}
 int Player::get_health() {return this->health;}
 int Player::get_MAXhealth() {return this->MAXhealth;}
 int Player::get_mana() {return this->mana;}
@@ -129,6 +131,7 @@ void Player::swap_weapon(Weapon *weap_) {
 	}
 	this->MAXhealth = weap->get_MAXhealth();
 	this->weapon_Type = weap->get_type();
+	this->rarity_Type = weap->get_rarity();
 }
 
 void Player::set_MAXhealth(int hp){MAXhealth = hp;}
@@ -145,6 +148,7 @@ void Player::set_MAXmana(int mp){this->MAXmana = mp;}
 void Player::set_attack(int atk){this->attack = atk;}
 void Player::set_defense(int d){this->defense = d;}
 void Player::set_weapType(std::string w) {this->weapon_Type = w;}
+void Player::set_rarity(std::string r) {this->rarity_Type = r;}
 void Player::set_eleType(std::string e) {this->elemental_Type = e;}
 void Player::set_spellName(std::string s) {this->spellName = s;}
 void Player::set_souls(int s) {this->souls = s;}
