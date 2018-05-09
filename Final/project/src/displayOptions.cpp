@@ -18,7 +18,7 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 	refresh();
 	wrefresh(optionwin);
 	keypad(optionwin, true);
-	
+
 	while(selecter == 1 || selecter == 2) {
 		werase(optionwin);
 		box(optionwin, 0, 0);
@@ -27,7 +27,7 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 			case 1:
 			{
 				//Spells Options
-				string Option1[4] = {"Attack", "Skills", "Flee", "Quit"};
+				string Option1[4] = {"Attack", "Skills", "Flee: 30 percent chance", "Quit"};
 				int choice1;
 				int highlight1 = 0;
 
@@ -61,7 +61,7 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 					if(choice1 == 10)
 						break;
 					}
-					
+
 					//Attack with basic damage
 					if(Option1[highlight1] == Option1[0])
 					{
@@ -85,7 +85,7 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 					}
 					break;
 			}
-			
+
 			case 2:
 			{
 				//Spells Options
@@ -97,10 +97,10 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 				vector<string> spellName;
 				if(classChoice == 1)//Warrior spells
 				{
-					spellName.push_back("Slash: 3x ATK, Cost 5 Mana");
-					spellName.push_back("Flurry: 1x ATK 3 times, Cost: 10 Mana");
-					spellName.push_back("HeavyBlow: Deals 5x ATK, Cost: 10 Mana");
-					spellName.push_back("VampiricStrike: 3x ATK and heals you, Cost: 10 Mana");
+					spellName.push_back("Slash: 3x ATK, Cost 5 Rage");
+					spellName.push_back("Flurry: 1x ATK 3 times, Cost: 10 Rage");
+					spellName.push_back("HeavyBlow: Deals 5x ATK, Cost: 10 Rage");
+					spellName.push_back("VampiricStrike: 3x ATK and heals you, Cost: 10 Rage");
 					spellName.push_back("Back");
 				}
 				else { //Mage spells

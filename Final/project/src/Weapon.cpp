@@ -8,8 +8,8 @@
 Weapon::Weapon() :
 	type("Hands"),
 	rarity("Bloody"),
-	wdamage(2),
-	wdefense(2),
+	wdamage(1),
+	wdefense(1),
 	MAXhealth(15),
 	MAXmana(20) {/*std::cout << "Basic Weapon constructed" << std::endl;*/}
 

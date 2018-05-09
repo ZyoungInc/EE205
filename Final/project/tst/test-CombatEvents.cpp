@@ -114,6 +114,7 @@ int main() {
 							}
 						}
 						souls++;//get the enemy that you killed soul
+            p.set_souls(souls);
 						if(souls > 4)//if you have 5 or more souls, asks if you want to move onto next stage
 						{
 							if(displayStageDiag(yMax, xMax, stage) == true)
@@ -170,9 +171,9 @@ int main() {
         loot_trigger = false;
   			}
 			}
-		}
     if(stage == 7) {//gets you out of game
       break;
+    }
   }
 		state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play agains
 }
