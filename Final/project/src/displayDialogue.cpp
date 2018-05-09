@@ -30,7 +30,7 @@ void displayOpeningDiag(int yMax_, int xMax_) {
     wrefresh(menuwin);
 
     getchar();
-		werase(menuwin);
+		//werase(menuwin);
 		wrefresh(menuwin);
 
 }

@@ -2,7 +2,8 @@
 #include <ctime>
 #include <cstdlib>
 #include "game-utility.hpp"
-#define RAND_MAX 100000000
+#define RAND_MAX 1000000000
+
 using namespace std;
 
 
@@ -17,7 +18,13 @@ int RandNum(int lower, int upper)
 
     return num % modulus + lower;
 }
-
+//random number generator between two user defined integers
+/*int RandNum(int lowrand, int highrand) {
+  int xrand;
+  highrand = highrand - lowrand;
+  xrand = rand()%highrand+lowrand+1;
+  return xrand;
+}*/
 
 std::string random_element_eff(unsigned int chance_Percent) {
 	unsigned int roll_100 = RandNum(1, 101);

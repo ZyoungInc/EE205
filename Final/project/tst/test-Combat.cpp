@@ -25,7 +25,7 @@ int main() {
     initscr();
     noecho();
     cbreak();
-	unsigned int randomNum;//random generator variable
+    
 	srand(time(NULL));//seeds rng
   //get screen size
     int yMax, xMax;

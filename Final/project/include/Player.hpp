@@ -14,6 +14,8 @@ protected:
 	std::string weapon_Type;
 	std::string elemental_Type;
 	std::string spellName;
+	std::string player_Class;
+	std::string rarity_Type;
 	int health;
 	int MAXhealth;
 	int mana;
@@ -38,6 +40,8 @@ public:
 	std::string get_weapType();
 	std::string get_eleType();
 	std::string get_spellName();
+	std::string get_Class();
+	std::string get_rarity();
 	int get_health();
 	int get_MAXhealth();
 	int get_mana();
@@ -50,6 +54,7 @@ public:
 	void swap_weapon(Weapon *weap_);
 	void set_name(std::string s);
 	void set_spellName(std::string s);
+	void set_rarity(std::string r);
 	//void set_rarity(std::string r);
 	//void set_type(std::string t);
 	void set_health(int hp);
