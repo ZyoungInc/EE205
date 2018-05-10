@@ -120,6 +120,19 @@ void Player::swap_weapon(Weapon *weap_) {
 	this->weap = weap_;
 	this->attack = weap->get_wdamage();
 	this->defense = weap->get_wdefense();
+	if(this->get_Class() == "Mage"){
+		if(this->mana < weap->get_MAXmana()) {
+			//If the weapon increase your max mp, then increase your mp by the diffence
+			this->mana += (weap->get_MAXmana() - this->MAXmana);
+			if(this->mana < 0){
+				this->mana = 0;
+			}
+		}
+	}
+	if(this->mana >= weap->get_MAXmana()) {
+			//Edge case if you get healed over your MAXmana
+			this->mana = weap->get_MAXmana();
+	}
 	this->MAXmana = weap->get_MAXmana();
 	if(this->MAXhealth < weap->get_MAXhealth()) {
 		//If the weapon increase your max hp, then increase your hp by the diffence

@@ -62,12 +62,21 @@ bool drawRandomEvent(int yMax_, int xMax_) {
 
     if(startMenu[highlight] == startMenu[0])
     {
-        return true;
+			if(RandNum(1,101) >= 70){
+				return false;
+			}
+			else{
+				return true;
+			}
     }
-    else
-	{
-		return false;
-	}
+    else{
+			if(RandNum(1,101) >= 30){
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
 
 }
 
@@ -233,7 +242,7 @@ int drawBeggerEvent(int yMax_, int xMax_, Player *p) {
     }
 	else {
 		//percent chance
-		int randnum = RandNum(1,100);
+		int randnum = RandNum(1,101);
 		if(randnum <= 10) {
 			wclear(titlewin);
 			box(titlewin, 0, 0);
@@ -323,11 +332,20 @@ bool drawLootEvent(int yMax_, int xMax_, Player *p) {
 			p->set_health(p->get_health() * -.3);
 			wclear(titlewin);
 			box(titlewin, 0, 0);
-			mvwprintw(titlewin, 2, (xMax/2)-11, "You triggered the trap, the weapon was destroyed.");
+			mvwprintw(titlewin, 2, (xMax/2)-11, "You triggered the trap, the chest attacked you!");
 			refresh();
 			wrefresh(titlewin);
+			got_loot = false;
 		}
     }
+		else{
+			wclear(titlewin);
+			box(titlewin, 0, 0);
+			mvwprintw(titlewin, 2, (xMax/2)-11, "You walked away.");
+			refresh();
+			wrefresh(titlewin);
+			got_loot = false;
+		}
 
 	wclear(menuwin);
 	box(menuwin, 0, 0);
