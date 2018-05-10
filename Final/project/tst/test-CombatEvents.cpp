@@ -156,27 +156,29 @@ int main() {
 					default: drawEnemyEvent(yMax, xMax, &p);
 							break;
 				}
-        if(loot_trigger == true){
-          if(chInput.first == 1){
-            dropWeap = Warrior_Weap(stage+1);
-          }
-          else{
-            dropWeap = Mage_Weap(stage+1);
-          }
-          if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
-            weap = dropWeap;
-            p.swap_weapon(&weap);
-        }
-				rand_event_trigger = false;
-        loot_trigger = false;
-  			}
+				
+				if(loot_trigger == true){
+					if(chInput.first == 1){
+						dropWeap = Warrior_Weap(stage+1);
+					}
+					else{
+						dropWeap = Mage_Weap(stage+1);
+					}
+					
+					if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
+						weap = dropWeap;
+						p.swap_weapon(&weap);
+					}
+					rand_event_trigger = false;
+					loot_trigger = false;
+				}
 			}
-    if(stage == 7) {//gets you out of game
-      break;
-    }
-  }
+			if(stage == 7) {//gets you out of game
+				break;
+			}
+		}
 		state = drawMenuDisplay(yMax, xMax);//displays title screen asks if you want to play agains
-}
+	}
 	endwin();//deallocates window memory
 	return 0;//clean exit
 }
