@@ -140,7 +140,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
 			name =  "Fire Demon";
-			MAXhealth = health = 300;
+			MAXhealth = health = 100;
 			attack = 20;
 			defense = 10;
 			elemental_Type = "Fire";
@@ -148,7 +148,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Nature Demon";
-			MAXhealth = health = 400;
+			MAXhealth = health = 200;
 			attack = 15;
 			defense = 15;
 			elemental_Type = "Nature";
@@ -156,7 +156,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else {
 			name =  "Water Demon";
-			MAXhealth = health = 500;
+			MAXhealth = health = 300;
 			attack = 10;
 			defense = 20;
 			elemental_Type = "Water";
@@ -165,7 +165,7 @@ Enemy::Enemy(unsigned int tier_level) {
 	}
 	else if(tier_level == 6) {
 		name =  "Satan";
-		MAXhealth = health = 1000;
+		MAXhealth = health = 500;
 		attack = 30;
 		defense = 30;
 		elemental_Type = "Normal";
