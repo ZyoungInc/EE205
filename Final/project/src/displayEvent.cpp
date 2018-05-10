@@ -11,9 +11,9 @@ bool drawRandomEvent(int yMax_, int xMax_) {
 	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "You find yourself at a fork in the road:");
-	mvwprintw(titlewin, 3, 5, "1. To the left you see a dark path.");
-	mvwprintw(titlewin, 4, 5, "2. To the right you hear random noise, clearly an occupied room.");
+		mvwprintw(titlewin, 2, 5, "You find yourself at a fork in the road:");
+		mvwprintw(titlewin, 3, 5, "1. To the left you see a dark path.");
+		mvwprintw(titlewin, 4, 5, "2. To the right you hear random noise, clearly an occupied room.");
     refresh();
     wrefresh(titlewin);
 
@@ -78,9 +78,9 @@ int drawHealEvent(int yMax_, int xMax_, Player *p) {
 	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "A white robed figure approaches you and asks,");
-	mvwprintw(titlewin, 3, 5, "you look rough, I could patch you up...for a price.");
-	mvwprintw(titlewin, 4, 5, "Ohh and don't try to scam me, I'm watching you.");
+		mvwprintw(titlewin, 2, 5, "A white robed figure approaches you and asks,");
+		mvwprintw(titlewin, 3, 5, "you look rough, I could patch you up...for a price.");
+		mvwprintw(titlewin, 4, 5, "Ohh and don't try to scam me, I'm watching you.");
     refresh();
     wrefresh(titlewin);
 
@@ -344,8 +344,8 @@ int drawRestingEvent(int yMax_, int xMax_, Player *p) {
 	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area.");
-	mvwprintw(titlewin, 3, 5, "You take a nice nap and feel refreshed.");
+		mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area.");
+		mvwprintw(titlewin, 3, 5, "You take a nice nap and feel refreshed.");
     refresh();
     wrefresh(titlewin);
 
@@ -355,7 +355,7 @@ int drawRestingEvent(int yMax_, int xMax_, Player *p) {
     //create a menu window for input
 	WINDOW * menuwin = newwin(yMax-1, xMax-1, yMax-11, 1);
     box(menuwin, 0, 0);
-	mvwprintw(menuwin, 3, (xMax/2), "Press any key to continue");
+		mvwprintw(menuwin, 3, (xMax/2), "Press any key to continue");
     refresh();
     wrefresh(menuwin);
 
@@ -372,8 +372,8 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
 	//create diaglog window
 	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
     box(titlewin, 0, 0);
-	mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area");
-	mvwprintw(titlewin, 3, 5, "suddenly you feel the ground break under you ");
+		mvwprintw(titlewin, 2, 5, "You stumble upon a nice resting area");
+		mvwprintw(titlewin, 3, 5, "suddenly you feel the ground break under you ");
     refresh();
     wrefresh(titlewin);
 

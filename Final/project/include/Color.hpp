@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+/*Used in test files to produce color*/
 //Escape codes defitions
 #define RST "\x1B[0m"
 #define KRED "\x1B[31m"

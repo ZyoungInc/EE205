@@ -2,17 +2,22 @@
 #include <iostream>
 #include <string>
 #include "displayMenu.hpp"
+#include "displayColor.hpp"
 
 using namespace std;
 
 int drawMenuDisplay(int yMax_, int xMax_) {
-	int yMax = yMax_; 
+	int yMax = yMax_;
 	int xMax = xMax_;
-	
+
 	//create title window for game
-	WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
+		WINDOW * titlewin = newwin(yMax-12, xMax-1, 1, 1);
+		start_color();
+		YELLOWBLACK;
+		wbkgd(titlewin, COLOR_PAIR(3));
     box(titlewin, 0, 0);
     mvwprintw(titlewin, (yMax-12)/2, (xMax-6)/2, "SOUL QUEST");
+		attroff(COLOR_PAIR(3));
     refresh();
     wrefresh(titlewin);
 
@@ -58,12 +63,12 @@ int drawMenuDisplay(int yMax_, int xMax_) {
         if(choice == 10)
             break;
 	}
-	
+
     if(startMenu[highlight] == startMenu[0])
     {
-        return 1; 
+        return 1;
     }
-    else 
+    else
 	{
 		return 2;
 	}

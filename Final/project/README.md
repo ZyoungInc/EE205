@@ -1,5 +1,12 @@
 # Soul Quest
 
+# Usage Notes
+> Before running the game, scale your terminal window before starting the game.
+> This game utilizes the ncurses library. Please install ncurses using
+> "sudo apt-get install libncurses-dev" before running the game.
+> Since ncurses takes in the size of the window, scaling after the game has
+> started will result in the distortion of the interface.
+
 # Story
 > Through unfortunate circumstances, your beloved wife died in a fire and wish to
 > see her once again. In a desperate bid, you sell your soul to a demon for a
@@ -98,10 +105,6 @@
 		f. Nothing  
 	5. __Chest (mimic chance)__
 		*Might be guarded (choice to fight or flee)*
-
-## Stat leveling
-  1. __+1 for each tier of weapon__
-  2. __5 choice before a rest/save point__
 
 ## Random encounters
   __[Description]__
