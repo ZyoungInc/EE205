@@ -50,7 +50,7 @@ int Combat::combat_phase(unsigned int action, int classPick, Player *p, Enemy *e
 							p->get_weapType(), p->get_eleType());
 		enemy_attack(p, e, effect);
     }
-	
+
 	//Iterate through combat log and display it on screen
 	int cnt = 0;
 	for(unsigned int i = combat_log.size(); i != 0; i--) {
@@ -74,20 +74,20 @@ float Combat::eff_calc_other(std::string atkWeap, std::string atkEle,
                           std::string defWeap, std::string defEle) {
 	float effect = 1;
 	//Element triange
-	if(atkEle == "Fire" && defEle == "Nature") effect = 2;
-	else if(atkEle == "Fire" && defEle == "Water") effect = 0.5;
-	else if(atkEle == "Water" && defEle == "Nature") effect = 2;
-	else if(atkEle == "Water" && defEle == "Nature") effect = 0.5;
-	else if(atkEle == "Nature" && defEle == "Water") effect = 2;
-	else if(atkEle == "Nature" && defEle == "Fire") effect = 0.5;
-	
+	if(atkEle == "Fire" && defEle == "Nature") effect = 1.2;
+	else if(atkEle == "Fire" && defEle == "Water") effect = 0.8;
+	else if(atkEle == "Water" && defEle == "Nature") effect = 1.2;
+	else if(atkEle == "Water" && defEle == "Nature") effect = 0.8;
+	else if(atkEle == "Nature" && defEle == "Water") effect = 1.2;
+	else if(atkEle == "Nature" && defEle == "Fire") effect = 0.8;
+
 	//Weapon Triangle
-	else if(atkWeap == "Sword" && defWeap == "Axe") effect = 2;
-	else if(atkWeap == "Sword" && defWeap == "Lance") effect = 0.5;
-	else if(atkWeap == "Lance" && defWeap == "Sword") effect = 2;
-	else if(atkWeap == "Lance" && defWeap == "Axe") effect = 0.5;
-	else if(atkWeap == "Axe" && defWeap == "Lance") effect = 2;
-	else if(atkWeap == "Axe" && defWeap == "Sword") effect = 0.5;
+	else if(atkWeap == "Sword" && defWeap == "Axe") effect = 1.2;
+	else if(atkWeap == "Sword" && defWeap == "Lance") effect = 0.8;
+	else if(atkWeap == "Lance" && defWeap == "Sword") effect = 1.2;
+	else if(atkWeap == "Lance" && defWeap == "Axe") effect = 0.8;
+	else if(atkWeap == "Axe" && defWeap == "Lance") effect = 1.2;
+	else if(atkWeap == "Axe" && defWeap == "Sword") effect = 0.8;
 	else effect = 1;
 
 	return effect;
@@ -129,7 +129,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 	else {
 		std::pair<int, int> spellDamage = p->cast_spell(classPick, action-3, p->get_attack());
 		damage = std::max(0, spellDamage.second * int(spellDamage.first * effect - e->get_defense()));
-		
+
 		temp_combat_log.clear();
 		temp_combat_log.append("You dealt ");
 		temp_combat_log.append(lexical_cast(damage));
@@ -137,7 +137,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 		temp_combat_log.append(e->get_name());
 		temp_combat_log.append(" with ");
 		temp_combat_log.append(p->get_spellName());
-	
+
 		if(combat_log.size() >= MAX_COMBATLOG_SIZE) {
 			combat_log.erase(combat_log.begin());
 			combat_log.push_back(temp_combat_log);
@@ -146,7 +146,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 			combat_log.push_back(temp_combat_log);
 		}
 	}
-  
+
 	e->set_health(-1 * damage);
 	if (e->get_health() <= 0) {
 		on_death();
@@ -155,7 +155,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 
 void Combat::enemy_attack(Player *p, Enemy *e, float effect){
 	int damage = std::max(0, int(e->get_attack() * effect - p->get_defense()));
-  
+
 	temp_combat_log.clear();
 	temp_combat_log.append(e->get_name());
 	temp_combat_log.append(" dealt ");
@@ -169,7 +169,7 @@ void Combat::enemy_attack(Player *p, Enemy *e, float effect){
 	else {
 		combat_log.push_back(temp_combat_log);
 	}
-  
+
 	p->set_health(-1 * damage);
 	if (p->get_health() <= 0) {
 		on_death();

@@ -7,6 +7,7 @@
 //Default  base weapon constructor
 Weapon::Weapon() :
 	type("Hands"),
+	element("Neutral"),
 	rarity("Bloody"),
 	wdamage(1),
 	wdefense(1),
@@ -17,8 +18,9 @@ Weapon::Weapon() :
 Weapon::~Weapon() {/*std::cout << "Weapon destructed" << std::endl;*/}
 
 //Overloaded base weapon constructor
-Weapon::Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_,int MAXhealth_, int MAXmana_) :
+Weapon::Weapon(std::string rarity_, std::string type_, std::string element_, int wdamage_, int wdefense_,int MAXhealth_, int MAXmana_) :
     type(type_),
+		element(element_),
 	rarity(rarity_),
 	wdamage(wdamage_),
 	wdefense(wdefense_),
@@ -161,51 +163,110 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 }
 //Inherited mage weapon class constructor
 Mage_Weap::Mage_Weap(unsigned char rarity_level) {
+	int element_type;
 	this->type = "Staff";
 	switch(rarity_level){
 		case 1: //Bronze type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Bronze";
-			this->wdamage = 1;
-			this->wdefense = 0;
-			this->MAXhealth = 10;
+			this->wdamage = 2;
+			this->wdefense = 1;
+			this->MAXhealth = 20;
 			this->MAXmana = 50;
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		case 2: //Silver type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Silver";
 			this->wdamage = 3;
 			this->wdefense = 1;
 			this->MAXhealth = 30;
 			this->MAXmana = 70;
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		case 3: //Gold type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Gold";
 			this->wdamage = 5;
 			this->wdefense = 2;
 			this->MAXhealth = 50;
 			this->MAXmana = 100;
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		case 4: //Platinum type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Platinum";
 			this->wdamage = 7;
 			this->wdefense = 3;
 			this->MAXhealth = 70;
 			this->MAXmana = 120;
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		case 5: //Diamond type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Diamond";
 			this->wdamage = 9;
 			this->wdefense = 4;
 			this->MAXhealth = 100;
 			this->MAXmana = 150;
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		case 6: //Legendary type staff weapon
+			element_type = RandNum(1,4);
 			this->rarity = "Legendary";
 			this->wdamage = 13;
 			this->wdefense = 5;
 			this->MAXhealth = 150;
-
 			this->MAXmana = 200;
-
+			if(element_type == 1){
+				this->element = "Fire";
+			}
+			else if(element_type == 2){
+				this->element = "Water";
+			}
+			else{
+				this->element = "Nature";
+			}
 			break;
 		default:
 			throw "Not a weapon";
@@ -214,6 +275,7 @@ Mage_Weap::Mage_Weap(unsigned char rarity_level) {
 
 //Getters
 std::string Weapon::get_type() {return type;}
+std::string Weapon::get_element() {return element;}
 std::string Weapon::get_rarity() {return rarity;}
 int Weapon::get_wdamage() {return wdamage;}
 int Weapon::get_wdefense() {return wdefense;}
@@ -222,6 +284,7 @@ int Weapon::get_MAXmana() {return MAXmana;}
 
 //Setters
 void Weapon::set_type(std::string t) {this->type = t;}
+void Weapon::set_element(std::string e) {this->element = e;}
 void Weapon::set_rarity(std::string r) {this->rarity = r;}
 void Weapon::set_wdamage(int dmg) {this->wdamage = dmg;}
 void Weapon::set_wdefense(int def) {this->wdefense = def;}

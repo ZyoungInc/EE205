@@ -26,7 +26,7 @@ void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, 
   }
   else
   {
-    mvwprintw(avatarwin, 1, 1, "%s (Mage)", name.c_str());
+    mvwprintw(avatarwin, 1, 1, "%s (%s Mage)", name.c_str(), p.get_eleType().c_str());
     mvwprintw(avatarwin, 3, 1, "MP: %d/%d", p.get_mana(), p.get_MAXmana());
   }
   mvwprintw(avatarwin, 2, 1, "HP: %d/%d", p.get_health(), p.get_MAXhealth());

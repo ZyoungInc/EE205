@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include "displayOptions.hpp"
+#include "string_conversion.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,7 +8,7 @@
 #include "Player.hpp"
 using namespace std;
 
-unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
+unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice, Player& p) {
 	int yMax = yMax_;
 	int xMax = xMax_;
 	int selecter = 1;
@@ -94,22 +95,12 @@ unsigned int drawOptionDisplay(int yMax_, int xMax_, int classChoice) {
 				  string Option2[i] = temp[i].get_name();
 				}
 				//Option2[5] = "Back";*/
+				vector<Spell> spellBook(MakeSpellBook(classChoice, p.get_weapType(), p.get_eleType()));
 				vector<string> spellName;
-				if(classChoice == 1)//Warrior spells
-				{
-					spellName.push_back("Slash: 3x ATK, Cost 5 Rage");
-					spellName.push_back("Flurry: 1x ATK 3 times, Cost: 10 Rage");
-					spellName.push_back("HeavyBlow: Deals 5x ATK, Cost: 10 Rage");
-					spellName.push_back("VampiricStrike: 3x ATK and heals you, Cost: 10 Rage");
-					spellName.push_back("Back");
+				for(unsigned int i = 0; i < 4; i++){
+					spellName.push_back(spellBook[i].get_spellDesc().c_str());
 				}
-				else { //Mage spells
-					spellName.push_back("FireBall: Fire Element, Damage: 3x ATK, Cost: 10 Mana");
-					spellName.push_back("Torrent: Water Element, Damage: 3x ATK, Cost: 10 Mana");
-					spellName.push_back("Wrath: Nature Element, Damage: 3x ATK, Cost: 10 Mana");
-					spellName.push_back("Restore: Heals you for 1/2 MaxHP. Cost: 20 Mana");
-					spellName.push_back("Back");
-				}
+				spellName.push_back("Back");
 				int choice2;
 				int highlight2 = 0;
 
