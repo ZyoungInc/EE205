@@ -27,6 +27,7 @@ Player::~Player() {}
 Player::Player(string name_, unsigned int classChoice, int souls_, Weapon *weap_) {
 	this->name = name_;
 	this->weap = weap_;
+	//Player is gaining stats from weapon
 	this->MAXhealth = this->health = weap->get_MAXhealth();
 	this->MAXmana = weap->get_MAXmana();
 	this->attack = weap->get_wdamage();
@@ -36,11 +37,12 @@ Player::Player(string name_, unsigned int classChoice, int souls_, Weapon *weap_
 	this->rarity_Type = weap->get_rarity();
 	if(classChoice == 1) {
 		this->player_Class = "Warrior";
-		this->mana = 0;
+		this->mana = 0;//Warrior has rage
 	}
 	else {
 		this->player_Class = "Mage";
-		this->mana = weap->get_MAXmana();
+		this->elemental_Type = weap->get_element();
+		this->mana = weap->get_MAXmana();//Mage has mana
 	}
 }
 
@@ -61,14 +63,12 @@ Player::Player(Player&& other) :
 	defense(move(other.defense)) {}*/
 
 std::pair<int, int> Player::cast_spell(unsigned int classChoice, unsigned int spellChoice, int atk){
-	vector<Spell> spellBook(MakeSpellBook(classChoice));
+	vector<Spell> spellBook(MakeSpellBook(classChoice, weapon_Type, elemental_Type));
 	int damage = atk * spellBook[spellChoice].get_damage();
 	int hits = spellBook[spellChoice].get_hits();
 	int cost = spellBook[spellChoice].get_cost();
 	int heal = spellBook[spellChoice].check_Effect(atk);
-	std::string eType = spellBook[spellChoice].get_EleType();
 	std::string sName = spellBook[spellChoice].get_name();
-	set_eleType(eType);
 	set_spellName(sName);
 	set_health(heal);
 	if(cost <= this->mana) {
@@ -131,6 +131,7 @@ void Player::swap_weapon(Weapon *weap_) {
 	}
 	this->MAXhealth = weap->get_MAXhealth();
 	this->weapon_Type = weap->get_type();
+	this->elemental_Type = weap->get_element();
 	this->rarity_Type = weap->get_rarity();
 }
 

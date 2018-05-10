@@ -177,9 +177,9 @@ bool displayWeaponDrop(int yMax_, int xMax_, Weapon w) {
 	//create ask window for game
 	WINDOW * askwin = newwin(yMax-12, xMax-1, 1, 1);
 		box(askwin, 0, 0);
-		mvwprintw(askwin, 2, 5, "You have found a %s %s,", w.get_rarity().c_str(), w.get_type().c_str());
+		mvwprintw(askwin, 2, 5, "You have found a %s %s %s,", w.get_rarity().c_str(), w.get_element().c_str(), w.get_type().c_str());
 		mvwprintw(askwin, 3, 5, "would you like to equip this weapon instead?");
-		mvwprintw(askwin, 5, 5, "Name: %s %s", w.get_rarity().c_str(), w.get_type().c_str());
+		mvwprintw(askwin, 5, 5, "Name: %s %s %s", w.get_rarity().c_str(), w.get_element().c_str(), w.get_type().c_str());
 		mvwprintw(askwin, 6, 5, "HP: %d", w.get_MAXhealth());
 		mvwprintw(askwin, 7, 5, "MP: %d", w.get_MAXmana());
 	  mvwprintw(askwin, 8, 5, "ATK: %d", w.get_wdamage());

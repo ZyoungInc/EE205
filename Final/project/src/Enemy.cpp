@@ -40,7 +40,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
 			name =  "Highway Bandit";
-			MAXhealth = health = 8;
+			MAXhealth = health = 20;
 			attack = 4;
 			defense = 2;
 			elemental_Type = "Normal";
@@ -48,7 +48,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Rogue Knight";
-			MAXhealth = health = 12;
+			MAXhealth = health = 30;
 			attack = 3;
 			defense = 4;
 			elemental_Type = "Normal";
@@ -56,7 +56,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else {
 			name =  "Rogue Mage";
-			MAXhealth = health = 8;
+			MAXhealth = health = 20;
 			attack = 6;
 			defense = 0;
 			elemental_Type = random_element_eff(100);
@@ -68,7 +68,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		enemy_subtype = RandNum(1, 5);
 		if(enemy_subtype == 1) {
 			name =  "Skeleton warrior";
-			MAXhealth = health = 20;
+			MAXhealth = health = 40;
 			attack = 5;
 			defense = 4;
 			elemental_Type = "Normal";
@@ -76,7 +76,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Skeleton Mage";
-			MAXhealth = health = 12;
+			MAXhealth = health = 30;
 			attack = 10;
 			defense = 0;
 			elemental_Type = random_element_eff(100);
@@ -84,7 +84,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 3) {
 			name =  "Skeleton Archer";
-			MAXhealth = health = 14;
+			MAXhealth = health = 30;
 			attack = 8;
 			defense = 2;
 			elemental_Type = "Normal";
@@ -92,7 +92,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else {
 			name =  "Arch Lich";
-			MAXhealth = health = 30;
+			MAXhealth = health = 50;
 			attack = 6;
 			defense = 3;
 			elemental_Type = random_element_eff(75);
@@ -104,7 +104,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		enemy_subtype = RandNum(1, 5);
 		if(enemy_subtype == 1) {
 			name =  "Deformed beast";
-			MAXhealth = health = 20;
+			MAXhealth = health = 40;
 			attack = 12;
 			defense = 0;
 			elemental_Type = random_element_eff(20);
@@ -112,7 +112,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Deformed human";
-			MAXhealth = health = 30;
+			MAXhealth = health = 60;
 			attack = 6;
 			defense = 6;
 			elemental_Type = random_element_eff(20);
@@ -120,7 +120,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 3) {
 			name =  "Other worldly horror";
-			MAXhealth = health = 30;
+			MAXhealth = health = 60;
 			attack = 10;
 			defense = 10;
 			elemental_Type = random_element_eff(20);
@@ -128,7 +128,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else {
 			name =  "Horror gate guard";
-			MAXhealth = health = 40;
+			MAXhealth = health = 100;
 			attack = 10;
 			defense = 15;
 			elemental_Type = random_element_eff(100);
@@ -140,7 +140,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		enemy_subtype = RandNum(1, 4);
 		if(enemy_subtype == 1) {
 			name =  "Fire Demon";
-			MAXhealth = health = 40;
+			MAXhealth = health = 300;
 			attack = 20;
 			defense = 10;
 			elemental_Type = "Fire";
@@ -148,7 +148,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Nature Demon";
-			MAXhealth = health = 50;
+			MAXhealth = health = 400;
 			attack = 15;
 			defense = 15;
 			elemental_Type = "Nature";
@@ -156,7 +156,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		}
 		else {
 			name =  "Water Demon";
-			MAXhealth = health = 60;
+			MAXhealth = health = 500;
 			attack = 10;
 			defense = 20;
 			elemental_Type = "Water";
@@ -165,9 +165,9 @@ Enemy::Enemy(unsigned int tier_level) {
 	}
 	else if(tier_level == 6) {
 		name =  "Satan";
-		MAXhealth = health = 100;
-		attack = 20;
-		defense = 20;
+		MAXhealth = health = 1000;
+		attack = 30;
+		defense = 30;
 		elemental_Type = "Normal";
 		weapon_Type = "Normal";
 	}

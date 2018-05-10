@@ -61,7 +61,7 @@ int main() {
 			Combat battle(&p, &e, yMax, xMax);//Commences combat constructor
 
 			while(state != 1) {//while in combat
-				state = drawOptionDisplay(yMax, xMax, chInput.first);//displays and waits for your battling displayOptions
+				state = drawOptionDisplay(yMax, xMax, chInput.first, p);//displays and waits for your battling displayOptions
 				if(state == 1) {//if quit command is selecte
 					stage = 7;//gets you out of game by bypassing endgame
 					break;
@@ -136,7 +136,7 @@ int main() {
 			}
 
 			randNum = RandNum(1, 101);
-			if(randNum >= 70) {
+			if(randNum >= 70 && stage != 7) {
 				rand_event_trigger = drawRandomEvent(yMax, xMax);
 			}
 
@@ -156,7 +156,7 @@ int main() {
 					default: drawEnemyEvent(yMax, xMax, &p);
 							break;
 				}
-				
+
 				if(loot_trigger == true){
 					if(chInput.first == 1){
 						dropWeap = Warrior_Weap(stage+1);
@@ -164,7 +164,7 @@ int main() {
 					else{
 						dropWeap = Mage_Weap(stage+1);
 					}
-					
+
 					if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
 						weap = dropWeap;
 						p.swap_weapon(&weap);

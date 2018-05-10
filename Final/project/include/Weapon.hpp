@@ -8,6 +8,7 @@
 class Weapon {
 protected:
   std::string type;
+  std::string element;
   std::string rarity;
   int wdamage;
   int wdefense;
@@ -21,10 +22,11 @@ public:
   ~Weapon();
 
   //Overloaded Constructor
-  Weapon(std::string rarity_, std::string type_, int wdamage_, int wdefense_, int MAXhealth_, int MAXmana_);
+  Weapon(std::string rarity_, std::string type_, std::string element_, int wdamage_, int wdefense_, int MAXhealth_, int MAXmana_);
 
   //Getters
   std::string get_type();
+  std::string get_element();
   std::string get_rarity();
   int get_wdamage();
   int get_wdefense();
@@ -33,6 +35,7 @@ public:
 
   //Setters
   void set_type(std::string t);
+  void set_element(std::string e);
   void set_rarity(std::string r);
   void set_wdamage(int dmg);
   void set_wdefense(int def);
