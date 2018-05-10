@@ -1,5 +1,4 @@
 # Soul Quest
-**Working title...**
 
 # Story
 > Through unfortunate circumstances, your beloved wife died in a fire and wish to
@@ -30,8 +29,6 @@
     *Stronger than Platinum but weaker than Legendary.*
   5. __Legendary__  
     *Highest possible rating.*
-  6. __Cursed__  
-    *Extra rarity. Deals extra damage at the expense of some of the player's health*
 
 ## Spells
   __[Description]__
