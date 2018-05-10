@@ -103,6 +103,13 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		./tst/test-CombatEvents.cpp $(OBJ_FILES) -lncurses
 	./bin/test-CombatEvents.out
 
+./bin/SoulQuest.out:$(OBJ_FILES) ./tst/SoulQuest.cpp ./include/*.hpp
+	g++ $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_DIRS)  \
+		-o ./bin/SoulQuest.out \
+		./tst/SoulQuest.cpp $(OBJ_FILES) -lncurses
+	./bin/SoulQuest.out
+
+
 # Convenience rules for the command line to quickly test a class
 # Class testing
 
@@ -133,6 +140,8 @@ Spells: ./bin/test-spell.out
 Combat: ./bin/test-Combat.out
 
 CombatEvents: ./bin/test-CombatEvents.out
+
+SoulQuest: ./bin/SoulQuest.out
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))

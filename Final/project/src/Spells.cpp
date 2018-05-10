@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "Spells.hpp"
-#define HEAL_DMG 5
+#define HEAL_DMG 4
 #define VAMPIRE_DMG 4
 
 Spell::Spell() :
@@ -56,8 +56,8 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			if(element == "Fire"){
 				Spell FireBall(10, 3, 1, "Fireball", "Fireball: deal 3x ATK, costs 10 mana") ;
 				Spell Scorch(15, 5, 1, "Scorch", "Scorch: deal 5x ATK, costs 15 mana");
-				Spell FireBlast(50, 10, 1, "FireBlast", "FireBlast: deal 10x ATK, costs 50 mana");
-				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 5x ATK");
+				Spell FireBlast(40, 12, 1, "FireBlast", "FireBlast: deal 12x ATK, costs 40 mana");
+				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 4x ATK, costs 20 mana");
 				tempSpellBook.push_back(FireBall);
 				tempSpellBook.push_back(Scorch);
 				tempSpellBook.push_back(FireBlast);
@@ -67,8 +67,8 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			else if(element == "Water"){
 				Spell Tsunami(10, 3, 1, "Tsunami", "Tsunami: deal 3x ATK, costs 10 mana") ;
 				Spell Vortex(25, 5, 3, "Vortex", "Vortex: deal 5x ATK 3x times, costs 25 mana");
-				Spell Riptide(40, 6, 2, "Riptide", "Riptide: deal 6x ATK 2x times, costs 40 mana");
-				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 5x ATK");
+				Spell Riptide(40, 8, 2, "Riptide", "Riptide: deal 8x ATK 2x times, costs 40 mana");
+				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 4x ATK, costs 20 mana");
 				tempSpellBook.push_back(Tsunami);
 				tempSpellBook.push_back(Vortex);
 				tempSpellBook.push_back(Riptide);
@@ -77,9 +77,9 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			}
 			else if(element == "Nature"){
 				Spell Gust(10, 3, 1, "Gust", "Gust: deal 3x ATK, costs 10 mana") ;
-				Spell ThunderStorm(30, 5, 5, "Thunder Storm", "Thunder Storm: deal 5x ATK 5x times, costs 30 mana");
-				Spell Tornado(50, 5, 10, "Tornado", "Tornado: deal 5x ATK 10x times, costs 50 mana");
-				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 5x ATK");
+				Spell ThunderStorm(30, 4, 5, "Thunder Storm", "Thunder Storm: deal 4x ATK 5x times, costs 30 mana");
+				Spell Tornado(50, 5, 7, "Tornado", "Tornado: deal 5x ATK 7x times, costs 50 mana");
+				Spell Heal(20, 0, 1, "Heal", "Restore: heals you for 4x ATK, costs 20 mana");
 				tempSpellBook.push_back(Gust);
 				tempSpellBook.push_back(ThunderStorm);
 				tempSpellBook.push_back(Tornado);
@@ -87,10 +87,10 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 				return tempSpellBook;
 			}
 			else{//Default no weapon
-				Spell FlameSpew(5, 3, 1, "FlameSpew", "FlameSpew: deal 3x ATK, costs 5 mana") ;
+				Spell FlameSpew(5, 2, 2, "FlameSpew", "FlameSpew: deal 2x ATK 2x times, costs 5 mana") ;
 				Spell WaterGun(5, 3, 1, "Water Gun", "Water Gun: deal 3x ATK, costs 5 mana");
-				Spell WhirlWind(5, 3, 1, "WhirlWind", "WhirlWind: deal 3x ATK, costs 5 mana");
-				Spell Heal(10, 0, 1, "Heal", "Restore: heals you for 5x ATK, costs 10 mana");
+				Spell WhirlWind(5, 1, 3, "WhirlWind", "WhirlWind: deal 1x ATK 3x times, costs 5 mana");
+				Spell Heal(10, 0, 1, "Heal", "Restore: heals you for 4x ATK, costs 10 mana");
 				tempSpellBook.push_back(FlameSpew);
 				tempSpellBook.push_back(WaterGun);
 				tempSpellBook.push_back(WhirlWind);
@@ -103,7 +103,7 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 				//Spell(cost, damage, hits, name, spell description)
 				Spell Slash(5, 3, 1, "Slash", "Slash: deal 3x ATK, costs 5 Rage");
 				Spell SliceDice(15, 3, 3, "Slice and Dice", "Slice and Dice: deal 3x ATK 3x 3x times, costs 15 Rage");
-				Spell Astra(30, 5, 5, "Astra", "Astra: deal 5x ATK 5x times, costs 20 Rage");
+				Spell Astra(30, 4, 5, "Astra", "Astra: deal 4x ATK 5x times, costs 20 Rage");
 				Spell VampiricStrike (20, 5, 1, "VampiricStrike", "VampiricStrike: deal 5x ATK and heal, costs 30 Rage");
 				tempSpellBook.push_back(Slash);
 				tempSpellBook.push_back(SliceDice);
@@ -113,9 +113,9 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			}
 			else if(weapon == "Axe"){
 				//Spell(cost, damage, hits, name, spell description)
-				Spell ReckfulSwing(10, 5, 1, "ReckfulSwing", "ReckfulSwing: deal 5x ATK, costs 10 Rage");
-				Spell Guillotine(20, 6, 1, "Guillotine", "Guillotine: deal 6x ATK, costs 20 Rage");
-				Spell HeavyBlow(40, 12, 1, "HeavyBlow", "HeavyBlow: deal 12x ATK, costs 40 Rage");
+				Spell ReckfulSwing(10, 4, 1, "ReckfulSwing", "ReckfulSwing: deal 4x ATK, costs 10 Rage");
+				Spell Guillotine(20, 5, 1, "Guillotine", "Guillotine: deal 5x ATK, costs 20 Rage");
+				Spell HeavyBlow(40, 10, 1, "HeavyBlow", "HeavyBlow: deal 10x ATK, costs 40 Rage");
 				Spell VampiricStrike (20, 4, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(ReckfulSwing);
 				tempSpellBook.push_back(Guillotine);
@@ -126,7 +126,7 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			else if(weapon == "Lance"){
 				//Spell(cost, damage, hits, name, spell description)
 				Spell Sweep(5, 3, 1, "Sweep", "Sweep: deal 3x ATK, costs 5 Rage");
-				Spell Flurry(15, 3, 5, "Flurry", "Flurry; deal 3x ATK 5x times, costs 15 Rage");
+				Spell Flurry(20, 3, 5, "Flurry", "Flurry; deal 3x ATK 5x times, costs 15 Rage");
 				Spell Impale(40, 10, 1, "Impale", "Impale: deal 10x ATK, costs 40 Rage");
 				Spell VampiricStrike (20, 4, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(Sweep);
@@ -138,7 +138,7 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			else{//Default no weapon
 				//Spell(cost, damage, hits, name, spell description)
 				Spell SuckerPunch(5, 3, 1, "SuckerPunch", "SuckerPunch: deal 3x ATK, costs 5 Rage");
-				Spell Pummel(10, 3, 3, "Pummel", "Pummel: deal 3x ATK, costs 10 Rage");
+				Spell Pummel(10, 3, 3, "Pummel", "Pummel: deal 3x ATK 3x times, costs 10 Rage");
 				Spell RagingBlow(20, 5, 1, "RagingBlow", "RagingBlow: deal 5x ATK, costs 20 Rage");
 				Spell VampiricStrike (20, 4, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(SuckerPunch);

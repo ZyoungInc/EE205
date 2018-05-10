@@ -90,7 +90,7 @@ int main() {
 							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Warrior_Weap(stage);
-                if(RandNum(1,4) == 3){
+                if(RandNum(1,11) == 5){
                   dropWeap = Warrior_Weap(stage+1);
                 }
 								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
@@ -101,10 +101,10 @@ int main() {
 						}
 						else//if you are a mage
 						{
-							if(RandNum(1,4) == 3)//randomly drop a weapon and asks if you want to equip
+							if(RandNum(1,4) == 2)//randomly drop a weapon and asks if you want to equip
 							{
 								dropWeap = Mage_Weap(stage);
-                if(RandNum(1,4) == 3){
+                if(RandNum(1,11) == 5){
                   dropWeap = Mage_Weap(stage+1);
                 }
 								if(displayWeaponDrop(yMax, xMax, dropWeap) == true){
@@ -121,6 +121,7 @@ int main() {
 							{
 								stage++;
 								souls = 0;//takes your souls to move onto next stage
+                p.set_souls(souls);
 							}
 						}
 						break;
@@ -136,7 +137,7 @@ int main() {
 			}
 
 			randNum = RandNum(1, 101);
-			if(randNum >= 70 && stage != 7) {
+			if(randNum <= 15 || randNum >= 85 && stage != 7) {
 				rand_event_trigger = drawRandomEvent(yMax, xMax);
 			}
 
@@ -159,10 +160,12 @@ int main() {
 
 				if(loot_trigger == true){
 					if(chInput.first == 1){
-						dropWeap = Warrior_Weap(stage+1);
+            randNum = RandNum(0,2);
+						dropWeap = Warrior_Weap(stage+randNum);
 					}
 					else{
-						dropWeap = Mage_Weap(stage+1);
+            randNum = RandNum(0,2);
+						dropWeap = Mage_Weap(stage+randNum);
 					}
 
 					if(displayWeaponDrop(yMax, xMax, dropWeap) == true){

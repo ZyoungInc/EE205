@@ -50,14 +50,14 @@ Enemy::Enemy(unsigned int tier_level) {
 			name =  "Rogue Knight";
 			MAXhealth = health = 30;
 			attack = 3;
-			defense = 4;
+			defense = 5;
 			elemental_Type = "Normal";
 			weapon_Type = random_wep_eff(100);
 		}
 		else {
 			name =  "Rogue Mage";
 			MAXhealth = health = 20;
-			attack = 6;
+			attack = 7;
 			defense = 0;
 			elemental_Type = random_element_eff(100);
 			weapon_Type = "Normal";
@@ -69,15 +69,15 @@ Enemy::Enemy(unsigned int tier_level) {
 		if(enemy_subtype == 1) {
 			name =  "Skeleton warrior";
 			MAXhealth = health = 40;
-			attack = 5;
-			defense = 4;
+			attack = 7;
+			defense = 7;
 			elemental_Type = "Normal";
 			weapon_Type = random_wep_eff(100);
 		}
 		else if (enemy_subtype == 2) {
 			name =  "Skeleton Mage";
 			MAXhealth = health = 30;
-			attack = 10;
+			attack = 15;
 			defense = 0;
 			elemental_Type = random_element_eff(100);
 			weapon_Type = "Normal";
@@ -85,7 +85,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		else if (enemy_subtype == 3) {
 			name =  "Skeleton Archer";
 			MAXhealth = health = 30;
-			attack = 8;
+			attack = 12;
 			defense = 2;
 			elemental_Type = "Normal";
 			weapon_Type = "Bow";
@@ -93,8 +93,8 @@ Enemy::Enemy(unsigned int tier_level) {
 		else {
 			name =  "Arch Lich";
 			MAXhealth = health = 50;
-			attack = 6;
-			defense = 3;
+			attack = 8;
+			defense = 5;
 			elemental_Type = random_element_eff(75);
 			weapon_Type = "Normal";
 		}
@@ -105,7 +105,7 @@ Enemy::Enemy(unsigned int tier_level) {
 		if(enemy_subtype == 1) {
 			name =  "Deformed beast";
 			MAXhealth = health = 40;
-			attack = 12;
+			attack = 20;
 			defense = 0;
 			elemental_Type = random_element_eff(20);
 			weapon_Type = "Normal";
@@ -113,15 +113,15 @@ Enemy::Enemy(unsigned int tier_level) {
 		else if (enemy_subtype == 2) {
 			name =  "Deformed human";
 			MAXhealth = health = 60;
-			attack = 6;
-			defense = 6;
+			attack = 10;
+			defense = 10;
 			elemental_Type = random_element_eff(20);
 			weapon_Type = random_wep_eff(100);
 		}
 		else if (enemy_subtype == 3) {
 			name =  "Other worldly horror";
 			MAXhealth = health = 60;
-			attack = 10;
+			attack = 15;
 			defense = 10;
 			elemental_Type = random_element_eff(20);
 			weapon_Type = random_wep_eff(50);
