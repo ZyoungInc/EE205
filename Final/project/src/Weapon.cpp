@@ -96,30 +96,9 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			break;
 		case 4: //Platinum melee weapon
 			weapon_type = RandNum(1, 4);
-			this->MAXhealth = 60;
-			this->MAXmana = 100;
-			this->rarity = "Platinum";
-			if(weapon_type == 1){
-				this->type = "Sword";
-				this->wdamage = 5;
-				this->wdefense = 5;
-			}
-			else if(weapon_type == 2){
-				this->type = "Axe";
-				this->wdamage = 6;
-				this->wdefense = 4;
-			}
-			else{
-				this->type = "Lance";
-				this->wdamage = 4;
-				this->wdefense = 5;
-			}
-		  break;
-		case 5: //Diamond melee weapon
-			weapon_type = RandNum(1, 4);
 			this->MAXhealth = 80;
 			this->MAXmana = 100;
-			this->rarity = "Diamond";
+			this->rarity = "Platinum";
 			if(weapon_type == 1){
 				this->type = "Sword";
 				this->wdamage = 6;
@@ -134,6 +113,27 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 				this->type = "Lance";
 				this->wdamage = 5;
 				this->wdefense = 7;
+			}
+		  break;
+		case 5: //Diamond melee weapon
+			weapon_type = RandNum(1, 4);
+			this->MAXhealth = 100;
+			this->MAXmana = 100;
+			this->rarity = "Diamond";
+			if(weapon_type == 1){
+				this->type = "Sword";
+				this->wdamage = 8;
+				this->wdefense = 8;
+			}
+			else if(weapon_type == 2){
+				this->type = "Axe";
+				this->wdamage = 9;
+				this->wdefense = 7;
+			}
+			else{
+				this->type = "Lance";
+				this->wdamage = 7;
+				this->wdefense = 9;
 			}
 			break;
 		case 6: //Legendary melee weapon
