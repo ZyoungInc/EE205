@@ -6,6 +6,7 @@
 > "sudo apt-get install libncurses-dev" before running the game.
 > Since ncurses takes in the size of the window, scaling after the game has
 > started will result in the distortion of the interface.
+> Run game by typing "make SoulQuest".
 
 # Story
 > Through unfortunate circumstances, your beloved wife died in a fire and wish to
