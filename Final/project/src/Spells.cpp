@@ -102,9 +102,9 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			if(weapon == "Sword"){
 				//Spell(cost, damage, hits, name, spell description)
 				Spell Slash(5, 3, 1, "Slash", "Slash: deal 3x ATK, costs 5 Rage");
-				Spell SliceDice(15, 3, 3, "Slice and Dice", "Slice and Dice: deal 3x ATK 3x 3x times, costs 15 Rage");
+				Spell SliceDice(15, 3, 3, "Slice and Dice", "Slice and Dice: deal 3x ATK 3x times, costs 15 Rage");
 				Spell Astra(30, 4, 5, "Astra", "Astra: deal 4x ATK 5x times, costs 20 Rage");
-				Spell VampiricStrike (20, 5, 1, "VampiricStrike", "VampiricStrike: deal 5x ATK and heal, costs 30 Rage");
+				Spell VampiricStrike (20, 5, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 30 Rage");
 				tempSpellBook.push_back(Slash);
 				tempSpellBook.push_back(SliceDice);
 				tempSpellBook.push_back(Astra);

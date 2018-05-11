@@ -37,7 +37,12 @@ Combat::Combat(Player *p_, Enemy *e_, int yMax_, int xMax_)
     refresh();
     wrefresh(combatwin);
 }
-
+/*
+	calculates effective bonus damage for player
+	player deals damage to enemy
+	calculates effective bonus damage for enemy
+	enemy deals damage to player if not dead
+*/
 int Combat::combat_phase(unsigned int action, int classPick, Player *p, Enemy *e)
   {
     float effect;
@@ -76,7 +81,7 @@ float Combat::eff_calc_other(std::string atkWeap, std::string atkEle,
 	//Element triange
 	if(atkEle == "Fire" && defEle == "Nature") effect = 1.2;
 	else if(atkEle == "Fire" && defEle == "Water") effect = 0.8;
-	else if(atkEle == "Water" && defEle == "Nature") effect = 1.2;
+	else if(atkEle == "Water" && defEle == "Fire") effect = 1.2;
 	else if(atkEle == "Water" && defEle == "Nature") effect = 0.8;
 	else if(atkEle == "Nature" && defEle == "Water") effect = 1.2;
 	else if(atkEle == "Nature" && defEle == "Fire") effect = 0.8;
@@ -99,7 +104,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 	{
 		damage = std::max(0, int(p->get_attack() * effect - e->get_defense()));
 		p->set_mana(20);
-
+		//creates a string for combat damage
 		temp_combat_log.clear();
 		temp_combat_log.append("You dealt ");
 		temp_combat_log.append(lexical_cast(damage));
@@ -129,7 +134,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 	else {
 		std::pair<int, int> spellDamage = p->cast_spell(classPick, action-3, p->get_attack());
 		damage = std::max(0, spellDamage.second * int(spellDamage.first * effect - e->get_defense()));
-
+		//creates a string for spell damage
 		temp_combat_log.clear();
 		temp_combat_log.append("You dealt ");
 		temp_combat_log.append(lexical_cast(damage));
@@ -146,11 +151,7 @@ void Combat::player_attack(Player *p, Enemy *e, unsigned int action, int classPi
 			combat_log.push_back(temp_combat_log);
 		}
 	}
-
-	e->set_health(-1 * damage);
-	if (e->get_health() <= 0) {
-		on_death();
-	}
+	e->set_health(-1 * damage);//deals damage to enemy
 }
 
 void Combat::enemy_attack(Player *p, Enemy *e, float effect){
@@ -169,26 +170,7 @@ void Combat::enemy_attack(Player *p, Enemy *e, float effect){
 	else {
 		combat_log.push_back(temp_combat_log);
 	}
-
-	p->set_health(-1 * damage);
-	if (p->get_health() <= 0) {
-		on_death();
-	}
-}
-
-bool Combat::is_dead()  {
-	return true;
-}
-
-void Combat::on_death(){
-	is_dead();
-
-	//Display Unit died
-	//dialogue.set_yshift(dialogue.updateDeath(this->name));
-	//if player unit is dead, end Game
-
-	//counter for enemies_killed
-	//set_souls(1);
+	p->set_health(-1 * damage);//deals damage to player
 }
 
 //Getters
