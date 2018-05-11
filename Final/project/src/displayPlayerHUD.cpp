@@ -8,7 +8,7 @@
 #include "Player.hpp"
 #include "Weapon.hpp"
 
-void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, Player& p, Weapon& weap){
+void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, Player& p){
   int yMax = yMax_;
   int xMax = xMax_;
 

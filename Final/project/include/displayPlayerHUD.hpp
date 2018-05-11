@@ -6,6 +6,6 @@
 #include "Player.hpp"
 #include "Weapon.hpp"
 
-void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int className, Player& p, Weapon& weap);
+void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int className, Player& p);
 
 #endif //DISPLAYPLAYERHUD_HPP

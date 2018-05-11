@@ -465,7 +465,7 @@ int drawTrapEvent(int yMax_, int xMax_, Player *p) {
 	return 0;
 }
 
-int drawEnemyEvent(int yMax_, int xMax_, Player *p) {
+int drawEnemyEvent(int yMax_, int xMax_) {
 	int yMax = yMax_;
 	int xMax = xMax_;
 
