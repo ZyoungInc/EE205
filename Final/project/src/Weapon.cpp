@@ -138,7 +138,7 @@ Warrior_Weap::Warrior_Weap(unsigned char rarity_level) {
 			break;
 		case 6: //Legendary melee weapon
 			weapon_type = RandNum(1, 4);
-			this->MAXhealth = 100;
+			this->MAXhealth = 150;
 			this->MAXmana = 100;
 			this->rarity = "Legendary";
 			if(weapon_type == 1){
