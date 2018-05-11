@@ -4,6 +4,6 @@
 #include <utility>
 #include <string>
 
-std::pair<int, std::string> drawCharDisplay(int yMax_, int xMax_);
+std::pair<int, std::string> drawCharDisplay(int xMax_);
 
 #endif // DISPLAYCHAR_HPP

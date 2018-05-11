@@ -6,8 +6,7 @@
 
 using namespace std;
 
-pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
-	int yMax = yMax_;
+pair<int, string> drawCharDisplay(int xMax_) {
 	int xMax = xMax_;
 
 	clear();
@@ -68,6 +67,7 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 		pair <int, string> temp_state;
 		temp_state.first = 1;
 		temp_state.second = name;
+		delete [] name;//deallocates memory from name
 		return temp_state;
 	}
 	else if(classSelect[highlight] == classSelect[1])
@@ -75,10 +75,11 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 		pair <int, string> temp_state;
 		temp_state.first = 2;
 		temp_state.second = name;
+		delete [] name;//deallocates memory from name
 		return temp_state;
 	}
 	else {
+		delete [] name;//deallocates memory from name
 		throw "An error happened in displayChar";
 	}
-	delete [] name;//deallocates memory from name
 }

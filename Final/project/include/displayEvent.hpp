@@ -13,4 +13,4 @@ int drawRestingEvent(int yMax_, int xMax_, Player *p);
 
 int drawTrapEvent(int yMax_, int xMax_, Player *p);
 
-int drawEnemyEvent(int yMax_, int xMax_, Player *p);
+int drawEnemyEvent(int yMax_, int xMax_);

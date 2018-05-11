@@ -28,7 +28,7 @@ GameLoop::GameLoop(int state, pair<int, string> chInput, int yMax, int xMax) {
   bool loot_trigger = false;
   int stage = 1; //use to track player's tier level
   int souls = 0; //use to track how many kills player has
-  chInput = drawCharDisplay(yMax, xMax);//displays character creation and returns that info
+  chInput = drawCharDisplay(xMax);//displays character creation and returns that info
   Weapon weap;//create default starting weapon
   Weapon dropWeap;//creates default weapon drop
 
@@ -39,7 +39,7 @@ GameLoop::GameLoop(int state, pair<int, string> chInput, int yMax, int xMax) {
   while(stage < 7) {//while in the game
     state = 3;//keeps you in correct state
     p.set_souls(souls);
-    drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);//Displayes playerHUD
+    drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p);//Displayes playerHUD
     Enemy e(stage);//Creates random enemy according to stage level
     drawEnemyDisplay(yMax, xMax, e);//displays enemyHUD
     Combat battle(&p, &e, yMax, xMax);//Commences combat constructor
@@ -56,7 +56,7 @@ GameLoop::GameLoop(int state, pair<int, string> chInput, int yMax, int xMax) {
       }
       else {
         state = battle.combat_phase(state, chInput.first, &p, &e);//takes in combat action and returns if someone dies
-        drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p, weap);//updates playerHUD
+        drawPlayerDisplay(yMax, xMax, chInput.second, chInput.first, p);//updates playerHUD
         drawEnemyDisplay(yMax, xMax, e);//updates enemyHUD
       }
       if(state == 1)//if Enemy died
@@ -138,7 +138,7 @@ GameLoop::GameLoop(int state, pair<int, string> chInput, int yMax, int xMax) {
             break;
         case 5: drawTrapEvent(yMax, xMax, &p);
             break;
-        default: drawEnemyEvent(yMax, xMax, &p);
+        default: drawEnemyEvent(yMax, xMax);
             break;
       }
 
