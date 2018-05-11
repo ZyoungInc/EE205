@@ -1,4 +1,5 @@
 # Soul Quest
+> Produced by Christopher Won, Nate Chu, Felix Hong, and Jared Au
 
 # Usage Notes
 > Before running the game, scale your terminal window before starting the game.
@@ -6,7 +7,12 @@
 > "sudo apt-get install libncurses-dev" before running the game.
 > Since ncurses takes in the size of the window, scaling after the game has
 > started will result in the distortion of the interface.
-> Run game by typing "make SoulQuest".
+
+# How to make the game
+> "make SoulQuest"
+
+# How to clean up files
+> "make clean"
 
 # Story
 > Through unfortunate circumstances, your beloved wife died in a fire and wish to
@@ -103,7 +109,6 @@
   __[Description]__
   *Defeat enemies to collect their souls that will be used to move on further
   into the dungeon*
-
 
 ## Random Events
 *Choose between two paths that will randomly decide your fate*
