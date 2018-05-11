@@ -103,8 +103,8 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 				//Spell(cost, damage, hits, name, spell description)
 				Spell Slash(5, 3, 1, "Slash", "Slash: deal 3x ATK, costs 5 Rage");
 				Spell SliceDice(15, 3, 3, "Slice and Dice", "Slice and Dice: deal 3x ATK 3x times, costs 15 Rage");
-				Spell Astra(30, 4, 5, "Astra", "Astra: deal 4x ATK 5x times, costs 20 Rage");
-				Spell VampiricStrike (20, 5, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 30 Rage");
+				Spell Astra(30, 4, 5, "Astra", "Astra: deal 4x ATK 5x times, costs 30 Rage");
+				Spell VampiricStrike (20, 5, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(Slash);
 				tempSpellBook.push_back(SliceDice);
 				tempSpellBook.push_back(Astra);
@@ -114,8 +114,8 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 			else if(weapon == "Axe"){
 				//Spell(cost, damage, hits, name, spell description)
 				Spell ReckfulSwing(10, 4, 1, "ReckfulSwing", "ReckfulSwing: deal 4x ATK, costs 10 Rage");
-				Spell Guillotine(20, 5, 1, "Guillotine", "Guillotine: deal 5x ATK, costs 20 Rage");
-				Spell HeavyBlow(40, 10, 1, "HeavyBlow", "HeavyBlow: deal 10x ATK, costs 40 Rage");
+				Spell Guillotine(20, 6, 1, "Guillotine", "Guillotine: deal 6x ATK, costs 20 Rage");
+				Spell HeavyBlow(40, 12, 1, "HeavyBlow", "HeavyBlow: deal 12x ATK, costs 40 Rage");
 				Spell VampiricStrike (20, 4, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(ReckfulSwing);
 				tempSpellBook.push_back(Guillotine);
@@ -127,7 +127,7 @@ vector<Spell> MakeSpellBook(int choice, std::string weapon, std::string element)
 				//Spell(cost, damage, hits, name, spell description)
 				Spell Sweep(5, 3, 1, "Sweep", "Sweep: deal 3x ATK, costs 5 Rage");
 				Spell Flurry(20, 3, 5, "Flurry", "Flurry; deal 3x ATK 5x times, costs 15 Rage");
-				Spell Impale(40, 10, 1, "Impale", "Impale: deal 10x ATK, costs 40 Rage");
+				Spell Impale(40, 12, 1, "Impale", "Impale: deal 12x ATK, costs 40 Rage");
 				Spell VampiricStrike (20, 4, 1, "VampiricStrike", "VampiricStrike: deal 4x ATK and heal, costs 20 Rage");
 				tempSpellBook.push_back(Sweep);
 				tempSpellBook.push_back(Flurry);
