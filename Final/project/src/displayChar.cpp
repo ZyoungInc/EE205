@@ -11,13 +11,13 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 	int xMax = xMax_;
 
 	clear();
-	char name[80];
+	char *name = new char[1];//dynamically allocates memory for name
 
 	mvwprintw(stdscr, 1, 1, "What is your name: ");
 	getstr(name);
 	mvwprintw(stdscr, 1, 20, name);
 	wrefresh(stdscr);
-	
+
 	//create a menu window for input
 	WINDOW * classwin = newwin(7, xMax - 1, 4, 1);
 	refresh();
@@ -33,6 +33,7 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 		mvwprintw(stdscr, 3, 1, "What class would you like to play? : ");
 		wrefresh(stdscr);
 
+		//uses the up and down arrow keys and highlights whatever choice you are on, enter will select
 		for(int i = 0; i < 2; i++)
 		{
 			if(i == highlight)
@@ -58,7 +59,7 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 			default:
 				break;
 		}
-		
+
 		if(choice == 10)
 			break;
 	}
@@ -79,4 +80,5 @@ pair<int, string> drawCharDisplay(int yMax_, int xMax_) {
 	else {
 		throw "An error happened in displayChar";
 	}
+	delete [] name;//deallocates memory from name
 }
