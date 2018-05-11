@@ -6,6 +6,7 @@
 #include "game-utility.hpp"
 #include "Unit.hpp"
 #include "Enemy.hpp"
+#include "displayColor.hpp"
 
 void drawEnemyDisplay(int yMax_, int xMax_, Enemy& newEnemy){
   int yMax = yMax_;
@@ -14,6 +15,9 @@ void drawEnemyDisplay(int yMax_, int xMax_, Enemy& newEnemy){
   //make box for enemyHUD
   WINDOW * enemywin = newwin(yMax-1, xMax-1, yMax-11, xMax-(xMax/4));
   box(enemywin, 0, 0);
+  start_color();
+  REDBLACK;
+  wbkgd(enemywin, COLOR_PAIR(1));
   refresh();
   wrefresh(enemywin);
 
@@ -25,6 +29,7 @@ void drawEnemyDisplay(int yMax_, int xMax_, Enemy& newEnemy){
   mvwprintw(enemywin, 5, 1, "DEF: %d", newEnemy.get_defense());
   mvwprintw(enemywin, 6, 1, "ATR: %s", newEnemy.get_element().c_str());
   mvwprintw(enemywin, 7, 1, "WPN: %s", newEnemy.get_wep_type().c_str());
+  attroff(COLOR_PAIR(1));
 
   wrefresh(enemywin);
 

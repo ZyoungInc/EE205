@@ -101,6 +101,7 @@
     *200 / 15 / 15*  
   3. __Water Demon - Water element__   
     *300 / 10 / 20*  
+
 ### The Demon (Tier 6)
   1. __Satan (final boss)__  
     *500 / 30 / 30*  
@@ -118,3 +119,8 @@
   4. __Resting event__
   5. __Trap event__
   6. __Enemy event__
+
+## Color HUD
+  __[Description]__
+  *Color helps distinguish important windows. For example, your stats appear
+  in a blue window and the enemy stats appear in a red window*

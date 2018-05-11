@@ -7,6 +7,7 @@
 #include "Unit.hpp"
 #include "Player.hpp"
 #include "Weapon.hpp"
+#include "displayColor.hpp"
 
 void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, Player& p){
   int yMax = yMax_;
@@ -14,7 +15,10 @@ void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, 
 
   //make box for avatarHUD
   WINDOW * avatarwin = newwin(yMax-1, xMax-(xMax/4), yMax-11, xMax/2);
+  start_color();
   box(avatarwin, 0, 0);
+  BLUEBLACK;
+  wbkgd(avatarwin, COLOR_PAIR(4));
   refresh();
   wrefresh(avatarwin);
 
@@ -35,5 +39,6 @@ void drawPlayerDisplay(int yMax_, int xMax_, std::string name, int classChoice, 
   mvwprintw(avatarwin, 6, 1, "WPN: %s %s", p.get_rarity().c_str(), p.get_weapType().c_str());
   mvwprintw(avatarwin, 7, 1, "SOULS: %d", p.get_souls());
 
+  attroff(COLOR_PAIR(4));
   wrefresh(avatarwin);
   }
